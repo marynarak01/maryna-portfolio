@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginalia — Human-Curated Book Discovery · Maryna Rak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/marginalia.css">
+<script src="js/include.js" defer></script>
+<style>
+  .hero{padding:52px 0 40px;}
+  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin-top:16px;max-width:18ch;}
+  .hero p.lead{margin-top:22px;font-size:clamp(17px,1.5vw,20px);color:var(--muted-foreground);max-width:60ch;line-height:1.55;}
+  .hero p.lead strong{color:var(--foreground);}
+  .hero-preview .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:16px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:60px 20px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.15);}
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">E-commerce</span>
+    <h1>A bookshop that hands you the <span class="i">right</span> book.</h1>
+    <p class="lead"><strong>Marginalia is a concept for online book discovery</strong>
+      built on a simple idea: people value guidance from someone with good taste who can recommend the right book.</p>
+
+    <a href="#prototype" class="proto-btn">View the prototype →</a>
+
+    <div class="hero-preview">
+      <img src="images/project-marginalia-1.png" alt="Marginalia — human-curated book discovery">
+    </div>
+
+    <div class="meta">
+      <div><span class="label">Role</span><span class="val">Lead Product Designer (concept)</span></div>
+      <div><span class="label">Scope</span><span class="val">Discovery, research, UI, prototype</span></div>
+      <div><span class="label">Surfaces</span><span class="val">Responsive web & mobile</span></div>
+      <div><span class="label">Type</span><span class="val">Self-directed concept project</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="aiband">
+    <span class="label"><span class="spark">✦</span> AI Assistance</span>
+    <h3>Built two custom Claude skills.</h3>
+    <p><strong>Design Thinking: Discovery</strong> and <strong>Design Thinking: Ideation</strong> —
+       built and tested for this project. They proved themselves quite good, and I'm still refining them.
+       If you'd like to test them and share your feedback, write me on maryna.rak01@gmail.com or LinkedIn.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/marynarak" target="_blank" rel="noopener">LinkedIn →</a>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker">Research</span>
+    <h2>Four patterns kept surfacing.</h2>
+  </div>
+  <div class="wrap">
+    <div class="patterns">
+      <div class="pat"><span class="label">01</span><h4>Choice overload, thin info</h4><p>Millions of titles, but only a blurb and a star average to decide by.</p></div>
+      <div class="pat"><span class="label">02</span><h4>People trust people</h4><p>A strong preference for a recommendation from a person over a machine.</p></div>
+    </div>
+  </div>
+  <div class="wrap narrow">
+    <div class="persona">
+      <div class="av">M</div>
+      <div>
+        <h4>Meet Maya — the persona</h4>
+        <p>Maya, a curious cross-format reader who browses far more than she buys, needs a way to discover and trust books beyond the bestseller list, in order to feel the delight of finding something genuinely worth reading.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker">The concept</span>
+    <h2>Three moves, one idea.</h2>
+    <p class="body muted">Run through How-Might-We questions and brainwriting, stress-tested against Maya, and prioritized on an importance/difficulty matrix, the concept resolved into three connected moves.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="part">
+      <span class="tag">Move 1 · Discovery is the front door</span>
+      <h3>Enter by mood, not by scroll.</h3>
+      <p>No infinite scroll, no bestseller treadmill. Readers wander in by feeling — a mood, a hidden-gem filter, or a blind date — instead of facing a wall of everything.</p>
+    </div>
+    <figure>
+      <img src="images/project-marginalia-2.png" alt="Marginalia browse — Wander in by feeling, mood filters and hidden gems with curator notes">
+      <figcaption>Browse — enter by mood; hidden gems carry a curator's note, not just a star</figcaption>
+    </figure>
+
+    <div class="part">
+      <span class="tag">Move 2 · Curators are the trust layer</span>
+      <h3>Follow a person, not an algorithm.</h3>
+      <p>Real people with personalities and taste — the cozy one, the strange one, the fast one, the deep one — woven through every screen, followable rather than gated behind a paywall.</p>
+    </div>
+    <figure>
+      <img src="images/project-marginalia-3.png" alt="Marginalia home — Books worth falling for, browse by mood, meet your curators, this week's shelf">
+      <figcaption>Home — curators are front and center, each with a voice and a weekly shelf</figcaption>
+    </figure>
+
+    <div class="part">
+      <span class="tag">Move 3 · Numbers + a human, together</span>
+      <h3>The star says "liked." The note says "for you."</h3>
+      <p>Keep the familiar star rating shoppers expect — but always pair it with a named curator's note at equal weight. The star answers "is this generally liked?"; the human answers "is this for me?"</p>
+    </div>
+
+    <div class="mobpair">
+      <div class="frame">
+        <img src="images/project-marginalia-4.png" alt="Marginalia mobile browse">
+        <figcaption>Mobile · Browse by feeling</figcaption>
+      </div>
+      <div class="frame">
+        <img src="images/project-marginalia-5.png" alt="Marginalia mobile shelves">
+        <figcaption>Mobile · Maya's shelves & followed curators</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="spotlight">
+    <span class="tag">Signature feature</span>
+    <h3>Blind date with a <span class="i">book.</span></h3>
+    <p>Engineered serendipity: the cover stays hidden, and the book is sold on three honest words and a curator's personal pitch — recreating the bookshop-rummage thrill. You add it to your bag without ever seeing the cover, or reveal it if you lose your nerve.</p>
+    <figure>
+      <img src="images/project-marginalia-6.png" alt="Blind date with a book — hidden cover, three words funny/sad/a little feral, and Dee's personal pitch">
+      <figcaption>"We wrapped you something strange" — three words, a curator's pitch, cover hidden until you say yes</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="block" id="prototype">
+  <div class="wrap narrow">
+    <span class="label kicker">Prototype</span>
+    <h2>See it in motion.</h2>
+    <p class="body muted">An interactive prototype walks through discovery, the curator layer, and the blind-date flow end to end.</p>
+    <a href="#" class="proto-btn" target="_blank" rel="noopener" style="margin-top:24px">See the prototype →</a>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker">Measuring success</span>
+    <h2>Every bet has a metric that could disprove it.</h2>
+    <p class="body muted">The point isn't to track everything — it's to measure whether the specific bets paid off. Each design bet is tied to a signal, including the one that would tell us we're wrong.</p>
+  </div>
+  <div class="wrap">
+    <div class="measure">
+      <div class="mrow head"><span class="cell">The bet</span><span class="cell">The metric</span><span class="cell">What would disprove it</span></div>
+      <div class="mrow">
+        <div class="cell bet">Human curation beats algorithms</div>
+        <div class="cell met">Curator-attributed conversion vs. search conversion</div>
+        <div class="cell fail">If curator visits convert no better than search, the premise is weak.</div>
+      </div>
+      <div class="mrow">
+        <div class="cell bet">Mood-based discovery resonates</div>
+        <div class="cell met">Mood-door click-through and completion</div>
+        <div class="cell fail">If users ignore moods and default to search, the front door is wrong.</div>
+      </div>
+      <div class="mrow">
+        <div class="cell bet">Rating + curator note builds trust</div>
+        <div class="cell met">Note engagement and curator follow rate</div>
+        <div class="cell fail">If people only read the star and never the note, the pairing isn't earning its place.</div>
+      </div>
+      <div class="mrow">
+        <div class="cell bet">Blind date adds delight</div>
+        <div class="cell met">Open rate, accept-without-reveal, return usage</div>
+        <div class="cell fail">If it's opened once and never again, it's a gimmick, not a feature.</div>
+      </div>
+    </div>
+    <p class="body muted" style="max-width:760px;margin-left:auto;margin-right:auto;margin-top:28px">Guardrail metrics — return rate, save-to-purchase lag, refund rate — keep an engagement win from hiding a conversion or trust problem. The trap to avoid is vanity metrics: time-on-site and page views can look healthy while readers are actually lost, so every signal here is tied to a hypothesis, not just activity.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="reflect">
+    <span class="label">Reflection</span>
+    <h2>Designing trust, not just an interface.</h2>
+    <p>The hard part of Marginalia wasn't the screens — it was making a stranger's recommendation feel trustworthy enough to act on. Community features (reader clubs, curator replies, curators earning a cut) tested as valuable but heavy, so they were deliberately parked as a labelled future-vision phase rather than overloading v1. Restraint was part of the design.</p>
+  </div>
+</div>
+
+<section class="next">
+  <div class="wrap">
+    <span class="label">Next</span>
+    <div><a href="index.html">← Back to all work</a></div>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

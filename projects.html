@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects · Maryna Rak — Senior Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  /* HERO */
+  .hero{padding:80px 0 20px;}
+  .hero .label{color:var(--accent);font-weight:500;}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-0.035em;font-weight:700;margin-top:18px;}
+  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
+  .hero p.lead{margin-top:24px;font-size:clamp(18px,1.8vw,21px);line-height:1.6;color:var(--muted-foreground);max-width:56ch;}
+  .hero .figma{margin-top:28px;display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);padding:12px 22px;border-radius:999px;font-size:14px;transition:border-color .2s;}
+  .hero .figma:hover{border-color:var(--foreground);}
+
+  /* PROJECTS */
+  .projects{padding-bottom:40px;}
+
+  /* CLAUDE SKILLS SECTION */
+  .skills{background:var(--ink);color:#fff;border-radius:16px;padding:72px 64px;margin:60px 0 120px;}
+  .skills .label{color:rgba(255,255,255,.55);}
+  .skills h2{font-size:clamp(28px,3.2vw,42px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin-top:16px;color:#fff;}
+  .skills .intro{color:rgba(255,255,255,.8);font-size:17px;line-height:1.7;margin-top:20px;max-width:62ch;}
+  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px;}
+  .skill-card{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:30px 30px;}
+  .skill-card .label{color:var(--accent-italic);}
+  .skill-card h3{font-size:19px;font-weight:600;margin-top:12px;color:#fff;}
+  .skill-card p{font-size:14.5px;color:rgba(255,255,255,.74);margin-top:10px;line-height:1.6;}
+  .skills .inv-links{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .skills .inv-links .note{font-size:14px;color:rgba(255,255,255,.7);margin-right:6px;}
+  .skills .inv-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:11px 18px;transition:all .2s;}
+  .skills .inv-links a:hover{background:#fff;color:var(--ink);}
+
+  @media(max-width:760px){
+    .hero{padding:48px 0 10px;}
+    .skills{padding:40px 26px;}
+    .skill-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Projects</span>
+    <h1>The work, <span class="i">in full.</span></h1>
+    <p class="lead">Support platforms, marketplaces, internal tools, and AI products — designed end to end. Each case study walks through the problem, the research, and the decisions behind the result.</p>
+    <a href="#" class="figma" target="_blank" rel="noopener">◆ See more on Figma →</a>
+  </div>
+</header>
+
+<section class="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">All projects</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb" style="background:oklch(0.93 0.06 165)"><span class="ph">Pagecraft</span></div>
+        <h3>Pagecraft</h3>
+        <p>A shipped AI product: paste a product URL and it reads the product, decides the angle, and generates a full, conversion-ready page in one pass — built in Lovable + Claude.</p>
+        <div class="meta">
+          <span class="label">SaaS • AI Product</span>
+          <a href="project-pagecraft.html" class="viewlink">View project →</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb blue"><span class="ph">Roots</span></div>
+        <h3>Roots Marketplace</h3>
+        <p>An e‑commerce platform where seller tools and the customer storefront stay in sync — from a modular CMS for listings, pricing, and inventory to the storefront customers actually shop.</p>
+        <div class="meta">
+          <span class="label">E‑commerce • CMS + Storefront</span>
+          <a href="project-roots.html" class="viewlink">View project →</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb peach"><span class="ph">Help Center</span></div>
+        <h3>Support Contact Flow</h3>
+        <p>A guided support flow that helps players resolve issues before opening a ticket — cutting tickets by up to ~24% on a platform serving 2M+ players a year.</p>
+        <div class="meta">
+          <span class="label">Support Platform • 2M+ Users</span>
+          <a href="project-help-center.html" class="viewlink">View project →</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb" style="background:oklch(0.97 0.03 35)"><span class="ph">Marginalia</span></div>
+        <h3>Marginalia</h3>
+        <p>A concept for human-curated book discovery — enter by mood, follow real curators instead of an algorithm, and try a "blind date with a book" that sells you on a vibe before the cover.</p>
+        <div class="meta">
+          <span class="label">Concept • Discovery</span>
+          <a href="project-marginalia.html" class="viewlink">View project →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="skills">
+    <span class="label">✦ Claude skills</span>
+    <h2>Custom design-thinking skills — open to testers.</h2>
+    <p class="intro">Alongside the case studies, I build and refine my own Claude skills that encode design-thinking methodology. They're what powered the discovery and ideation behind Marginalia, and they're still evolving. If you'd like to try them and tell me what works, I'd love the feedback.</p>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <span class="label">Skill 01</span>
+        <h3>Design Thinking: Discovery</h3>
+        <p>Structures research and framing — surfacing patterns, building personas, and shaping a sharp problem statement without losing depth.</p>
+      </div>
+      <div class="skill-card">
+        <span class="label">Skill 02</span>
+        <h3>Design Thinking: Ideation</h3>
+        <p>Runs How-Might-We questions and concept generation, then stress-tests ideas against the persona to choose what's worth building.</p>
+      </div>
+    </div>
+    <div class="inv-links">
+      <span class="note">Want to test them?</span>
+      <a href="mailto:maryna.rak01@gmail.com">Email →</a>
+      <a href="https://www.linkedin.com/in/marynarak" target="_blank" rel="noopener">LinkedIn →</a>
+    </div>
+  </div>
+</div>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

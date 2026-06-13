@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Maryna Rak — Senior Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  /* HERO */
+  .hero{padding:80px 0 50px;}
+  .hero .label{color:var(--accent);font-weight:500;}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-0.035em;font-weight:700;margin-top:18px;}
+  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
+  .hero .sub{margin-top:18px;font-size:16px;color:var(--muted-foreground);font-family:var(--font-mono);letter-spacing:.02em;}
+  .hero .bio{margin-top:32px;max-width:60ch;}
+  .hero .bio p{font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:var(--foreground);}
+  .hero .bio p + p{margin-top:20px;color:var(--muted-foreground);}
+  .hero .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+
+  /* SECTIONS */
+  section.block{padding:50px 0;}
+  .block .head{margin-bottom:8px;}
+  .block h2{font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;}
+  .block p.body{font-size:17px;color:var(--muted-foreground);margin-top:18px;line-height:1.7;}
+
+  /* AI HIGHLIGHT */
+  .ai{background:var(--ink);color:#fff;border-radius:18px;padding:56px;margin:24px 0;}
+  .ai .label{color:rgba(255,255,255,.55);}
+  .ai h2{color:#fff;font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-0.025em;margin-top:14px;line-height:1.12;}
+  .ai p{color:rgba(255,255,255,.82);font-size:17px;line-height:1.7;margin-top:20px;max-width:62ch;}
+  .ai .ai-links{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+  .ai .ai-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:11px 18px;transition:all .2s;}
+  .ai .ai-links a:hover{background:#fff;color:var(--ink);}
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{margin-top:36px;border-top:1px solid var(--border);}
+  .role{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--border);}
+  .role .meta-col .co{font-size:17px;font-weight:600;letter-spacing:-0.01em;}
+  .role .meta-col .when,.role .meta-col .where{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin-top:8px;line-height:1.5;}
+  .role .body-col .title{font-size:16px;font-weight:600;}
+  .role .body-col .summary{font-size:15px;color:var(--muted-foreground);margin-top:8px;line-height:1.65;}
+  .role .body-col ul{margin-top:14px;padding-left:0;list-style:none;display:grid;gap:8px;}
+  .role .body-col li{font-size:14.5px;color:var(--muted-foreground);line-height:1.55;padding-left:18px;position:relative;}
+  .role .body-col li::before{content:"–";position:absolute;left:0;color:var(--accent);}
+  .role .body-col .wins{margin-top:16px;border-left:2px solid var(--accent);padding-left:16px;}
+  .role .body-col .wins .winlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);}
+  .role .body-col .wins li::before{content:"✦";font-size:11px;}
+
+  /* SKILLS GRID */
+  .cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:32px;}
+  .cols3 .cell{padding:30px 28px;border-right:1px solid var(--border);}
+  .cols3 .cell:last-child{border-right:none;}
+  .cols3 .cell .label{display:block;margin-bottom:16px;}
+  .cols3 .cell ul{list-style:none;display:grid;gap:9px;}
+  .cols3 .cell li{font-size:15px;color:var(--foreground);}
+  .cols3 .cell.lang li{color:var(--muted-foreground);}
+  .cols3 .cell.lang li b{color:var(--foreground);font-weight:600;}
+
+  /* DOWNLOAD CTA */
+  .download{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:48px 52px;margin:40px 0 0;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+  .download .dl-text h3{font-size:22px;font-weight:700;letter-spacing:-0.02em;}
+  .download .dl-text p{font-size:15px;color:var(--muted-foreground);margin-top:8px;max-width:48ch;}
+
+  /* FAQ */
+  .faq{padding:50px 0 10px;}
+  .faq .faq-head{margin-bottom:40px;}
+  .faq h2{font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-0.025em;margin-top:8px;}
+
+  /* CONTACT */
+  .contact{text-align:center;padding:70px 0 90px;border-top:1px solid var(--border);margin-top:60px;}
+  .contact .label{color:var(--accent);}
+  .contact h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-0.03em;margin-top:16px;}
+  .contact .email{display:inline-block;margin-top:24px;font-size:clamp(18px,2vw,24px);color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:4px;}
+  .contact .email:hover{border-color:var(--accent);}
+
+  @media(max-width:760px){
+    .hero{padding:48px 0 40px;}
+    .ai{padding:36px 26px;}
+    .role{grid-template-columns:1fr;gap:14px;}
+    .cols3{grid-template-columns:1fr;}
+    .cols3 .cell{border-right:none;border-bottom:1px solid var(--border);}
+    .cols3 .cell:last-child{border-bottom:none;}
+    .download{padding:32px 26px;flex-direction:column;align-items:flex-start;}
+    .contact{padding:50px 0 70px;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">About</span>
+    <h1>Senior Product Designer</h1>
+    <p class="sub">SaaS · Marketplaces · Internal tools</p>
+    <div class="bio">
+      <p>I design complex products end to end — support platforms, e-commerce, internal tools, and AI-powered features — turning tangled workflows into things people understand and actually use.</p>
+      <p>Most of my career has been at Ubisoft, owning UX for tools that serve millions of players a year. Lately I've been building AI into the way products work and the way I design them — including shipping my own AI product. I'm Ukrainian, work in English, and I care most about the unglamorous parts of design: edge cases, clear states, and flows that hold up under real use.</p>
+    </div>
+    <div class="cta-row">
+      <a href="Maryna_Rak_CV.pdf" download class="btn-primary">↓ Download CV (PDF)</a>
+      <a href="projects.html" class="btn-ghost">See the work →</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ai">
+    <span class="label">How I work with AI</span>
+    <h2>AI as a tool to design and build with — not a shortcut.</h2>
+    <p>I integrate AI across the design process — discovery, ideation, prototyping — using Claude, ChatGPT, and Figma AI, and I've built custom AI workflows on design-thinking methodology that cut research time without losing depth. I'm deliberate about where AI accelerates the work and where designer judgment stays essential. Two projects show this directly: a concept where I built and tested my own design-thinking skills, and a shipped AI product I designed and built end to end.</p>
+    <div class="ai-links">
+      <a href="project-pagecraft.html">Pagecraft — shipped AI product →</a>
+      <a href="project-marginalia.html">Marginalia — AI-assisted concept →</a>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head"><span class="label">Experience</span></div>
+    <h2>Where I've worked.</h2>
+    <div class="timeline">
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">Ubisoft</div>
+          <div class="when">Product Designer<br>Apr 2022 — present · 4 yrs</div>
+          <div class="where">France / Remote</div>
+        </div>
+        <div class="body-col">
+          <div class="title">Owning end-to-end UX for internal and player-facing tools, including HELP and Bug Reporter systems.</div>
+          <ul>
+            <li>Own design from discovery to launch across HELP and Bug Reporter flows.</li>
+            <li>Design complex multi-step reporting journeys with edge-case handling.</li>
+            <li>Prototype and validate flows before engineering implementation.</li>
+            <li>Collaborate cross-functionally with PM, Engineering, QA, and Production.</li>
+            <li>Ensure accessibility across products by applying WCAG principles.</li>
+            <li>Contribute to shared design-system components for cross-product consistency.</li>
+          </ul>
+          <div class="wins">
+            <span class="winlabel">Selected outcomes</span>
+            <ul>
+              <li>Cut support tickets routed to a topic by 17% in month one, 24% after iteration, by integrating AI into the contact flow.</li>
+              <li>Reduced invalid or incomplete bug reports by 20% with structured reporting forms.</li>
+              <li>Led design for a platform handling 2M+ yearly visitors.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">Roots Marketplace</div>
+          <div class="when">Lead Product Designer<br>2025 — Feb 2026</div>
+          <div class="where">Remote</div>
+        </div>
+        <div class="body-col">
+          <div class="title">Lead designer for the seller CMS and customer storefront of a marketplace platform.</div>
+          <ul>
+            <li>Designed a seller CMS for managing listings, pricing, inventory, and variants.</li>
+            <li>Simplified product creation through modular CMS sections.</li>
+            <li>Designed the storefront aligned with CMS product data structures.</li>
+            <li>Kept seller inputs and customer-facing product pages consistent.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">Ubisoft</div>
+          <div class="when">Senior UX/UI Designer<br>Apr 2020 — Apr 2022 · 2 yrs</div>
+          <div class="where">Kyiv, Ukraine</div>
+        </div>
+        <div class="body-col">
+          <div class="title">Internal tools for marketing, procurement, and production teams — requests, approvals, and tasks.</div>
+          <ul>
+            <li>Translated complex internal processes into structured interfaces and clear flows.</li>
+            <li>Created wireframes, prototypes, and high-fidelity UI for internal platforms.</li>
+            <li>Applied WCAG principles — contrast, keyboard navigation, clear interaction states.</li>
+            <li>Built reusable components for the internal design system.</li>
+            <li>Implemented player-facing in-game overlay UI in HTML/CSS across PC, mobile, Xbox, and PlayStation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">Ubisoft</div>
+          <div class="when">UI/UX Designer<br>Jun 2019 — Apr 2020 · 11 mos</div>
+          <div class="where">Kyiv, Ukraine</div>
+        </div>
+        <div class="body-col">
+          <div class="title">UI for internal tools and web applications used by internal teams.</div>
+          <ul>
+            <li>Created wireframes and prototypes to explore and validate UX solutions.</li>
+            <li>Collaborated with developers to implement responsive UI components.</li>
+            <li>Implemented UI in HTML/CSS for internal tools and web interfaces.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">LynxSoft</div>
+          <div class="when">Web Designer<br>Jun 2017 — Apr 2019</div>
+          <div class="where">Kyiv, Ukraine</div>
+        </div>
+        <div class="body-col">
+          <div class="title">Websites and UI layouts for client projects, implemented in HTML/CSS.</div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="meta-col">
+          <div class="co">UkrKanProm</div>
+          <div class="when">Web Designer<br>Jun 2015 — Apr 2017</div>
+          <div class="where">Poltava, Ukraine</div>
+        </div>
+        <div class="body-col">
+          <div class="title">Website layouts and marketing pages for company products.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head"><span class="label">Skills & tools</span></div>
+    <h2>What I bring.</h2>
+    <div class="cols3">
+      <div class="cell">
+        <span class="label">Design</span>
+        <ul>
+          <li>Product Design</li>
+          <li>UX/UI Design</li>
+          <li>Journey Mapping</li>
+          <li>User Research & Usability Testing</li>
+          <li>Prototyping</li>
+          <li>Design Systems</li>
+          <li>Accessibility (WCAG)</li>
+          <li>Cross-functional Collaboration</li>
+          <li>Design Operations (DesignOps)</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <span class="label">Tools</span>
+        <ul>
+          <li>Figma</li>
+          <li>Figma AI</li>
+          <li>Miro</li>
+          <li>Jira</li>
+          <li>Claude</li>
+          <li>ChatGPT</li>
+          <li>Lovable</li>
+          <li>HTML / CSS</li>
+        </ul>
+      </div>
+      <div class="cell lang">
+        <span class="label">Languages</span>
+        <ul>
+          <li><b>Ukrainian</b> — Native</li>
+          <li><b>English</b> — Fluent</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="download">
+    <div class="dl-text">
+      <h3>Want the full CV?</h3>
+      <p>Download the PDF — the same experience, skills, and outcomes laid out for a quick read or to pass along.</p>
+    </div>
+    <a href="Maryna_Rak_CV.pdf" download class="btn-primary">↓ Download CV (PDF)</a>
+  </div>
+</div>
+
+<section class="faq block">
+  <div class="wrap">
+    <div class="faq-head">
+      <span class="label">FAQ</span>
+      <h2>A few quick answers.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Are you open to full-time roles or freelance?</h3>
+        <p>Both — I'm open to senior product design roles and to freelance or contract projects, depending on fit.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What kind of work do you take on?</h3>
+        <p>Complex products end to end: SaaS platforms, marketplaces, internal tools, and AI-powered features — from research and discovery through to prototyping and launch.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Where are you based, and do you work remotely?</h3>
+        <p>France, working remotely. I've worked remote-first for years and collaborate comfortably across time zones.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do you use AI in your work?</h3>
+        <p>Deliberately — across discovery, ideation, and prototyping, including custom Claude skills I've built. I'm clear about where AI speeds things up and where designer judgment stays essential.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What languages do you work in?</h3>
+        <p>English (fluent) and Ukrainian (native).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <span class="label">Contact</span>
+    <h2>Let's talk.</h2>
+    <a href="mailto:maryna.rak01@gmail.com" class="email">maryna.rak01@gmail.com</a>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Contact Flow · Maryna Rak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  /* HERO */
+  .hero{padding:52px 0 40px;}
+  .hero-preview .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:16px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:60px 20px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.15);}
+  .hero .label{color:var(--accent);}
+  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin-top:16px;max-width:18ch;}
+  .hero p.lead{margin-top:22px;font-size:clamp(17px,1.5vw,20px);color:var(--muted-foreground);max-width:60ch;line-height:1.55;}
+
+  /* OUTCOME STRIP */
+  .outcome{background:var(--ink);color:#fff;border-radius:16px;padding:56px 56px;margin:80px 0;}
+  .outcome .label{color:rgba(255,255,255,.55);}
+  .out-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;margin-top:36px;max-width:720px;}
+  .out-grid .big{font-size:clamp(40px,5vw,60px);font-weight:700;letter-spacing:-0.03em;}
+  .out-grid .big .approx{font-size:.5em;color:var(--accent-italic);vertical-align:super;font-weight:500;}
+  .out-grid p{font-size:14px;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.55;}
+
+  /* PROBLEM LIST */
+  .problems{margin-top:36px;display:grid;gap:18px;}
+  .prob{border:1px solid var(--border);border-radius:12px;padding:26px 28px;}
+  .prob .label{color:var(--accent);}
+  .prob h4{font-size:17px;font-weight:600;margin-top:12px;}
+  .prob p{font-size:15px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
+
+  /* DATA TABLE */
+  .data{margin-top:36px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .data .row{display:grid;grid-template-columns:1fr auto 110px;gap:20px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--border);}
+  .data .row:last-child{border-bottom:none;}
+  .data .row.head{background:var(--surface);}
+  .data .row.head span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);}
+  .data .scn{font-size:15px;font-weight:500;}
+  .data .score{font-family:var(--font-mono);font-size:14px;color:var(--accent);}
+  .data .bar{display:flex;height:10px;border-radius:6px;overflow:hidden;background:var(--surface);}
+  .data .bar .s{background:oklch(0.78 0.13 155);}
+  .data .bar .a{background:oklch(0.85 0.13 85);}
+  .data .bar .f{background:oklch(0.8 0.11 25);}
+
+  /* STEPS */
+  .steps{margin-top:40px;display:grid;gap:56px;}
+  .stepfig{display:grid;grid-template-columns:60% 1fr;gap:36px;align-items:center;}
+  .stepfig .num{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .stepfig h4{font-size:22px;font-weight:600;margin-top:10px;letter-spacing:-0.01em;}
+  .stepfig p{font-size:16px;color:var(--muted-foreground);margin-top:12px;line-height:1.65;}
+  .stepfig img{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;}
+  .stepfig .txt{align-self:center;}
+
+  /* MODES & LAYOUTS SHOWCASE */
+  .showcase{margin-top:44px;}
+  .showcase .themes{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+  .showcase .themes figure{margin:0;}
+  .showcase .themes img{aspect-ratio:2880/2658;object-fit:cover;object-position:top;}
+  .showcase .layouts{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
+  .showcase .layouts .pair{display:block;border:1px solid var(--border);border-radius:12px;padding:28px;overflow:hidden;}
+  .showcase .layouts .pair.light{background:rgb(229,229,229);}
+  .showcase .layouts .pair.dark{background:rgb(12,12,12);border-color:rgb(12,12,12);}
+  .showcase .layouts .pair img{display:block;margin:0 auto;width:62%;max-width:240px;height:auto;border-radius:10px;}
+  .showcase figcaption{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin-top:14px;text-align:center;}
+  .showcase .layouts .pair.dark figcaption{color:rgba(255,255,255,.6);}
+  .showcase .layouts .pair.light figcaption{color:oklch(0.4 0.02 260);}
+  .showcase .mob-cap{margin-top:4px;}
+
+  /* SOLUTION PILLARS */
+  .pillars{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .pillar{padding:30px 26px;border-right:1px solid var(--border);}
+  .pillar:last-child{border-right:none;}
+  .pillar .label{color:var(--accent);}
+  .pillar h4{font-size:16px;font-weight:600;margin-top:12px;}
+  .pillar p{font-size:14px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
+
+  .confirm{background:oklch(0.96 0.05 95);border:1px solid oklch(0.8 0.1 95);border-radius:8px;padding:3px 8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.45 0.12 70);}
+
+  @media(max-width:820px){
+    .out-grid{grid-template-columns:1fr;gap:28px;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .pillar:nth-child(2){border-right:none;}
+    .pillar:nth-child(1),.pillar:nth-child(2){border-bottom:1px solid var(--border);}
+    .stepfig{grid-template-columns:1fr;gap:20px;}
+  }
+  @media(max-width:600px){
+    .data .row{grid-template-columns:1fr auto;}
+    .data .bar{display:none;}
+    .outcome{padding:40px 26px;}
+    .pillars{grid-template-columns:1fr;}
+    .pillar{border-right:none !important;border-bottom:1px solid var(--border) !important;}
+    .pillar:last-child{border-bottom:none !important;}
+    .showcase .themes{grid-template-columns:1fr;}
+    .showcase .layouts{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Contact Agent feature</span>
+    <h1>Helping players before they open a ticket.</h1>
+    <p class="lead">A redesign of the player support contact flow — turning a single overwhelming page into a guided path that resolves issues earlier and routes the rest more cleanly.</p>
+
+    <div class="hero-preview">
+      <img src="images/project-help-center-1.png" alt="Support Contact Flow — desktop and mobile">
+    </div>
+
+    <div class="meta">
+      <div><span class="label">Role</span><span class="val">Product Designer — owned end‑to‑end</span></div>
+      <div><span class="label">Scope</span><span class="val">UX, UI, research, light + dark, responsive</span></div>
+      <div><span class="label">Team</span><span class="val">Solo design; PM, Engineering, QA, AI team</span></div>
+      <div><span class="label">Scale</span><span class="val">Support platform, 2M+ players / year</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="outcome">
+    <span class="label">Outcome</span>
+    <div class="out-grid">
+      <div>
+        <div class="big">~17→24%</div>
+        <p>Fewer support tickets routed to a target topic — measured in beta testing of the new flow.</p>
+      </div>
+      <div>
+        <div class="big">9</div>
+        <p>Participants in remote usability testing across 7 real‑world support scenarios.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">The problem</span>
+    <h2>One long page that asked before it helped.</h2>
+    <p class="body muted">The original contact flow put everything on a single scrolling page — game, platform, category, subcategory, suggested articles, a description box, and a submit button, all stacked together. There was no sense of progress, and the suggested articles sat passively in the middle of the page, easy to scroll straight past on the way to opening a ticket.</p>
+    <p class="body muted">Worse, those article suggestions were static and category‑based — they didn't respond to what the player was actually describing. So the chance to answer a question before it became a ticket was mostly wasted.</p>
+  </div>
+  <div class="wrap">
+    <figure>
+      <img src="images/project-help-center-2.png" alt="The original single-page Ubisoft contact flow, with all fields stacked vertically and passive article cards in the middle">
+      <figcaption>Before — the original flow: one page, no steps, passive suggestions</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">Research</span>
+    <h2>Testing the real flow against real scenarios.</h2>
+    <p class="body muted">I ran remote usability testing with 9 participants — casual gamers and non‑gamer parents of players, all on mobile — across seven real support scenarios: account recovery, two‑factor deactivation, account linking, in‑game purchases, toxic‑behaviour reporting, a game crash, and a data‑deletion request.</p>
+    <p class="body muted">Each scenario measured how easily someone could complete and submit a case. Account linking scored lowest, which pointed straight at where the structure was breaking down.</p>
+
+    <div class="data">
+      <div class="row head"><span>Scenario</span><span>Rating</span><span>Outcome</span></div>
+      <div class="row"><span class="scn">Account Recovery</span><span class="score">8.2</span><div class="bar"><div class="s" style="flex:7"></div><div class="f" style="flex:2"></div></div></div>
+      <div class="row"><span class="scn">2FA Deactivate</span><span class="score">7.3</span><div class="bar"><div class="s" style="flex:5"></div><div class="a" style="flex:2"></div><div class="f" style="flex:2"></div></div></div>
+      <div class="row"><span class="scn">Account Linking</span><span class="score">7.4</span><div class="bar"><div class="s" style="flex:5"></div><div class="f" style="flex:4"></div></div></div>
+      <div class="row"><span class="scn">In‑game Purchase</span><span class="score">8.0</span><div class="bar"><div class="s" style="flex:5"></div><div class="a" style="flex:2"></div><div class="f" style="flex:2"></div></div></div>
+      <div class="row"><span class="scn">Toxic Behaviour Reporting</span><span class="score">9.0</span><div class="bar"><div class="s" style="flex:7"></div><div class="a" style="flex:1"></div><div class="f" style="flex:1"></div></div></div>
+      <div class="row"><span class="scn">Game Crash</span><span class="score">8.5</span><div class="bar"><div class="s" style="flex:8"></div></div></div>
+      <div class="row"><span class="scn">Data Deletion Request</span><span class="score">7.6</span><div class="bar"><div class="s" style="flex:7"></div><div class="f" style="flex:1"></div></div></div>
+    </div>
+    <p class="body muted" style="font-size:13px;margin-top:14px"><span style="color:oklch(0.6 0.13 155)">■</span> Success &nbsp; <span style="color:oklch(0.78 0.13 85)">■</span> With assistance &nbsp; <span style="color:oklch(0.72 0.11 25)">■</span> Fail</p>
+
+    <h3>Three problems, framed as questions</h3>
+    <p class="body muted">Synthesizing the findings (Experiments → Facts → Insights → Opportunities) surfaced three clear directions, each framed as a How Might We:</p>
+  </div>
+  <div class="wrap">
+    <div class="problems">
+      <div class="prob">
+        <span class="label">HMW 01 · Hierarchy</span>
+        <h4>Improve visual hierarchy to support task success and scanning.</h4>
+        <p>Missing titles and labels left users unsure what to do or what to provide — for example, whether a file upload was expected.</p>
+      </div>
+      <div class="prob">
+        <span class="label">HMW 02 · Login</span>
+        <h4>Make it clear when users actually have to log in.</h4>
+        <p>Forcing login at the moment of submitting felt counterintuitive, and made users think they'd need to log in every single time they wanted help.</p>
+      </div>
+      <div class="prob">
+        <span class="label">HMW 03 · Transitions</span>
+        <h4>Make the move between steps smooth and clear.</h4>
+        <p>Selecting an option triggered a transition that "felt like a glitch," giving no meaningful feedback about what had just happened.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">The solution</span>
+    <h2>A guided flow that helps before it asks.</h2>
+    <p class="body muted">I restructured the single page into a four‑step flow with a visible stepper, so players always know where they are and what's left. Each research problem mapped to a specific design decision — and the flow was rebuilt around an active AI step that resolves issues before they become tickets.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="label">Hierarchy</span>
+        <h4>Clear layout & guidance</h4>
+        <p>Straightforward structure, real titles and labels, and informational messages where users were getting lost.</p>
+      </div>
+      <div class="pillar">
+        <span class="label">Login</span>
+        <h4>Honest about login</h4>
+        <p>Tell users login is needed to submit a case — but let them browse suggested answers without logging in at all.</p>
+      </div>
+      <div class="pillar">
+        <span class="label">Transitions</span>
+        <h4>Progressive disclosure</h4>
+        <p>Separate, deliberate steps that reveal information as needed, so each transition feels intentional, not broken.</p>
+      </div>
+      <div class="pillar">
+        <span class="label">AI deflection</span>
+        <h4>An AI answer in the path</h4>
+        <p>An AI help step placed before ticket creation, so players get a relevant answer first — turning passive article cards into active, in‑flow resolution.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap narrow">
+    <h3>Across modes and layouts</h3>
+    <p class="body muted">The flow was designed to hold up everywhere players land — in light and dark themes, on desktop and mobile. Here's the first step shown across all four.</p>
+  </div>
+  <div class="wrap">
+    <div class="showcase">
+      <div class="themes">
+        <figure>
+          <img src="images/project-help-center-3.png" alt="Step 1 in light theme on desktop">
+          <figcaption>Desktop · Light</figcaption>
+        </figure>
+        <figure>
+          <img src="images/project-help-center-4.png" alt="Step 1 in dark theme on desktop">
+          <figcaption>Desktop · Dark</figcaption>
+        </figure>
+      </div>
+      <div class="layouts">
+        <div class="pair light">
+          <img src="images/project-help-center-5.png" alt="Step 1 light theme on mobile">
+          <div class="mob-cap"><figcaption>Mobile · Light</figcaption></div>
+        </div>
+        <div class="pair dark">
+          <img src="images/project-help-center-6.png" alt="Step 1 dark theme on mobile">
+          <div class="mob-cap"><figcaption>Mobile · Dark</figcaption></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap narrow" style="margin-top:80px">
+    <h3>The flow, step by step</h3>
+    <p class="body muted">How the four steps move a player from problem to resolution.</p>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="stepfig">
+        <img src="images/project-help-center-3.png" alt="Step 1 — choosing a game, service, or problem type">
+        <div class="txt">
+          <span class="num">Step 1 · Problem with</span>
+          <h4>One clear starting point.</h4>
+          <p>Players choose a single entry point — a game, a service, or a problem type — instead of facing every field at once. One decision, no overwhelm.</p>
+        </div>
+      </div>
+      <div class="stepfig">
+        <img src="images/project-help-center-7.png" alt="Step 2 — confirming platform, category and sub-category">
+        <div class="txt">
+          <span class="num">Step 2 · Provide details</span>
+          <h4>Confirm the details, editable inline.</h4>
+          <p>Platform, category, and sub‑category are gathered and shown back clearly, each changeable in place — so nothing feels locked in by mistake.</p>
+        </div>
+      </div>
+      <div class="stepfig">
+        <img src="images/project-help-center-8.png" alt="Step 3 — AI help answer with suggested articles and helpfulness check">
+        <div class="txt">
+          <span class="num">Step 3 · AI help</span>
+          <h4>An answer before a ticket.</h4>
+          <p>Before creating a ticket, players describe their issue and get an AI‑generated answer with relevant help articles and a "was this helpful?" check. The AI itself was built by a dedicated team; my role was designing how it lived in the flow — where it sits, how the answer and disclosure are presented, and how the feedback loop works — with honest messaging that AI can get things wrong.</p>
+        </div>
+      </div>
+      <div class="stepfig">
+        <img src="images/project-help-center-9.png" alt="Step 4 — create ticket with description and file upload">
+        <div class="txt">
+          <span class="num">Step 4 · Create ticket</span>
+          <h4>If still needed, a complete report.</h4>
+          <p>Only if the AI answer didn't resolve it do players open a ticket — now pre‑filled with everything gathered, plus file upload. Reports arrive structured and complete, so support teams get what they need the first time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="reflect">
+    <span class="label">Reflection</span>
+    <h2>The fix wasn't visual — it was structural.</h2>
+    <p>The original page wasn't failing because it looked dated; it was failing because it asked players to commit to a ticket before it ever tried to help them. Reframing it as a guided path — with an active AI step standing between the problem and the ticket — is what moved the numbers. The lesson I carry forward: deflection is a design problem, not just a content one. Where help sits in a flow matters as much as what it says.</p>
+  </div>
+</div>
+
+<section class="next">
+  <div class="wrap">
+    <span class="label">Next</span>
+    <div><a href="index.html">← Back to all work</a></div>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

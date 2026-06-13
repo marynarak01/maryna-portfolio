@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Maryna Rak — Senior Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  body{display:flex;flex-direction:column;min-height:100vh;}
+  footer{flex-shrink:0;}
+  main{flex:1 0 auto;}
+
+  /* HERO */
+  .hero{padding:90px 0 40px;}
+  .hero .label{color:var(--accent);font-weight:500;}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-0.035em;font-weight:700;margin-top:18px;}
+  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
+  .hero p.lead{margin-top:24px;font-size:clamp(18px,1.8vw,21px);line-height:1.6;color:var(--muted-foreground);max-width:56ch;}
+
+  /* CONTACT METHODS */
+  .methods{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;padding-bottom:30px;}
+  .method{border:1px solid var(--border);border-radius:16px;padding:34px 36px;transition:border-color .2s, transform .2s;display:block;}
+  .method:hover{border-color:var(--foreground);transform:translateY(-2px);}
+  .method .label{color:var(--accent);}
+  .method h2{font-size:22px;font-weight:600;letter-spacing:-0.015em;margin-top:14px;}
+  .method .val{font-size:16px;color:var(--muted-foreground);margin-top:8px;word-break:break-word;}
+  .method .arrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:18px;display:inline-block;}
+
+  @media(max-width:760px){
+    .hero{padding:48px 0 30px;}
+    .methods{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <span class="label">Contact</span>
+      <h1>Let's build something <span class="i">that works.</span></h1>
+      <p class="lead">Open to senior product design roles and freelance projects — SaaS, marketplaces, internal tools, and AI-powered features. The fastest way to reach me is email.</p>
+
+      <div class="methods">
+        <a href="mailto:maryna.rak01@gmail.com" class="method">
+          <span class="label">Email</span>
+          <h2>Send me a message</h2>
+          <div class="val">maryna.rak01@gmail.com</div>
+          <span class="arrow">Write to me →</span>
+        </a>
+        <a href="https://www.linkedin.com/in/marynarak" target="_blank" rel="noopener" class="method">
+          <span class="label">LinkedIn</span>
+          <h2>Connect with me</h2>
+          <div class="val">linkedin.com/in/marynarak</div>
+          <span class="arrow">Open LinkedIn →</span>
+        </a>
+      </div>
+    </div>
+  </header>
+</main>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>
