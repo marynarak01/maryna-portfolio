@@ -116,7 +116,11 @@
   .platform-tag{font-family:var(--font-mono);font-size:10.5px;color:var(--muted-foreground);margin-top:8px;display:inline-block;}
 
   /* platform compare */
-  .compare{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px;max-width:680px;}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px;max-width:680px; justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
   .compare + .compare{margin-top:48px;}
   .pair-cap{grid-column:1 / -1;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);margin-top:4px;}
   .compare .col .plat{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;}
