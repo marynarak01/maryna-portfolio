@@ -1,83 +1,65 @@
-# Maryna Rak — Portfolio Website
+# maryna-portfolio — clean build
 
-A static portfolio site for a Senior Product Designer. Plain HTML + CSS, no build step, no framework. Every page is a standalone `.html` file with its CSS inline in a `<style>` block, and references images from the shared `images/` folder.
+Static HTML portfolio. No build step. Plain HTML + CSS + a tiny JS include for
+the shared nav/footer.
 
 ## Structure
-
 ```
-maryna-portfolio/
-├── index.html              # Home (hero, project highlights, services, process, about, FAQ, contact)
-├── projects.html           # Full project archive + Claude-skills section + Figma link
-├── about.html              # About / CV page + FAQ + CV download
-├── contact.html            # Contact page (email + LinkedIn)
-├── project-help-center.html  # Case study — Support Contact Flow (Ubisoft)
-├── project-roots.html        # Case study — Roots Marketplace (CMS + storefront)
-├── project-pagecraft.html    # Case study — Pagecraft (shipped AI product)
-├── project-marginalia.html   # Case study — Marginalia (concept, book discovery)
-├── images/                 # All images (PNG), referenced as images/<name>.png
-├── Maryna_Rak_CV.pdf       # CV, linked from About + footers
-└── README.md
+/
+├── index.html
+├── about.html
+├── projects.html
+├── contact.html
+├── project-pagecraft.html
+├── project-roots.html
+├── project-help-center.html
+├── project-marginalia.html
+├── project-design-system.html
+├── css/
+│   ├── global.css          ← tokens, nav/footer, shared .page-hero + .cs-hero
+│   ├── design-system.css   ← Ink design-system page
+│   ├── marginalia.css      ← marginalia accent (coral)
+│   └── pagecraft.css       ← pagecraft accent (mint)
+├── js/
+│   └── include.js          ← injects partials/header + footer
+├── partials/
+│   ├── header.html
+│   └── footer.html
+└── images/                 ← see "Images you must add" below
 ```
 
-## Running locally
+## What changed in this clean build
+- **Deduped hero CSS** — the repeated hero blocks that lived inline in every page
+  were pulled into `css/global.css` as two shared classes:
+  - `.page-hero`  → about, projects, contact
+  - `.cs-hero`    → all project case-study pages
+  Per-page tweaks (the bigger Ink hero, project accent colours) stay inline.
+- **Added the Ink Design System** case study (`project-design-system.html`,
+  `css/design-system.css`, `images/project-design-system-1..8.png`) and its card
+  on `index.html` + `projects.html`.
+- **Fixed a markup bug** in the original `index.html` (a broken `</diiv>` tag and
+  an unclosed `.help-grid` div).
 
-No build needed. Serve the folder with any static server, e.g.:
-
-```bash
+## Run locally
+Must be served (the nav/footer load via fetch, blocked on file://):
+```
 python3 -m http.server 8000
-# then open http://localhost:8000
 ```
+then open http://localhost:8000/
 
-(Opening `index.html` directly via `file://` mostly works, but a local server is recommended so relative links and the CV download behave correctly.)
+## ⬜ Images you must add to images/  (naming must match EXACTLY)
+Already included: project-design-system-1.png … -8.png
 
-## Deploying
+You need to drop these in (same folder, same names):
+- project-pagecraft-1.png … -6.png   (hero uses -1; page uses -1..-5; card uses -1)
+- project-roots-1.png … -5.png
+- project-help-center-1.png … -9.png
+- project-marginalia-1.png … -6.png
+- favicon.ico            → images/favicon.ico   (referenced by every page)
 
-It's a static site — drop the whole folder on any static host:
-- **Netlify / Vercel:** drag-and-drop the folder, or connect a Git repo. No build command; publish directory is the folder root.
-- **GitHub Pages:** push to a repo, enable Pages on the root.
+## ⬜ Other files to add at root
+- Maryna_Rak_CV.pdf      (linked from about page + footer)
 
-## Design system (kept consistent across pages)
-
-- **Fonts:** Inter (sans) + JetBrains Mono (mono labels), loaded from Google Fonts.
-- **Color tokens** (CSS variables in each page's `:root`):
-  - `--accent: oklch(0.5 0.22 264)` — site blue (links, eyebrows)
-  - `--ink: oklch(0.145 0.012 264)` — near-black (dark sections, buttons)
-  - `--muted-foreground: oklch(0.44 0.02 260)` — secondary text
-  - `--border: oklch(0.92 0.006 255)`, `--surface: oklch(0.985 0.003 250)`
-  - Per-project accents: Marginalia uses coral `oklch(0.68 0.17 35)`; Pagecraft uses mint `oklch(0.6 0.13 165)`.
-- **Nav (consistent on every page):** brand "Maryna / Product Designer" on the left; links **Projects · About · Contact** (Contact is the dark pill CTA) on the right; a `☰` button toggles `#mobileMenu` under 760px.
-- **Footer (consistent):** © line + LinkedIn · Email · Figma · CV.
-
-## Known placeholders to fill in
-
-These are intentionally stubbed — search for them and replace:
-
-- **Figma links** — every footer "Figma" link and the "See more on Figma" button on `projects.html` point to `href="#"`. Replace with the real Figma profile/file URL.
-- **Prototype / demo links** — `project-marginalia.html` ("See the prototype") and `project-pagecraft.html` ("See it work — prototype", hero "See how it works") point to `href="#"`. Replace with the live prototype/demo URLs (e.g. a Figma prototype embed link or a hosted demo).
-- **CV** — `Maryna_Rak_CV.pdf` is the current CV. Replace the file (keep the name) to update it everywhere at once.
-- **Hero preview images** — the project case studies use composed hero images already; swap any in `images/` as better versions become available.
-
-## Common edits
-
-**Add a new project**
-1. Duplicate an existing `project-*.html` as a template (Pagecraft/Roots are the most full-featured).
-2. Add its image(s) to `images/`.
-3. Add a project card to **both** `projects.html` (full archive) and, if it's a highlight, `index.html` (home shows a curated few).
-
-**Change the nav or footer**
-Currently the nav/footer markup is copied into each page. If you change it, change it in every `.html` file. (See "Suggested next step" below.)
-
-**Edit copy or images**
-Open the relevant `.html`, edit text inline; swap an image by replacing the file in `images/` or updating the `src`.
-
-## Suggested next step (refactor opportunity)
-
-Right now each page carries its own CSS inline and its own copy of the nav/footer. A clean improvement for maintainability:
-1. Extract the shared design tokens + base styles into `css/style.css` and link it from every page; keep only page-specific overrides inline (the project pages have unique accent colors and a few bespoke sections).
-2. Factor the nav/footer into a small JS include or a templating step so they live in one place.
-
-This wasn't done in the initial build to avoid risking the per-page custom styling; it's a safe, well-scoped task to do with proper local testing.
-
----
-
-Built iteratively. All copy is the designer's own; images are real product/screenshot exports. Questions: maryna.rak01@gmail.com
+## ⬜ Links still to fill (project-design-system.html)
+Five  href="#"  placeholders: 2 in the hero (documentation, example page),
+1 mid-page (documentation), 2 inline component links (button, input).

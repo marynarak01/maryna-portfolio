@@ -1,0 +1,51 @@
+/* Bali Medewi — overrides
+   Accent: --spa (spa green) */
+
+:root { --spa: oklch(0.52 0.11 165); --spa-soft: oklch(0.97 0.03 165); }
+
+.hero { padding: 52px 0 40px; }
+.hero .label { color: var(--spa); font-weight: 500; font-size: 12px; }
+.hero h1 {
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin-top: 16px;
+  max-width: 18ch;
+}
+.hero h1 .i { font-style: italic; color: var(--spa); }
+.hero p.lead {
+  margin-top: 22px;
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: var(--muted-foreground);
+  max-width: 60ch;
+  line-height: 1.55;
+}
+.hero p.lead strong { color: var(--foreground); }
+
+/* Pitch band — the one message that matters to an owner */
+.pitch { background: var(--ink); color: #fff; border-radius: 16px; padding: 56px; margin: 56px 0; }
+.pitch .label { color: rgba(255,255,255,.55); }
+.pitch h2 { font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; letter-spacing: -0.02em; margin-top: 14px; color: #fff; line-height: 1.15; }
+.pitch p { font-size: 17px; color: rgba(255,255,255,.82); margin-top: 20px; line-height: 1.7; max-width: 60ch; }
+
+/* Walkthrough — alternating text/image rows (uses shared .stepfig; adds flip + spa accents) */
+.walk { display: grid; gap: 64px; margin-top: 44px; }
+.walk .stepfig .num { color: var(--spa); }
+.stepfig.flip .txt { order: 2; }
+.stepfig.flip .shot { order: 1; }
+.stepfig .shot img { box-shadow: 0 24px 48px -22px rgba(20,20,30,0.28); }
+
+/* What you get */
+.gets { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.get { border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; font-size: 15px; display: flex; gap: 12px; align-items: baseline; }
+.get .dot { color: var(--spa); font-size: 13px; }
+
+@media (max-width: 820px) {
+  .stepfig.flip .txt { order: 1; }
+  .stepfig.flip .shot { order: 2; }
+  .gets { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .pitch { padding: 40px 26px; }
+}

@@ -1,3 +1,18 @@
+.btn-my-wrap {
+ display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .btn-my-wrap { flex-direction: column; align-items: stretch; }
+  .btn-my-wrap { justify-content: center; }
+}
+
+
+
+
 /* ============================================================
    DESIGN TOKENS
    To change a color or font: edit here, affects every page.
@@ -20,6 +35,12 @@
   --font-sans:         'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono:         'JetBrains Mono', ui-monospace, monospace;
   --maxw:              1080px;
+
+  /* Motion — one tempo across the whole site */
+  --motion-fast:       0.18s;   /* small UI: links, nav, labels */
+  --motion-base:       0.28s;   /* cards, images, lifts */
+  --motion-slow:       0.6s;    /* scroll reveal */
+  --ease:              cubic-bezier(0.22, 0.61, 0.36, 1);  /* gentle, professional ease-out */
 }
 
 /* ============================================================
@@ -47,12 +68,8 @@ a       { color: inherit; text-decoration: none; }
 
 /* ============================================================
    NAV
-   To change nav links or branding: edit partials/header.html
    ============================================================ */
-
-/* Reserve nav height during partial load to prevent layout shift */
 [data-include="partials/header.html"] { min-height: 64px; display: block; }
-
 nav {
   border-bottom:    1px solid var(--border);
   position:         sticky;
@@ -74,16 +91,15 @@ nav {
   text-transform: uppercase;
   font-weight:    500;
 }
-/* .nav-right wraps the back link + nav links on case-study pages */
 .nav-right { display: flex; gap: 28px; align-items: center; }
 .back {
-  display:        none; /* hidden on main pages, shown on project pages via JS */
+  display:        none;
   font-family:    var(--font-mono);
   font-size:      12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color:          var(--muted-foreground);
-  transition:     color .2s;
+  transition: color var(--motion-fast) var(--ease);
 }
 .back:hover { color: var(--foreground); }
 body.is-project .back { display: inline; }
@@ -92,7 +108,7 @@ body.is-project .back { display: inline; }
 .nav-links a {
   font-size:  14px;
   color:      var(--muted-foreground);
-  transition: color .2s;
+  transition: color var(--motion-fast) var(--ease);
 }
 .nav-links a:hover  { color: var(--foreground); }
 .nav-links a.active { color: var(--foreground); }
@@ -130,7 +146,6 @@ body.is-project .back { display: inline; }
 
 /* ============================================================
    FOOTER
-   To change footer links: edit partials/footer.html
    ============================================================ */
 footer { border-top: 1px solid var(--border); padding: 30px 0; }
 .foot-inner { display: flex; justify-content: space-between; align-items: center; }
@@ -146,7 +161,7 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
 .foot-links a:hover { color: var(--foreground); }
 
 /* ============================================================
-   SHARED BUTTONS (about, contact)
+   SHARED BUTTONS
    ============================================================ */
 .btn-primary {
   display:       inline-flex;
@@ -158,9 +173,26 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
   border-radius: 999px;
   font-size:     15px;
   font-weight:   500;
-  transition:    opacity .2s;
+  transition: opacity var(--motion-fast) var(--ease);
+  cursor:pointer;
 }
-.btn-primary:hover { opacity: .9; color: #fff; }
+.btn-primary:hover { background:#fff; color: var(--ink); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: border-color var(--motion-fast) var(--ease), background var(--motion-fast) var(--ease);
+  cursor:pointer;
+}
+.btn-secondary:hover { border-color: var(--ink); background: var(--surface); }
+
+
 .btn-ghost {
   display:       inline-flex;
   align-items:   center;
@@ -170,9 +202,18 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
   border-radius: 999px;
   font-size:     15px;
   color:         var(--foreground);
-  transition:    border-color .2s;
+  transition: border-color var(--motion-slow) var(--ease), background var(--motion-slow) var(--ease);
 }
-.btn-ghost:hover { border-color: var(--foreground); }
+.btn-ghost:hover { border-color: var(--foreground); background: var(--surface); }
+
+.ghost-link{display:inline-flex;
+  align-items:center;gap:8px;margin-top:18px;font-family:var(--font-mono);font-size:12px;
+  
+  letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:999px;padding:11px 20px;
+  transition: border-color var(--motion-slow) var(--ease), background var(--motion-slow) var(--ease);
+}
+.ghost-link:hover{border-color: var(--foreground); background: var(--surface); color: var(--foreground);}
 
 /* ============================================================
    PROJECT CARDS  (index.html + projects.html)
@@ -184,26 +225,7 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
   gap:             16px;
   padding:         64px 0 48px;
 }
-.sec-head .line { flex: 1; height: 1px; background: var(--border); margin: 0 16px; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 56px; }
-.card .thumb {
-  border-radius:   10px;
-  aspect-ratio:    16/11;
-  display:         flex;
-  align-items:     center;
-  justify-content: center;
-  overflow:        hidden;
-}
-.thumb.peach  { background: var(--tile-peach); }
-.thumb.blue   { background: var(--tile-blue); }
-.thumb.amber  { background: var(--tile-amber); }
-.thumb .ph {
-  font-family:    var(--font-mono);
-  font-size:      11px;
-  color:          rgba(0, 0, 0, .4);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
 .card h3  { font-size: 24px; font-weight: 600; margin-top: 28px; letter-spacing: -0.015em; }
 .card p   { color: var(--muted-foreground); font-size: 16px; margin-top: 12px; line-height: 1.65; max-width: 46ch; }
 .card .meta {
@@ -218,16 +240,13 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
   letter-spacing: .1em;
   text-transform: uppercase;
   color:          var(--accent);
+  transition:     opacity var(--motion-fast) var(--ease);
 }
-
-.card .hero-preview {
-margin-top: 0px;
-}
-
-.card .hero-preview img{
-border:none;
-box-shadow:none;
-}
+.card .hero-preview { margin-top: 0px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px -4px rgba(20,20,30,.18); transition: box-shadow var(--motion-slow) var(--ease); }
+.card .card-img-link { display: block; }
+.card .hero-preview img { border: none; box-shadow: none; display:block; width:100%; height:auto; transition: transform 1.8s var(--ease); }
+/* Card hover: gentle lift + contained image zoom (zoom defined in hero-preview block) */
+.card:hover .viewlink { opacity: 0.65; }
 
 /* ============================================================
    FAQ LIST  (index.html + about.html)
@@ -246,7 +265,7 @@ box-shadow:none;
 /* ============================================================
    CASE STUDY SHARED  (all project-*.html)
    ============================================================ */
-.hero-preview { margin-top: 40px; }
+.hero-preview { margin-top: 40px; border-radius: 16px; overflow: hidden; }
 .hero-preview img {
   width:      100%;
   height:     auto;
@@ -254,9 +273,11 @@ box-shadow:none;
   border:     1px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 30px 60px -20px rgba(20, 20, 30, 0.25);
+  transition: transform var(--motion-base) var(--ease);
 }
-
-/* 4-column meta bar */
+.hero-preview:hover img { transform: scale(1.02); }
+.card:hover .hero-preview { box-shadow: 0 22px 40px -16px rgba(20,20,30,.32); }
+.card:hover .hero-preview img { transform: scale(1.06); }
 .meta {
   display:       grid;
   grid-template-columns: repeat(4, 1fr);
@@ -266,14 +287,12 @@ box-shadow:none;
   margin:        40px 0 0;
   overflow:      hidden;
 }
-
 .card .meta { margin-top: 20px; border-radius: 8px; border:none;}
 .meta div { padding: 24px 26px; border-right: 1px solid var(--border); }
 .meta div:last-child { border-right: none; }
 .meta .label { display: block; margin-bottom: 8px; }
 .meta .val   { font-size: 15px; font-weight: 500; line-height: 1.45; }
 
-/* Content sections */
 section.block { padding: 50px 0; }
 .block h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
 .block h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-top: 44px; }
@@ -299,7 +318,6 @@ figcaption {
   text-align:     center;
 }
 
-/* Dark reflection box */
 .reflect {
   background:    var(--ink);
   color:         #fff;
@@ -317,7 +335,6 @@ figcaption {
 }
 .reflect p { font-size: 17px; color: rgba(255, 255, 255, .8); margin-top: 22px; line-height: 1.7; max-width: 64ch; }
 
-/* Next project link */
 .next { text-align: center; padding: 60px 0 90px; border-top: 1px solid var(--border); }
 .next a {
   display:       inline-block;
@@ -329,18 +346,6 @@ figcaption {
   font-size:     15px;
 }
 
-/* Shared solution parts (roots, marginalia, pagecraft) */
-.part { margin-top: 48px; }
-.part .tag {
-  font-family:    var(--font-mono);
-  font-size:      12px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color:          var(--accent); /* overridden per-page for mint/coral */
-}
-.part h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 10px; }
-.part p  { font-size: 17px; color: var(--muted-foreground); margin-top: 16px; line-height: 1.7; max-width: 64ch; }
-
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -351,18 +356,342 @@ figcaption {
   .grid       { grid-template-columns: 1fr; gap: 40px; }
   .foot-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
-
 @media (max-width: 820px) {
   .meta { grid-template-columns: 1fr 1fr; }
   .meta div:nth-child(2)  { border-right: none; }
   .meta div:nth-child(1),
   .meta div:nth-child(2)  { border-bottom: 1px solid var(--border); }
 }
-
 @media (max-width: 600px) {
   .wrap           { padding: 0 20px; }
   .reflect        { padding: 40px 26px; }
 }
 
- .figma-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border);border-radius:999px;padding:11px 20px;transition:all .2s;}
-  .figma-link:hover{border-color:var(--accent);}
+
+
+/* ============================================================
+   SHARED HERO BLOCKS  (deduped from per-page inline styles)
+   .page-hero  — standard pages (about, projects, contact)
+   .cs-hero    — case-study project pages
+   Per-page tweaks (bigger DS hero, project accents) stay inline.
+   ============================================================ */
+.page-hero { padding: 80px 0 50px; }
+.page-hero .label { color: var(--accent); font-weight: 500; }
+.page-hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin-top: 18px;
+}
+.page-hero h1 .i { font-style: italic; color: var(--accent-italic); }
+.page-hero p.lead {
+  margin-top: 24px;
+  font-size: clamp(18px, 1.8vw, 21px);
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 56ch;
+}
+
+.cs-hero { padding: 52px 0 40px; }
+.cs-hero .label { color: var(--accent); }
+.cs-hero h1 {
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin-top: 16px;
+  max-width: 18ch;
+}
+.cs-hero p.lead {
+  margin-top: 22px;
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: var(--muted-foreground);
+  max-width: 60ch;
+  line-height: 1.55;
+}
+.cs-hero p.lead strong { color: var(--foreground); }
+
+@media (max-width: 760px) {
+  .page-hero { padding: 48px 0 40px; }
+  .cs-hero   { padding: 48px 0 30px; }
+}
+
+/* ============================================================
+   SHARED COMPONENTS  (merged from per-page inline blocks)
+   Purpose-based, reusable on any page.
+   ============================================================ */
+
+/* Step figure — text beside an image, used for walkthrough/step rows.
+   Per-page column ratios live in that page's override file. */
+.stepfig { display: grid; grid-template-columns: 1fr 1.15fr; gap: 44px; align-items: center; }
+.stepfig .num {
+  font-family:    var(--font-mono);
+  font-size:      12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color:          var(--accent);
+}
+.stepfig h3, .stepfig h4 { font-size: 22px; font-weight: 600; margin-top: 10px; letter-spacing: -0.01em; }
+.stepfig p { font-size: 16px; color: var(--muted-foreground); margin-top: 12px; line-height: 1.65; }
+.stepfig .txt { align-self: center; }
+.stepfig img,
+.stepfig .shot img {
+  width:         100%;
+  height:        auto;
+  display:       block;
+  border:        1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* Two-column content split. */
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+/* Centered closing contact block. Per-page type sizes can be tuned in overrides. */
+.contact { text-align: center; padding: 70px 0 90px; border-top: 1px solid var(--border); margin-top: 60px; }
+.contact .label { color: var(--accent); }
+.contact h2 { font-size: clamp(28px, 3.6vw, 46px); font-weight: 700; letter-spacing: -0.03em; margin-top: 16px; }
+.contact .email {
+  display:       inline-block;
+  margin-top:    22px;
+  font-size:     clamp(17px, 1.8vw, 22px);
+  color:         var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+.contact .email:hover { border-color: var(--accent); }
+
+@media (max-width: 760px) {
+  .twocol  { grid-template-columns: 1fr; gap: 28px; }
+  .stepfig { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============================================================
+   STANDARD PAGES — page-scoped sections
+   (index, about, projects, contact load only global.css)
+   ============================================================ */
+
+/* ---- index: hero ---- */
+.hero { padding: 150px 0 100px; }
+.hero h1 { font-size: clamp(52px, 8.5vw, 108px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; max-width: 16ch; }
+.hero h1 .grey { color: var(--muted-foreground-lg); }
+.hero h1 .blue { color: var(--accent-italic); font-style: italic; }
+.hero p.lead { margin-top: 44px; font-size: clamp(19px, 1.7vw, 23px); color: var(--muted-foreground); max-width: 52ch; line-height: 1.65; }
+.hero p.lead a { color: var(--foreground); border-bottom: 1px solid var(--border); }
+.tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 52px; }
+.tag { border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); }
+.divider { height: 1px; background: var(--border); margin: 0; }
+.projects { padding-bottom: 60px; }
+
+/* ---- index: services ---- */
+.services { padding: 120px 0; }
+.services-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 72px; align-items: start; }
+.services h2 { font-size: clamp(34px, 3.8vw, 52px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; margin-top: 18px; }
+.services .blurb { color: var(--muted-foreground); font-size: 17px; margin-top: 26px; max-width: 38ch; line-height: 1.65; }
+.svc-box { border: 1px solid var(--border); border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; }
+.svc { padding: 34px 30px; border-bottom: 1px solid var(--border); }
+.svc:nth-child(odd) { border-right: 1px solid var(--border); }
+.svc:nth-child(3), .svc:nth-child(4) { border-bottom: none; }
+.svc .label { color: var(--accent); }
+.svc p { font-size: 15px; color: var(--muted-foreground); margin-top: 14px; line-height: 1.6; }
+
+/* ---- index: workflow (dark band) ---- */
+.workflow { background: var(--ink); color: #fff; border-radius: 16px; padding: 80px 64px; margin: 0 0 120px; }
+.workflow .label { color: rgba(255,255,255,.55); }
+.workflow h2 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 700; letter-spacing: -0.025em; margin-top: 18px; }
+.workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
+.workflow-step { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 30px; }
+.workflow-step .label { color: var(--accent-italic); }
+.workflow-step p { font-size: 15px; color: rgba(255,255,255,.74); margin-top: 16px; line-height: 1.65; }
+
+/* ---- index: about strip ---- */
+.about { padding: 40px 0 120px; }
+.about-grid { display: grid; grid-template-columns: 160px 1fr; gap: 48px; }
+.about-body { max-width: 60ch; }
+.about-body p { font-size: 19px; line-height: 1.75; color: var(--foreground); }
+.about-body p + p { margin-top: 24px; color: var(--muted-foreground); }
+
+/* ---- index: help (dark band) ---- */
+.help { background: var(--ink); color: #fff; border-radius: 16px; padding: 80px 64px; margin: 0 0 120px; }
+.help .label { color: rgba(255,255,255,.55); }
+.help .head { margin-bottom: 56px; }
+.help h2 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; margin-top: 18px; }
+.help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.help-card { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 28px 24px; }
+.help-card .label { color: var(--accent-italic); }
+.help-card h3 { font-size: 18px; font-weight: 600; margin-top: 14px; letter-spacing: -0.015em; color: #fff; }
+.help-card p { font-size: 13.5px; color: rgba(255,255,255,.74); margin-top: 12px; line-height: 1.6; }
+.help-card .hl-links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+.help-card .hl-links a { font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 5px 11px; transition: color var(--motion-slow) var(--ease), border-color var(--motion-slow) var(--ease), background var(--motion-slow) var(--ease); }
+.help-card .hl-links a:hover { color: #fff; border-color: rgba(255,255,255,.5); }
+
+/* ---- index: closing contact (large type variant) ---- */
+.contact h2.big { font-size: clamp(40px, 7vw, 84px); letter-spacing: -0.035em; }
+.contact p { color: var(--muted-foreground); margin-top: 26px; font-size: 18px; max-width: 46ch; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.contact .email-btn { display: inline-block; margin-top: 40px; background: var(--ink); color: #fff; padding: 17px 34px; border-radius: 999px; font-size: 16px; }
+.contact .email-btn:hover { background:#fff; color: var(--ink); }
+
+/* ---- shared: FAQ heading wrapper (index + about) ---- */
+.faq { padding: 50px 0 10px; }
+.faq .faq-head { margin-bottom: 48px; }
+.faq h2 { font-size: clamp(26px, 3.4vw, 46px); font-weight: 700; letter-spacing: -0.025em; margin-top: 8px; }
+
+/* ---- about: hero extras ---- */
+.page-hero .sub { margin-top: 18px; font-size: 16px; color: var(--muted-foreground); font-family: var(--font-mono); letter-spacing: .02em; }
+.page-hero .bio { margin-top: 32px; max-width: 60ch; }
+.page-hero .bio p { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: var(--foreground); }
+.page-hero .bio p + p { margin-top: 20px; color: var(--muted-foreground); }
+.page-hero .cta-row { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* ---- about: section block head ---- */
+.block .head { margin-bottom: 8px; }
+
+/* ---- about: AI band (dark) ---- */
+.ai { background: var(--ink); color: #fff; border-radius: 18px; padding: 56px; margin: 24px 0; }
+.ai .label { color: rgba(255,255,255,.55); }
+.ai h2 { color: #fff; font-size: clamp(26px, 3vw, 38px); font-weight: 700; letter-spacing: -0.025em; margin-top: 14px; line-height: 1.12; }
+.ai p { color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.7; margin-top: 20px; max-width: 62ch; }
+.ai .ai-links { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+.ai .ai-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 11px 18px; transition: all var(--motion-slow) var(--ease); }
+.ai .ai-links a:hover { background: #fff; color: var(--ink); }
+
+/* ---- about: experience timeline ---- */
+.timeline { margin-top: 36px; border-top: 1px solid var(--border); }
+.role { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+.role .meta-col .co { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.role .meta-col .when, .role .meta-col .where { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); margin-top: 8px; line-height: 1.5; }
+.role .body-col .title { font-size: 16px; font-weight: 600; }
+.role .body-col .summary { font-size: 15px; color: var(--muted-foreground); margin-top: 8px; line-height: 1.65; }
+.role .body-col ul { margin-top: 14px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.role .body-col li { font-size: 14.5px; color: var(--muted-foreground); line-height: 1.55; padding-left: 18px; position: relative; }
+.role .body-col li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
+.role .body-col .wins { margin-top: 16px; border-left: 2px solid var(--accent); padding-left: 16px; }
+.role .body-col .wins .winlabel { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.role .body-col .wins li::before { content: "✦"; font-size: 11px; }
+
+/* ---- about: skills columns ---- */
+.cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-top: 32px; }
+.cols3 .cell { padding: 30px 28px; border-right: 1px solid var(--border); }
+.cols3 .cell:last-child { border-right: none; }
+.cols3 .cell .label { display: block; margin-bottom: 16px; }
+.cols3 .cell ul { list-style: none; display: grid; gap: 9px; }
+.cols3 .cell li { font-size: 15px; color: var(--foreground); }
+.cols3 .cell.lang li { color: var(--muted-foreground); }
+.cols3 .cell.lang li b { color: var(--foreground); font-weight: 600; }
+
+/* ---- about: CV download band ---- */
+.download { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 48px 52px; margin: 40px 0 0; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.download .dl-text h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.download .dl-text p { font-size: 15px; color: var(--muted-foreground); margin-top: 8px; max-width: 48ch; }
+
+/* ---- projects: skills band (dark) ---- */
+.skills { background: var(--ink); color: #fff; border-radius: 16px; padding: 72px 64px; margin: 60px 0 120px; }
+.skills .label { color: rgba(255,255,255,.55); }
+.skills h2 { font-size: clamp(28px, 3.2vw, 42px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-top: 16px; color: #fff; }
+.skills .intro { color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.7; margin-top: 20px; max-width: 62ch; }
+.skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
+.skill-card { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 30px 30px; }
+.skill-card .label { color: var(--accent-italic); }
+.skill-card h3 { font-size: 19px; font-weight: 600; margin-top: 12px; color: #fff; }
+.skill-card p { font-size: 14.5px; color: rgba(255,255,255,.74); margin-top: 10px; line-height: 1.6; }
+.skills .inv-links { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.skills .inv-links .note { font-size: 14px; color: rgba(255,255,255,.7); margin-right: 6px; }
+.skills .inv-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 11px 18px; transition: all var(--motion-slow) var(--ease); }
+.skills .inv-links a:hover { background: #fff; color: var(--ink); }
+
+/* ---- contact: method cards ---- */
+.methods { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 32px; padding-bottom: 30px; }
+.method { border: 1px solid var(--border); border-radius: 16px; padding: 34px 36px; transition: border-color var(--motion-fast) var(--ease), box-shadow var(--motion-base) var(--ease); display: block; }
+.method:hover { border-color: var(--foreground); box-shadow: 0 16px 32px -18px rgba(20,20,30,.3); }
+.method .label { color: var(--accent); }
+.method h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; margin-top: 14px; }
+.method .val { font-size: 16px; color: var(--muted-foreground); margin-top: 8px; word-break: break-word; }
+.method .arrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-top: 18px; display: inline-block; }
+
+/* ---- standard-page responsive ---- */
+@media (min-width: 761px) and (max-width: 1000px) { .help-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .hero { padding: 64px 0 48px; }
+  .services-grid { grid-template-columns: 1fr; gap: 32px; }
+  .svc-box { grid-template-columns: 1fr; }
+  .svc:nth-child(odd) { border-right: none; }
+  .svc { border-bottom: 1px solid var(--border); }
+  .svc:nth-child(4) { border-bottom: none; }
+  .workflow { padding: 40px 26px; }
+  .workflow-steps { grid-template-columns: 1fr; gap: 16px; }
+  .help { padding: 40px 26px; margin-bottom: 64px; }
+  .help-grid { grid-template-columns: 1fr; gap: 16px; }
+  .about-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ai { padding: 36px 26px; }
+  .role { grid-template-columns: 1fr; gap: 14px; }
+  .cols3 { grid-template-columns: 1fr; }
+  .cols3 .cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .cols3 .cell:last-child { border-bottom: none; }
+  .download { padding: 32px 26px; flex-direction: column; align-items: flex-start; }
+  .skills { padding: 40px 26px; }
+  .skill-grid { grid-template-columns: 1fr; }
+  .methods { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   MOTION — scroll reveal + hover polish + reduced-motion
+   ============================================================ */
+
+/* Scroll reveal. Visible by default; include.js adds .reveal-on to
+   arm it (sets the hidden start state), then .is-visible to play.
+   If JS never runs, content stays fully visible — safe by design. */
+.reveal-on { opacity: 0; transform: translateY(18px); }
+.reveal-on.is-visible { opacity: 1; transform: none; }
+[data-reveal] {
+  transition: opacity var(--motion-slow) var(--ease),
+              transform var(--motion-slow) var(--ease);
+}
+/* Stagger children when a container opts in via data-reveal-group */
+[data-reveal-group].is-visible > * { transition-delay: calc(var(--i, 0) * 70ms); }
+
+/* Link hover polish — underline-wipe lives on the .u text span (see bottom).
+   Active nav item shows its underline persistently. */
+.nav-links a.active .u::after { transform: scaleX(1); }
+.nav-cta .u::after { display: none; }  /* the pill button doesn't need an underline */
+
+/* Buttons */
+/* primary buttons invert to outline on a slow ease */
+.btn-primary, .email-btn, .nav-cta, .proto-btn, .demo-btn {
+  border: 1px solid var(--ink);
+  transition: background var(--motion-slow) var(--ease), color var(--motion-slow) var(--ease);
+}
+.btn-primary:hover, .email-btn:hover, .nav-cta:hover,
+.proto-btn:hover, .demo-btn:hover { background: #fff; color: var(--ink); }
+
+/* Viewlink / pill arrows nudge on hover of their card or row */
+.method:hover .arrow { transform: translateX(3px); }
+.method .arrow { transition: transform var(--motion-fast) var(--ease); }
+
+/* Respect users who prefer less motion — turn it all off. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on, .reveal-on.is-visible,
+  [data-reveal], [data-reveal].is-visible { opacity: 1 !important; transform: none !important; }
+}
+
+
+/* ============================================================
+   FINAL LINK MOTION — charcoal + underline-wipe, arrow slides
+   ============================================================ */
+.u { position: relative; }
+.u::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left;
+  transition: transform var(--motion-fast) var(--ease);
+}
+a:hover > .u::after, a:hover .u::after { transform: scaleX(1); }
+a .arr { display: inline-block; transition: transform var(--motion-fast) var(--ease); }
+a.arr-fwd:hover .arr { transform: translateX(4px); }
+a.arr-back:hover .arr { transform: translateX(-4px); }
+.viewlink:hover .arr { transform: translateX(4px); }
+.card:hover .viewlink { opacity: 0.65; }

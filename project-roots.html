@@ -3,199 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roots Marketplace — CMS and Storefront · Maryna Rak</title>
+<title>Roots Marketplace · Maryna Rak</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/roots.css">
 <script src="js/include.js" defer></script>
-<style>
-  .hero{padding:52px 0 40px;}
-  .hero-preview .ph{border-radius:16px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.15);}
-  .hero .label{color:var(--accent);font-weight:500;font-size:12px;}
-  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin-top:16px;max-width:18ch;}
-  .hero p.lead{margin-top:22px;font-size:clamp(17px,1.5vw,20px);color:var(--muted-foreground);max-width:58ch;line-height:1.55;}
-  .meta{margin:56px 0 0;}
-
-  .statusband{background:var(--ink);color:#fff;border-radius:16px;padding:48px 56px;margin:80px 0;}
-  .statusband .label{color:rgba(255,255,255,.55);}
-  .statusband p{font-size:clamp(18px,2vw,24px);line-height:1.5;margin-top:18px;max-width:60ch;font-weight:500;}
-  .statusband p span{color:var(--accent-italic);}
-
-  .imgph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:12px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:80px 20px;min-height:280px;}
- 
-  .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:12px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:60px 20px;min-height:220px;}
-
-  /* COMPETITIVE TABLE */
-  .compete{margin-top:36px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  .compete .crow{display:grid;grid-template-columns:130px 1fr;gap:0;border-bottom:1px solid var(--border);}
-  .compete .crow:last-child{border-bottom:none;}
-  .compete .chan{padding:22px 24px;background:var(--surface);font-weight:600;font-size:15px;border-right:1px solid var(--border);display:flex;align-items:center;}
-  .compete .pain{padding:22px 24px;font-size:14.5px;color:var(--muted-foreground);line-height:1.6;}
-
-  /* HMW */
-  .hmw{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  .hmwcard{border:1px solid var(--border);border-radius:12px;padding:24px 26px;}
-  .hmwcard .label{color:var(--accent);}
-  .hmwcard p{font-size:16px;font-weight:500;margin-top:12px;line-height:1.5;}
-
-  /* FEATURE GRID */
-  .feats{margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  .feat{padding:26px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .feat:nth-child(3n){border-right:none;}
-  .feat:nth-last-child(-n+3){border-bottom:none;}
-  .feat .label{color:var(--accent);}
-  .feat h4{font-size:16px;font-weight:600;margin-top:10px;}
-  .feat p{font-size:14px;color:var(--muted-foreground);margin-top:8px;line-height:1.55;}
-
-  @media(max-width:820px){
-    .feats{grid-template-columns:1fr;}
-    .feat{border-right:none;border-bottom:1px solid var(--border);}
-    .feat:last-child{border-bottom:none;}
-    .hmw{grid-template-columns:1fr;}
-  }
-  @media(max-width:600px){
-    .statusband{padding:40px 26px;}
-    .compete .crow{grid-template-columns:1fr;}
-    .compete .chan{border-right:none;border-bottom:1px solid var(--border);}
-  }
-</style>
 </head>
 <body>
 
 <div data-include="partials/header.html"></div>
 
-<header class="hero">
+<header class="cs-hero">
   <div class="wrap">
-    <span class="label">Roots Marketplace · CMS & Storefront</span>
-    <h1>A storefront for sellers who aren't developers.</h1>
-    <p class="lead"><strong style="color:var(--foreground)">Roots is a marketplace</strong> that lets small sellers set up a professional shop — and manage their catalog — without technical skills or the heavy fees of the platforms they're stuck with today.</p>
-  <a href="https://www.figma.com/design/kXI9ZTNdD0JRBoGGk81TWP/Portfolio---Maryna-R?node-id=30-49406" 
-  class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
+    <span class="label">Roots Marketplace</span>
+    <h1>A marketplace where seller tools and storefront stay in sync.</h1>
+    <p class="lead">Lead product design for an e‑commerce platform — a modular CMS where sellers manage listings, pricing, and inventory, and a storefront built on the same product data customers shop.</p>
+    <br />
+    <a href="https://www.figma.com/design/kXI9ZTNdD0JRBoGGk81TWP/Portfolio---Maryna-R?node-id=30-49406" 
+class="btn-primary" target="_blank" rel="noopener">Open projectin Figma →</a>
     <div class="hero-preview">
-      <img src="images/project-roots-1.png" alt="Roots Marketplace — storefront and seller CMS">
+      <img src="images/project-roots-1.png" alt="Roots Marketplace — seller CMS and customer storefront">
     </div>
-
     <div class="meta">
       <div><span class="label">Role</span><span class="val">Lead Product Designer</span></div>
-      <div><span class="label">Scope</span><span class="val">Seller CMS + customer storefront, end-to-end</span></div>
-      <div><span class="label">Surfaces</span><span class="val">Responsive web, light & dark</span></div>
-      <div><span class="label">Status</span><span class="val">Design complete · in development</span></div>
+      <div><span class="label">Scope</span><span class="val">Seller CMS + customer storefront</span></div>
+      <div><span class="label">Type</span><span class="val">E‑commerce marketplace</span></div>
+      <div><span class="label">Timeline</span><span class="val">2025 — 2026</span></div>
     </div>
   </div>
 </header>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
-    <span class="label kicker">The problem</span>
-    <h2>Every way to sell online has a catch.</h2>
-    <p class="body muted">Small sellers — especially in markets like Ukraine — are caught between options that each fail them in a different way. Social platforms are easy to start on but chaotic to run. Building your own site means technical work and SEO know-how. Established marketplaces charge steep fees and put up verification walls. None of them let a non-technical seller stand up a real, professional storefront quickly and affordably.</p>
+    <span class="label kicker" style="display:block">The challenge</span>
+    <h2>Two products that have to agree.</h2>
+    <p class="body muted">A marketplace is really two products wearing one coat. Sellers need a tool that makes listing fast and forgiving — variants, pricing, inventory, the messy reality of a catalogue. Customers need a storefront that's clean, trustworthy, and easy to shop. The hard part is that both sides read from the same product data: if the CMS lets a seller enter something the storefront can't show cleanly, the whole thing breaks down.</p>
+    <p class="body muted">My job was to design both halves so they stayed consistent — so what a seller types in one place shows up correctly, and predictably, in the place a customer buys it.</p>
   </div>
 </section>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
-    <span class="label kicker">Research</span>
-    <h2>Mapping how sellers actually sell.</h2>
-    <p class="body muted">I ran a competitive analysis across the four channels sellers use today — Instagram, their own website, Etsy, and Rozetka — tracing the full journey from setup to after-sale and pulling out the pain point at each stage. A clear pattern emerged: ease and structure are always traded off against each other, and fees or technical skill fill the gap.</p>
-
-    <div class="compete">
-      <div class="crow">
-        <div class="chan">Instagram</div>
-        <div class="pain">Easy to start and great reach, but no official shop, catalog, or cart. Inventory is manual, orders live in DMs, and there's no buyer protection or dispute system.</div>
-      </div>
-      <div class="crow">
-        <div class="chan">Own website</div>
-        <div class="pain">Full control, but choosing and running a CMS (WooCommerce, Shopify) demands technical setup, hosting costs, plugins, and SEO knowledge. Disputes handled manually.</div>
-      </div>
-      <div class="crow">
-        <div class="chan">Etsy</div>
-        <div class="pain">Built-in audience, but stacked fees (listing + transaction + processing), strict SEO competition, and mandatory verification walls that are slow for some sellers to clear.</div>
-      </div>
-      <div class="crow">
-        <div class="chan">Rozetka</div>
-        <div class="pain">Local reach, but bureaucratic onboarding, complex category mapping, high commissions, upfront balances, and little control over branding.</div>
-      </div>
-    </div>
-
-    <h3>The opportunity</h3>
-    <p class="body muted">There's a clear gap for a straightforward, locally-tailored platform where sellers can quickly set up a professional storefront without technical overhead or heavy fees — combining the ease of social-media selling with the robustness of a real e-commerce platform.</p>
-
-    <h3>How might we…</h3>
+    <span class="label kicker" style="display:block">Seller CMS</span>
+    <h2>Product creation, broken into calm pieces.</h2>
+    <p class="body muted">Instead of one enormous product form, I designed the CMS as modular sections — each handling one part of a listing. A seller builds a product step by step, and every field maps to something the storefront knows how to display.</p>
   </div>
   <div class="wrap">
-    <div class="hmw">
-      <div class="hmwcard"><span class="label">HMW 01</span><p>Let sellers add products without technical skills.</p></div>
-      <div class="hmwcard"><span class="label">HMW 02</span><p>Help small sellers create structured product catalogs.</p></div>
-      <div class="hmwcard"><span class="label">HMW 03</span><p>Reduce the time and cost of creating multiple listings.</p></div>
-      <div class="hmwcard"><span class="label">HMW 04</span><p>Reduce the friction of uploading and editing multiple items.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block">
-  <div class="wrap narrow">
-    <span class="label kicker">The solution</span>
-    <h2>Two halves that stay in sync.</h2>
-    <p class="body muted">Roots is built around two connected surfaces: a seller CMS for creating and managing products, and a customer storefront that renders that same product data into a polished shopping experience. The seller's inputs and the buyer's view are designed as one system, so what a seller fills in is exactly what a customer sees.</p>
-  </div>
-
-  <div class="wrap">
-    <div class="part">
-      <span class="tag">Part 1 · Seller CMS</span>
-      <h3>Adding a product, without the dread.</h3>
-      <p>The add-product flow guides sellers through one clear section at a time — what the product is, its category, media, price, inventory, and variants — with plain-language helper text at every step. Where the old tools assume expertise, this assumes none.</p>
+    <div class="modules">
+      <div class="mod"><span class="label">Module 01</span><h4>Listings</h4><p>Core product details — title, description, media — structured so the storefront renders them consistently.</p></div>
+      <div class="mod"><span class="label">Module 02</span><h4>Pricing</h4><p>Price, compare‑at, and currency handling, kept in one predictable place.</p></div>
+      <div class="mod"><span class="label">Module 03</span><h4>Inventory</h4><p>Stock tracking per item, so availability on the storefront reflects reality.</p></div>
+      <div class="mod"><span class="label">Module 04</span><h4>Variants</h4><p>Size, colour, and option combinations — the part most likely to get messy, made structured.</p></div>
+      <div class="mod"><span class="label">Module 05</span><h4>Organisation</h4><p>Categories and collections that drive how products are grouped and found.</p></div>
+      <div class="mod"><span class="label">Module 06</span><h4>Media</h4><p>Image handling designed so the storefront always has what it needs to look right.</p></div>
     </div>
     <figure>
-      <img src="images/project-roots-2.png" alt="Roots seller CMS — add product page">
-      <figcaption>Seller CMS · Add product</figcaption>
-    </figure>
-
-    <div class="feats">
-      <div class="feat"><span class="label">Guidance</span><h4>Plain-language sections</h4><p>Every block explains what to enter and why, so non-technical sellers always know what's expected.</p></div>
-      <div class="feat"><span class="label">AI assist</span><h4>Suggested category</h4><p>Category is suggested from the title and description — editable anytime — so catalogs stay structured without manual taxonomy work.</p></div>
-      <div class="feat"><span class="label">Variants</span><h4>Color, size & stock</h4><p>Manage options like color and size with their own price, inventory, and sale settings — without duplicating listings.</p></div>
-    </div>
-    <p class="body muted" style="margin-top:28px;max-width:64ch">Ideation also explored ways to scale this further — a spreadsheet-style batch-edit workspace, CSV import, autofill from a seller's past inputs, AI-assisted descriptions and image editing, instant preview, and auto-saving drafts — prioritized on an effort/impact matrix. A subscription model (rather than per-listing fees) was proposed to directly answer the cost pain point from research.</p>
-
-    <h3 style="margin-top:48px">The detailed flows</h3>
-    <p class="body muted" style="max-width:64ch">The full add-product and catalog-management flows, mapped end to end.</p>
-    <a href="https://www.figma.com/design/kXI9ZTNdD0JRBoGGk81TWP/Portfolio---Maryna-R?node-id=30-51670&t=tHLXBxP8pDMTiQGz-4" class="figma-link" target="_blank" rel="noopener">Open the flows in Figma →</a>
-    <figure>
-      <img src="images/project-roots-3.png" alt="Roots seller CMS — mapped add-variant flow">
-      <figcaption>Seller CMS · Detailed flows</figcaption>
-    </figure>
-  </div>
-
-  <div class="wrap">
-    <div class="part">
-      <span class="tag">Part 2 · Customer storefront</span>
-      <h3>The same data, made shoppable.</h3>
-      <p>The product page turns the seller's structured inputs into a clean, trustworthy buying experience — variants, pricing and savings, delivery estimates, reviews, and clear stock states — responsive across desktop and mobile.</p>
-    </div>
-    <figure>
-      <img src="images/project-roots-4.png" alt="Roots storefront — product page desktop">
-      <figcaption>Storefront · Product page (desktop)</figcaption>
-    </figure>
-    <figure style="max-width:380px;margin-left:auto;margin-right:auto">
-      <img src="images/project-roots-5.png" alt="Roots storefront — product page mobile">
-      <figcaption>Storefront · Product page (mobile)</figcaption>
+      <img src="images/project-roots-2.png" alt="The Roots seller CMS — modular product creation sections">
+      <figcaption>The seller CMS — modular sections for building a listing</figcaption>
     </figure>
   </div>
 </section>
 
-<div class="wrap">
-  <div class="reflect">
-    <span class="label">Reflection</span>
-    <h2>Designing the seller and the buyer as one system.</h2>
-    <p>The hardest part wasn't either screen on its own — it was keeping the seller's CMS and the customer's storefront in lockstep, so a structured input on one side always produced a coherent result on the other. Designing both halves together is what lets a non-technical seller produce a storefront that looks like it took a team. The design is complete and the product is now in development.</p>
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">Storefront</span>
+    <h2>The same data, made shoppable.</h2>
+    <p class="body muted">The storefront was designed against the CMS's data structures — so the product page a customer sees is a direct, clean expression of what the seller entered. No mismatches, no fields that exist in one place but not the other.</p>
   </div>
-</div>
+  <div class="wrap">
+    <figure>
+      <img src="images/project-roots-3.png" alt="The Roots customer storefront — product browsing and detail pages">
+      <figcaption>The storefront — built on the same product data</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">Keeping them in sync</span>
+    <h2>One source of truth, two experiences.</h2>
+    <p class="body muted">The core design principle: seller inputs and customer‑facing pages are two views of one product model. Designing them together — not as separate projects — is what keeps them consistent.</p>
+  </div>
+  <div class="wrap">
+    <div class="syncrow">
+      <div class="side">
+        <span class="label">Seller enters</span>
+        <h4>In the CMS</h4>
+        <ul><li>Listing details & media</li><li>Pricing & inventory</li><li>Variants & options</li><li>Categories & collections</li></ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="side">
+        <span class="label">Customer sees</span>
+        <h4>On the storefront</h4>
+        <ul><li>Product pages that render cleanly</li><li>Accurate price & availability</li><li>Selectable variants</li><li>Coherent browsing & categories</li></ul>
+      </div>
+    </div>
+    <figure>
+      <img src="images/project-roots-4.png" alt="Side-by-side of CMS fields and the storefront product page they map to">
+      <figcaption>CMS inputs mapped to the storefront customers shop</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block" data-reveal>
+  <div class="wrap">
+    <figure>
+      <img src="images/project-roots-5.png" style="width: auto;     margin: 0 auto;" alt="Additional Roots Marketplace screens across CMS and storefront">
+      <figcaption>More of the system across CMS and storefront</figcaption>
+    </figure>
+  </div>
+</section>
+
+
 
 <section class="next">
-  <div class="wrap"> 
-   <a href="projects.html">← Back to all projects</a>
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
   </div>
 </section>
 

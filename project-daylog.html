@@ -9,158 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/daylog.css">
 <script src="js/include.js" defer></script>
-<style>
-  /* DayLog-only: page accent + page-specific components. Shared tokens, base, nav, footer live in css/global.css */
-  :root{ --daylog: oklch(0.55 0.07 155); /* DayLog's calm green accent */ }
-
-  /* HERO */
-  .hero{padding:72px 0 0;}
-  .hero .label{color:var(--accent);font-weight:500;}
-  .hero h1{font-size:clamp(38px,5.6vw,68px);line-height:1.04;letter-spacing:-0.035em;font-weight:700;margin-top:18px;max-width:18ch;}
-  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
-  .hero .lede{margin-top:22px;font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:var(--muted-foreground);max-width:54ch;}
-  .hero .thesis{margin-top:30px;border-left:2px solid var(--daylog);padding:6px 0 6px 20px;font-size:clamp(17px,1.7vw,20px);font-style:italic;color:var(--foreground);max-width:52ch;}
-
-  /* THREE-PHONE PARALLAX HERO */
-  .stage{position:relative;margin:44px 0 8px;border-radius:22px;background:radial-gradient(120% 90% at 50% -10%, oklch(0.96 0.03 155 / .8), transparent 60%), var(--surface);border:1px solid var(--border);padding:54px 20px 40px;overflow:hidden;}
-  .phones{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:0;min-height:520px;}
-  .phone{position:relative;border-radius:34px;overflow:hidden;background:#fff;border:1px solid var(--border);box-shadow:0 30px 70px -24px rgba(20,30,55,0.32);will-change:transform;transition:transform .35s cubic-bezier(.2,.6,.2,1);}
-  .phone img{display:block;width:100%;height:auto;}
-  .phone.center{width:262px;z-index:3;margin:0 -26px 18px;}
-  .phone.side{width:226px;z-index:2;margin-bottom:0;opacity:.98;}
-  .phone.left{transform:rotate(-5deg) translateY(46px);}
-  .phone.right{transform:rotate(5deg) translateY(46px);}
-  @media(max-width:680px){
-    .phones{min-height:0;flex-direction:row;gap:0;}
-    .phone.center{width:200px;margin:0 -18px 12px;}
-    .phone.side{width:150px;}
-    .phone.left{transform:rotate(-5deg) translateY(30px);}
-    .phone.right{transform:rotate(5deg) translateY(30px);}
-  }
-  @media(max-width:460px){
-    .phone.side{display:none;}
-    .phone.center{width:230px;margin:0;}
-  }
-
-  /* META STRIP */
-  .meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:40px 0 0;}
-  .meta .cell{flex:1;min-width:180px;padding:22px 26px;border-right:1px solid var(--border);}
-  .meta .cell:last-child{border-right:none;}
-  .meta .cell .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);}
-  .meta .cell .v{font-size:15px;font-weight:600;margin-top:7px;letter-spacing:-0.01em;}
-
-  /* SECTIONS */
-  section.block{padding:64px 0;border-top:1px solid var(--border);margin-top:64px;}
-  section.block:first-of-type{border-top:none;margin-top:0;}
-  .block .eyebrow{display:flex;align-items:center;gap:10px;}
-  .block .eyebrow .num{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;}
-  .block h2{font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-0.025em;line-height:1.12;margin-top:14px;max-width:20ch;}
-  .block p.body{font-size:17px;color:var(--muted-foreground);margin-top:18px;line-height:1.7;max-width:62ch;}
-  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-
-  /* transform chips (problem) */
-  .transform{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:36px;max-width:680px;}
-  .chip{border-radius:14px;padding:18px 20px;font-size:15px;}
-  .chip.msg{background:var(--ink);color:#fff;border-radius:16px 16px 16px 4px;}
-  .chip.msg .mono{font-family:var(--font-mono);color:var(--accent);font-size:11px;display:block;margin-bottom:7px;letter-spacing:.1em;}
-  .chip.rec{background:#fff;border:1px solid var(--border);box-shadow:0 6px 24px rgba(20,30,55,0.06);}
-  .chip.rec .row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:14px;}
-  .chip.rec .row:last-child{border-bottom:none;font-weight:600;}
-  .chip .arrow,.transform .arrow{color:var(--accent);font-size:24px;font-weight:700;text-align:center;}
-
-  /* cards (discovery) */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px;}
-  .card .k{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;margin-bottom:12px;}
-  .card h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
-  .card p{font-size:14.5px;color:var(--muted-foreground);line-height:1.6;}
-
-  /* personas */
-  .personas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px;}
-  .persona{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;}
-  .persona .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:20px;display:inline-block;margin-bottom:14px;background:#fff;border:1px solid var(--border);color:var(--muted-foreground);}
-  .persona.primary .tag{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .persona h3{font-size:20px;font-weight:600;margin-bottom:2px;}
-  .persona .who{font-size:12px;color:var(--muted-foreground);margin-bottom:12px;font-family:var(--font-mono);}
-  .persona p{font-size:13.5px;color:var(--muted-foreground);line-height:1.55;}
-  .persona .pull{margin-top:14px;font-size:12.5px;color:var(--accent);font-weight:600;border-top:1px solid var(--border);padding-top:12px;}
-
-  /* insight callout */
-  .insight{background:var(--ink);color:#fff;border-radius:18px;padding:clamp(34px,5vw,60px);text-align:center;}
-  .insight .num{color:var(--accent-italic);font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;}
-  .insight h2{font-size:clamp(24px,3.8vw,40px);color:#fff;max-width:22ch;margin:16px auto 0;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
-  .insight h2 em{color:var(--accent-italic);font-style:italic;}
-  .insight p{color:rgba(255,255,255,.72);margin:20px auto 0;max-width:52ch;font-size:16px;}
-
-  /* spine + decisions */
-  .spine{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;}
-  .step{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;}
-  .step .s{font-family:var(--font-mono);font-size:11px;color:var(--accent);font-weight:500;letter-spacing:.1em;}
-  .step h3{font-size:18px;font-weight:600;margin:8px 0;}
-  .step p{font-size:14px;color:var(--muted-foreground);line-height:1.6;}
-  .step .role{margin-top:12px;font-size:11.5px;font-family:var(--font-mono);color:var(--muted-foreground);}
-  .decisions{margin-top:36px;display:grid;gap:0;border-top:1px solid var(--border);}
-  .decision{display:grid;grid-template-columns:54px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);align-items:baseline;}
-  .decision .d{font-family:var(--font-mono);color:var(--accent);font-size:14px;}
-  .decision h3{font-size:18px;font-weight:600;margin-bottom:5px;letter-spacing:-0.01em;}
-  .decision p{font-size:15px;color:var(--muted-foreground);line-height:1.65;}
-
-  /* SCREENS gallery */
-  .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;}
-  .device{border:1px solid var(--border);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 12px 44px rgba(20,30,55,0.10);}
-  .device img{width:100%;height:auto;display:block;}
-  .cap{margin-top:14px;}
-  .cap b{display:block;font-size:15px;font-weight:600;color:var(--foreground);margin-bottom:2px;}
-  .cap span{font-size:13.5px;color:var(--muted-foreground);}
-  .platform-tag{font-family:var(--font-mono);font-size:10.5px;color:var(--muted-foreground);margin-top:8px;display:inline-block;}
-
-  /* platform compare */
-  .compare{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px;max-width:680px; justify-content: center;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-  .compare + .compare{margin-top:48px;}
-  .pair-cap{grid-column:1 / -1;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);margin-top:4px;}
-  .compare .col .plat{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;}
-  .diffs{margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-  .diff{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
-  .diff h4{font-size:16px;font-weight:600;margin-bottom:6px;}
-  .diff p{font-size:13.5px;color:var(--muted-foreground);line-height:1.6;}
-  .diff .vs{font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-top:8px;}
-
-  /* what's next */
-  .next-list{margin-top:8px;display:grid;gap:12px;}
-  .next-item{display:flex;gap:14px;align-items:baseline;font-size:16px;color:var(--muted-foreground);line-height:1.6;}
-  .next-item .b{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;transform:translateY(-2px);}
-
-  /* contact close */
-  .contact{text-align:center;padding:70px 0 90px;border-top:1px solid var(--border);margin-top:64px;}
-  .contact .label{color:var(--accent);}
-  .contact h2{font-size:clamp(28px,3.6vw,46px);font-weight:700;letter-spacing:-0.03em;margin-top:16px;}
-  .contact .email{display:inline-block;margin-top:22px;font-size:clamp(17px,1.8vw,22px);color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:4px;}
-  .contact .email:hover{border-color:var(--accent);}
-
-  /* page-specific responsive */
-  @media(max-width:860px){.personas{grid-template-columns:1fr 1fr;}}
-  @media(max-width:760px){
-    .twocol{grid-template-columns:1fr;gap:28px;}
-    .cards,.spine{grid-template-columns:1fr;}
-    .frames{grid-template-columns:1fr 1fr;}
-    .compare{grid-template-columns:1fr;max-width:340px;margin-inline:auto;}
-    .diffs{grid-template-columns:1fr;}
-    .transform{grid-template-columns:1fr;}
-    .transform .arrow{transform:rotate(90deg);}
-  }
-  @media(max-width:520px){.personas{grid-template-columns:1fr;}.frames{grid-template-columns:1fr;max-width:300px;margin-inline:auto;}}
-
-  /* scroll reveal (safe: visible by default, JS arms it) */
-  .reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease;}
-  .reveal.armed{opacity:0;transform:translateY(16px);}
-  .reveal.armed.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.reveal,.reveal.armed{opacity:1;transform:none;transition:none;}}
-</style>
 </head>
 <body>
 
@@ -182,7 +32,7 @@
       </div>
     </div>
 
-    <div class="meta">
+    <div class="meta-strip">
       <div class="cell"><div class="k">Role</div><div class="v">Product &amp; UX Design</div></div>
       <div class="cell"><div class="k">Scope</div><div class="v">Discovery → first mockups</div></div>
       <div class="cell"><div class="k">Platform</div><div class="v"> iOS &amp; Android</div></div>
@@ -192,7 +42,7 @@
 </header>
 
 <!-- 01 PROBLEM -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap twocol">
     <div>
       <div class="eyebrow"><span class="num">01</span> <span class="label">The problem</span></div>
@@ -213,20 +63,20 @@
 </section>
 
 <!-- 02 DISCOVERY -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap">
     <div class="eyebrow"><span class="num">02</span> <span class="label">Discovery</span></div>
     <h2>What the research said.</h2>
     <div class="cards">
-      <div class="card"><div class="k">Finding 01</div><h3>AI chat is table stakes</h3><p>Describe-it or snap-a-photo logging is now the dominant pattern. The chat alone is no longer a differentiator — the field is crowded.</p></div>
-      <div class="card"><div class="k">Finding 02</div><h3>Trust is the #1 failure</h3><p>Every AI tracker gets the same complaint: wrong portions, missed ingredients, can't read a sandwich. Accuracy is where the category breaks.</p></div>
-      <div class="card"><div class="k">Finding 03</div><h3>Consistency &gt; precision</h3><p>The nutrition evidence is clear — reliable trends matter more than perfect numbers. Staying engaged beats getting every calorie exactly right.</p></div>
+      <div class="finding-card"><div class="k">Finding 01</div><h3>AI chat is table stakes</h3><p>Describe-it or snap-a-photo logging is now the dominant pattern. The chat alone is no longer a differentiator — the field is crowded.</p></div>
+      <div class="finding-card"><div class="k">Finding 02</div><h3>Trust is the #1 failure</h3><p>Every AI tracker gets the same complaint: wrong portions, missed ingredients, can't read a sandwich. Accuracy is where the category breaks.</p></div>
+      <div class="finding-card"><div class="k">Finding 03</div><h3>Consistency &gt; precision</h3><p>The nutrition evidence is clear — reliable trends matter more than perfect numbers. Staying engaged beats getting every calorie exactly right.</p></div>
     </div>
   </div>
 </section>
 
 <!-- 03 WHO -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap">
     <div class="eyebrow"><span class="num">03</span> <span class="label">Who it's for</span></div>
     <h2>One primary user — and three tensions to balance.</h2>
@@ -241,20 +91,20 @@
 
 
 <!-- 04 SPINE -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap">
     <div class="eyebrow"><span class="num">04</span> <span class="label">The spine</span></div>
     <h2>Three journeys that hold the product up.</h2>
     <div class="spine">
-      <div class="step"><div class="s">Win trust</div><h3>First log</h3><p>A skeptic types her first meal and gets a fast result she can sanity-check, item by item.</p><div class="role">The make-or-break moment</div></div>
-      <div class="step"><div class="s">Win retention</div><h3>Repeat meal</h3><p>The app learns her regulars and saves them — next time it's one tap, and exact.</p><div class="role">The differentiator: the library</div></div>
-      <div class="step"><div class="s">Survive mistakes</div><h3>AI got it wrong</h3><p>A number looks off; she taps the item and fixes it in seconds. The fix teaches the library.</p><div class="role">Trust through correctability</div></div>
+      <div class="spine-step"><div class="s">Win trust</div><h3>First log</h3><p>A skeptic types her first meal and gets a fast result she can sanity-check, item by item.</p><div class="role">The make-or-break moment</div></div>
+      <div class="spine-step"><div class="s">Win retention</div><h3>Repeat meal</h3><p>The app learns her regulars and saves them — next time it's one tap, and exact.</p><div class="role">The differentiator: the library</div></div>
+      <div class="spine-step"><div class="s">Survive mistakes</div><h3>AI got it wrong</h3><p>A number looks off; she taps the item and fixes it in seconds. The fix teaches the library.</p><div class="role">Trust through correctability</div></div>
     </div>
   </div>
 </section>
 
 <!-- 07 PLATFORMS -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap">
     <div class="eyebrow"><span class="num">05</span> <span class="label">Platforms</span></div>
     <h2>Screens, made to feel native on each.</h2> 
@@ -313,7 +163,7 @@
 </section>
 
 <!-- 08 WHAT'S NEXT -->
-<section class="block reveal">
+<section class="block ruled" data-reveal>
   <div class="wrap twocol">
     <div>
       <div class="eyebrow"><span class="num">07</span> <span class="label">What's next</span></div>
@@ -329,17 +179,13 @@
     </div>
   </div>
 </section>
+<section class="next">
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
+  </div>
+</section>
 
 <div data-include="partials/footer.html"></div>
-
-<script>
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window) || !els.length) return;
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.08});
-    els.forEach(function(el){ el.classList.add('armed'); io.observe(el); });
-  })();
-</script>
 
 <script>
 (function(){

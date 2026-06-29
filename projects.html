@@ -10,116 +10,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/global.css">
 <script src="js/include.js" defer></script>
-<style>
-  /* HERO */
-  .hero{padding:80px 0 20px;}
-  .hero .label{color:var(--accent);font-weight:500;}
-  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-0.035em;font-weight:700;margin-top:18px;}
-  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
-  .hero p.lead{margin-top:24px;font-size:clamp(18px,1.8vw,21px);line-height:1.6;color:var(--muted-foreground);max-width:56ch;}
-  .hero .figma{margin-top:28px;display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);padding:12px 22px;border-radius:999px;font-size:14px;transition:border-color .2s;}
-  .hero .figma:hover{border-color:var(--foreground);}
-
-  /* PROJECTS */
-  .projects{padding-bottom:40px;}
-
-  /* CLAUDE SKILLS SECTION */
-  .skills{background:var(--ink);color:#fff;border-radius:16px;padding:72px 64px;margin:60px 0 120px;}
-  .skills .label{color:rgba(255,255,255,.55);}
-  .skills h2{font-size:clamp(28px,3.2vw,42px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin-top:16px;color:#fff;}
-  .skills .intro{color:rgba(255,255,255,.8);font-size:17px;line-height:1.7;margin-top:20px;max-width:62ch;}
-  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px;}
-  .skill-card{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:30px 30px;}
-  .skill-card .label{color:var(--accent-italic);}
-  .skill-card h3{font-size:19px;font-weight:600;margin-top:12px;color:#fff;}
-  .skill-card p{font-size:14.5px;color:rgba(255,255,255,.74);margin-top:10px;line-height:1.6;}
-  .skills .inv-links{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
-  .skills .inv-links .note{font-size:14px;color:rgba(255,255,255,.7);margin-right:6px;}
-  .skills .inv-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:11px 18px;transition:all .2s;}
-  .skills .inv-links a:hover{background:#fff;color:var(--ink);}
-
-  @media(max-width:760px){
-    .hero{padding:48px 0 10px;}
-    .skills{padding:40px 26px;}
-    .skill-grid{grid-template-columns:1fr;}
-  }
-</style>
 </head>
 <body>
 
 <div data-include="partials/header.html"></div>
 
-<header class="hero">
+<header class="page-hero">
   <div class="wrap">
     <span class="label">Projects</span>
     <h1>The work, <span class="i">in full.</span></h1>
     <p class="lead">Support platforms, marketplaces,  and AI products — designed end to end. Each case study walks through the problem, the research, and the decisions behind the result.</p>
-   
 </header>
 
-<section class="projects">
+<section class="projects" data-reveal>
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" style="padding: 0px 0 16px">
       <span class="label">All projects</span>
     </div>
     <div class="grid">
       <article class="card">
          <div class="hero-preview">
-      <img src="images/project-pagecraft-1.png" alt="Pagecraft — turn a product URL into a conversion-ready page">
+      <a href="project-pagecraft.html" class="card-img-link" aria-label="View project"><img src="images/project-pagecraft-1.png" alt="Pagecraft — turn a product URL into a conversion-ready page"></a>
     </div>
         <h3>Pagecraft</h3>
         <p>A shipped AI product: paste a product URL and it reads the product, decides the angle, and generates a full, conversion-ready page in one pass — built in Lovable + Claude.</p>
         <div class="meta">
           <span class="label">SaaS • AI Product</span>
-          <a href="project-pagecraft.html" class="viewlink">View project →</a>
+          <a href="project-pagecraft.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
         </div>
       </article>
       <article class="card">
-         <div class="hero-preview">
-         <img src="images/daylog-cover.png" alt="DayLog — a simple app for tracking daily activities">
-        </div>
-        <h3>App DayLog</h3>
-        <p>DayLog — a simple app for tracking daily activities</p>
+        <div class="hero-preview">
+      <a href="project-design-system.html" class="card-img-link" aria-label="View project"><img src="images/project-design-system-1.png" alt="Ink Design System — color, typography, components, accessibility"></a>
+    </div>
+        <h3>Ink Design System</h3>
+        <p>A design system of foundations, components, and usage guidelines — built to prevent duplicated work, speed up the job, and keep accessibility consistent across every component.</p>
         <div class="meta">
-          <span class="label">App • AI</span>
-          <a href="project-daylog.html" class="viewlink">View project →</a>
+          <span class="label">Design System</span>
+          <a href="project-design-system.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
         </div>
+      </article>
+
+      <article class="card">
+      <div class="hero-preview">
+        <a href="project-daylog.html" class="card-img-link" aria-label="View project"><img src="images/daylog-cover.png" alt="DayLog — AI calorie tracker concept"></a>
+      </div>
+      <h3>DayLog</h3>
+      <p>An AI-assisted, calorie-first tracker designed for the people who keep starting calorie apps and quietly quitting them — built around trust and consistency over precision.</p>
+      <div class="meta">
+        <span class="label">Mobile • AI Concept</span>
+        <a href="project-daylog.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
+      </div>
       </article>
 
 
       <article class="card">
         <div class="hero-preview">
-      <img src="images/project-roots-1.png" alt="Roots Marketplace — storefront and seller CMS">
+      <a href="project-roots.html" class="card-img-link" aria-label="View project"><img src="images/project-roots-1.png" alt="Roots Marketplace — storefront and seller CMS"></a>
     </div>
         <h3>Roots Marketplace</h3>
         <p>An e‑commerce platform where seller tools and the customer storefront stay in sync — from a modular CMS for listings, pricing, and inventory to the storefront customers actually shop.</p>
         <div class="meta">
           <span class="label">E‑commerce • CMS + Storefront</span>
-          <a href="project-roots.html" class="viewlink">View project →</a>
+          <a href="project-roots.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
         </div>
       </article>
       <article class="card">
        <div class="hero-preview">
-      <img src="images/project-help-center-1.png" alt="Support Contact Flow — desktop and mobile">
+      <a href="project-help-center.html" class="card-img-link" aria-label="View project"><img src="images/project-help-center-1.png" alt="Support Contact Flow — desktop and mobile"></a>
     </div>
         <h3>Support Contact Flow</h3>
         <p>A guided support flow that helps players resolve issues before opening a ticket — cutting tickets by up to ~24% on a platform serving 2M+ players a year.</p>
         <div class="meta">
           <span class="label">Support Platform • 2M+ Users</span>
-          <a href="project-help-center.html" class="viewlink">View project →</a>
+          <a href="project-help-center.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
         </div>
       </article>
       <article class="card">
         <div class="hero-preview">
-      <img src="images/project-marginalia-1.png" alt="Marginalia — human-curated book discovery">
+      <a href="project-marginalia.html" class="card-img-link" aria-label="View project"><img src="images/project-marginalia-1.png" alt="Marginalia — human-curated book discovery"></a>
     </div>
         <h3>Marginalia</h3>
         <p>A concept for human-curated book discovery — enter by mood, follow real curators instead of an algorithm, and try a "blind date with a book" that sells you on a vibe before the cover.</p>
         <div class="meta">
           <span class="label">Concept • Discovery</span>
-          <a href="project-marginalia.html" class="viewlink">View project →</a>
+          <a href="project-marginalia.html" class="viewlink"><span class="u">View project</span> <span class="arr">→</span></a>
         </div>
       </article>
+      
     </div>
   </div>
 </section>

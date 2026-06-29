@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work · Maryna Rak — Product Designer & Web Designer</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  /* HERO */
+  .hero{padding:80px 0 30px;}
+  .hero .label{color:var(--accent);font-weight:500;}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;letter-spacing:-0.035em;font-weight:700;margin-top:18px;max-width:16ch;}
+  .hero h1 .i{font-style:italic;color:var(--accent-italic);}
+  .hero p.lead{margin-top:24px;font-size:clamp(18px,1.8vw,21px);line-height:1.6;color:var(--muted-foreground);max-width:56ch;}
+
+  /* CHOOSER */
+  .chooser{padding:30px 0 100px;}
+  .chooser .ask{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);margin-bottom:26px;display:block;}
+  .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .lane{
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 2px 8px -4px rgba(20,20,30,.14);
+    transition:box-shadow var(--motion-slow) var(--ease), transform var(--motion-base) var(--ease);
+  }
+  .lane:hover{box-shadow:0 22px 40px -16px rgba(20,20,30,.28);transform:translateY(-3px);}
+  .lane .img{
+    aspect-ratio:16/10;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .lane .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.8s var(--ease);}
+  .lane:hover .img img{transform:scale(1.06);}
+  .lane:hover .go{opacity:.65;}
+  .lane .img.peach{background:var(--tile-peach);}
+  .lane .img.blue{background:var(--tile-blue);}
+  .lane .img.mint{background:var(--tile-blue);}
+  .lane .img .ph{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.4);}
+  .lane .body{padding:30px 32px 30px;display:flex;flex-direction:column;flex:1;}
+  .lane .q{font-size:13px;font-family:var(--font-mono);letter-spacing:.04em;color:var(--accent);}
+  .lane h2{font-size:24px;font-weight:700;letter-spacing:-0.02em;margin-top:14px;line-height:1.1;}
+  .lane p{font-size:15px;color:var(--muted-foreground);margin-top:14px;line-height:1.6;flex:1;}
+  .lane .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
+  .lane .tags span{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);border:1px solid var(--border);border-radius:999px;padding:5px 11px;}
+  .lane .go{margin-top:24px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:7px;transition:opacity var(--motion-base) var(--ease);}
+
+  @media(max-width:1080px){
+    .lanes{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:680px){
+    .lanes{grid-template-columns:1fr;}
+  }
+  @media(max-width:760px){
+    .hero{padding:48px 0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Work</span>
+    <h1>What brings you <span class="i">here?</span></h1>
+    <p class="lead">I work in three ways, for three kinds of people. Pick the one that sounds like you — each leads to the right place.</p>
+  </div>
+</header>
+
+<section class="chooser">
+  <div class="wrap">
+    <span class="ask">Which one are you?</span>
+    <div class="lanes">
+
+      <a href="projects.html" class="lane">
+        <div class="img peach">
+          <img src="images/project-pagecraft-1.png" alt="Product design work" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=ph>Product design</span>')">
+        </div>
+        <div class="body">
+          <span class="q">“I'm hiring a product designer.”</span>
+          <h2>Product Design</h2>
+          <p>You're a company or team looking at my design work. End-to-end product design — SaaS, marketplaces, internal tools, and AI features — with the research and decisions behind each one.</p>
+          <div class="tags"><span>SaaS</span><span>UX Research</span><span>AI Products</span></div>
+          <span class="go"><span class="u">See product design</span> <span class="arr">→</span></span>
+        </div>
+      </a>
+
+       <a href="business-websites.html" class="lane">
+        <div class="img blue">
+          <img src="images/medevi-cover.png" alt="Website for a local business" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=ph>Business website</span>')">
+        </div>
+        <div class="body">
+          <span class="q">“I own a business and need a website.”</span>
+          <h2>Business Websites</h2>
+          <p>A salon, restaurant, practice, trade, or local service that needs a professional site — one that gets you found, looks the part, and brings in bookings and inquiries. Built on Webflow, WordPress, or Wix.</p>
+          <div class="tags"><span>Webflow</span><span>WordPress</span><span>Wix</span></div>
+          <span class="go"><span class="u">See business websites</span> <span class="arr">→</span></span>
+        </div>
+      </a>
+
+
+      <a href="online-stores.html" class="lane stores">
+        <div class="img mint">
+          <img src="images/project-marginalia-1.png" alt="Online store built on Shopify" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=ph>Online store</span>')">
+        </div>
+        <div class="body">
+          <span class="q">“I want to sell products online.”</span>
+          <h2>Online Stores</h2>
+          <p>You sell products — or want to start, including dropshipping. I build your store end to end on Shopify: catalog, checkout, payments, the lot. Custom design too, if you want it to stand out.</p>
+          <div class="tags"><span>Shopify</span><span>Dropshipping</span><span>End to end</span></div>
+          <span class="go"><span class="u">See online store work</span> <span class="arr">→</span></span>
+        </div>
+      </a>
+
+     
+      
+
+    </div>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

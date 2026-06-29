@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagecraft — URL to Conversion-Ready Product Page · Maryna Rak</title>
+<title>Pagecraft · Maryna Rak</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,206 +11,144 @@
 <link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="css/pagecraft.css">
 <script src="js/include.js" defer></script>
-<style>
-  .hero{padding:52px 0 40px;}
-  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin-top:16px;max-width:18ch;}
-  .hero p.lead{margin-top:22px;font-size:clamp(17px,1.5vw,20px);color:var(--muted-foreground);max-width:62ch;line-height:1.55;}
-  .hero p.lead strong{color:var(--foreground);}
-</style>
 </head>
 <body>
 
 <div data-include="partials/header.html"></div>
 
-<header class="hero">
+<header class="cs-hero">
   <div class="wrap">
-    <span class="label">SaaS · AI Product</span>
-    <h1>Turn a product URL into a page that <span class="i">sells</span>.</h1>
-    <p class="lead"><strong>Pagecraft reads any product, works out how to sell it, and generates a complete, conversion-ready product page in one pass</strong> — about 60 seconds, no copy-paste and no redo. It works especially well for dropshippers turning raw supplier specs into pages that actually sell.</p>
-
-    <a href="https://pagecraft-stage-1.lovable.app/" class="demo-btn">See prototype →</a>
-
+    <span class="label">Pagecraft · Shipped AI Product</span>
+    <h1>Paste a URL. Get a <span class="i">conversion-ready page.</span></h1>
+    <p class="lead">A shipped AI product I designed and built end to end: drop in a product URL, and Pagecraft reads the product, decides the angle, and generates a full landing page in one pass — built in Lovable with Claude and custom design-thinking skills I authored.</p>
+   <br />
+    <a href="https://pagecraft.lovable.app/" class="btn-primary" target="_blank" rel="noopener">Try the live product →</a>
     <div class="hero-preview">
-      <img src="images/project-pagecraft-1.png" alt="Pagecraft — turn a product URL into a conversion-ready page">
+      <img src="images/project-pagecraft-1.png" alt="Pagecraft — paste a product URL and generate a conversion-ready landing page">
     </div>
-
     <div class="meta">
-      <div><span class="label">Role</span><span class="val">Designer & builder</span></div>
-      <div><span class="label">Type</span><span class="val">SaaS · AI product</span></div>
-      <div><span class="label">Built with</span><span class="val">Lovable + Claude + custom skills</span></div>
-      <div><span class="label">Status</span><span class="val">Working MVP · private beta</span></div>
+      <div><span class="label">Role</span><span class="val">Designer & Builder — end to end</span></div>
+      <div><span class="label">Scope</span><span class="val">Product, UX, UI, prompt & skill design</span></div>
+      <div><span class="label">Built with</span><span class="val">Lovable, Claude, custom skills</span></div>
+      <div><span class="label">Status</span><span class="val">Shipped — live MVP</span></div>
     </div>
   </div>
 </header>
 
-<section class="block" id="prototype">
+<section class="block" data-reveal>
   <div class="wrap narrow">
-    <span class="label kicker">How it works</span>
-    <h2>Three steps, one pass.</h2>
+    <span class="label kicker" style="display:block">The problem</span>
+    <h2>A blank page is the slowest part.</h2>
+    <p class="body muted">Writing a product landing page means staring at an empty screen and making a hundred small decisions — what to lead with, which benefits matter, how to structure it, what tone to strike. Most AI page tools hand you a generic template and ask you to fill it in, which just moves the blank page around. I wanted something that did the actual thinking: read the product, decide the angle, and produce a page worth editing instead of a skeleton worth abandoning.</p>
+  </div>
+</section>
+
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">How it works</span>
+    <h2>One input, a full page out.</h2>
+    <p class="body muted">From the person's side it's a single step: paste a product URL. Behind that, Pagecraft does three things in sequence — and the design challenge was making something that complex feel like one calm action.</p>
   </div>
   <div class="wrap">
     <div class="hiw">
-      <div class="step"><span class="n">01</span><h4>Paste a URL or description</h4><p>Give Pagecraft a product URL, or describe the product with text and photos.</p></div>
-      <div class="step"><span class="n">02</span><h4>It runs the strategy analysis</h4><p>Pagecraft works out who the buyer is, what they want, and how to sell it.</p></div>
-      <div class="step"><span class="n">03</span><h4>The content is generated</h4><p>A full, conversion-ready page — every section, written to that strategy, copy-ready.</p></div>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="part">
-      <span class="tag">Step 1 · Product input</span>
-      <h3>Paste a URL, or describe the product.</h3>
-      <p>Give Pagecraft a product URL, or describe the product with text and photos. It reads the page and analyzes the product — no manual setup.</p>
+      <div class="step"><span class="n">01</span><h4>Reads the product</h4><p>It pulls and interprets the real product — what it is, who it's for, what makes it worth buying.</p></div>
+      <div class="step"><span class="n">02</span><h4>Decides the angle</h4><p>It chooses a positioning and structure rather than dropping content into a fixed template.</p></div>
+      <div class="step"><span class="n">03</span><h4>Generates the page</h4><p>It produces a full, conversion-ready landing page — hero, benefits, structure — in one pass.</p></div>
     </div>
     <figure>
-      <img src="images/project-pagecraft-2.png" alt="Pagecraft step 1 — start a product page by pasting a URL">
-      <figcaption>Step 1 · Start a product page</figcaption>
-    </figure>
-
-    <div class="part">
-      <span class="tag">Step 2 · Strategy</span>
-      <h3>It works out the angle for you.</h3>
-      <p>Pagecraft builds a buyer profile — motivation, awareness, objections — then picks the content angle that fits, scored in the same analysis pass. Every field is editable, or skip it and use the AI default. The strategy is decided <em>for</em> the user, not supplied by them.</p>
-    </div>
-    <figure>
-      <img src="images/project-pagecraft-3.png" alt="Pagecraft step 2 — strategy brief with buyer profile, objections, and ranked content angle">
-      <figcaption>Step 2 · Strategy brief — buyer profile, objections, and a ranked content angle</figcaption>
-    </figure>
-
-    <div class="part">
-      <span class="tag">Step 3 · Layout</span>
-      <h3>The right sections, in the right order.</h3>
-      <p>A layout is chosen to fit the product — section order fully editable, with industry presets (food, skincare, tools, apparel, services, SaaS, games, books) baked in. Skippable, and entirely in the user's hands.</p>
-    </div>
-    <figure>
-      <img src="images/project-pagecraft-4.png" alt="Pagecraft step 3 — choose a layout, editable section list with industry presets">
-      <figcaption>Step 3 · Choose a layout — editable sections, with industry presets</figcaption>
-    </figure>
-
-    <div class="part">
-      <span class="tag">Step 4 · Generate</span>
-      <h3>The full page, written to that angle.</h3>
-      <p>Every section is generated in order and written to the strategy — title and CTA, problem framing, benefits, features, specs, what's-in-the-box, how-to-use, FAQ, testimonials, guarantee, final CTA — plus SEO meta. Refine any section inline. The output is copy-ready.</p>
-    </div>
-    <figure>
-      <img src="images/project-pagecraft-5.png" alt="Pagecraft step 4 — generated content live preview, full product page">
-      <figcaption>Step 4 · Generated content — the full page, copy-ready</figcaption>
+      <img src="images/project-pagecraft-2.png" alt="The Pagecraft input — a single URL field — and the generated page output">
+      <figcaption>One input, a complete generated page</figcaption>
     </figure>
   </div>
+</section>
 
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">From raw URL to page</span>
+    <h2>What "decides the angle" actually means.</h2>
+    <p class="body muted">The difference between a template filler and Pagecraft is what happens between input and output. Instead of mapping fields, it interprets the product and commits to a way of selling it.</p>
+  </div>
   <div class="wrap">
-    <div class="part" style="margin-bottom:8px">
-      <span class="tag">Proof</span>
-      <h3>From a thin supplier line to a finished page.</h3>
-    </div>
     <div class="ba">
       <div class="before">
-        <span class="tag">Before · raw input</span>
-        <div class="raw">Ergonomic office seat cushion. High density memory foam. 18×14 in. Breathable mesh cover. Ships worldwide.</div>
+        <span class="tag">Input</span>
+        <div class="raw">A product URL — nothing more. No brief, no copy, no structure provided.</div>
       </div>
       <div class="after">
-        <span class="tag">After · one pass</span>
-        <img src="images/project-pagecraft-6.png" alt="Pagecraft generated output — a full structured product page with benefits, features, specs, FAQ, testimonials, guarantee and CTA">
-        <div class="cap">The complete generated page — every section, plus SEO and section-level AI refine</div>
+        <span class="tag">Output</span>
+        <img src="images/project-pagecraft-3.png" alt="A generated Pagecraft landing page with hero, benefits and structured sections">
+        <div class="cap">A complete page with a chosen angle and structure</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">Designing the system behind it</span>
+    <h2>The real design work was invisible.</h2>
+    <p class="body muted">The interface is deliberately minimal — the hard design happened in the layer most people never see: the skills and prompts that decide how the AI reads a product and structures a page. I authored custom design-thinking skills so the output reflects real positioning logic, not generic filler.</p>
+  </div>
+  <div class="wrap">
+    <div class="cols">
+      <div class="col"><span class="label">Layer 01</span><h4>The interface</h4><p>One URL field and a clear result. Everything kept out of the way so the product does the talking.</p></div>
+      <div class="col"><span class="label">Layer 02</span><h4>The skills</h4><p>Custom design-thinking skills that encode how to position a product and structure a page that converts.</p></div>
+      <div class="col"><span class="label">Layer 03</span><h4>The generation</h4><p>Claude + Lovable turning that logic into a real, editable page — reliably, in one pass.</p></div>
+    </div>
+    <figure>
+      <img src="images/project-pagecraft-4.png" alt="Behind the scenes — the skill and prompt structure that drives generation">
+      <figcaption>The design lives in the skills, not just the screen</figcaption>
+    </figure>
   </div>
 </section>
 
 <div class="wrap">
   <div class="position">
-    <span class="label">Positioning</span>
-    <p>Not "AI that writes product descriptions." Pagecraft is the whole workflow in one pass — it reads the product, decides the <b>angle</b>, and hands back a finished page.</p>
-    <p class="small">The competition gives you a faster way to generate a draft you still have to fix. Pagecraft gives you the finished thing.</p>
+    <span class="label">The point of view</span>
+    <p>Most AI tools hand you a <span>template to fill in.</span> Pagecraft makes the decision for you — and gives you something worth editing.</p>
+    <p class="small">That's the bet: the value isn't generating words, it's making the structural and positioning decisions that usually stall people before they start.</p>
   </div>
 </div>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
-    <span class="label kicker">Who it's for</span>
-    <h2>Built for people with a catalog and no time.</h2>
-  </div>
-  <div class="wrap">
-    <div class="cols">
-      <div class="col"><span class="label">Dropshippers</span><h4>Raw specs → real pages</h4><p>Turn AliExpress / Temu specs into proper pages, fast, across a lot of products.</p></div>
-      <div class="col"><span class="label">Solo founders</span><h4>No time to wrestle a chat tool</h4><p>Skip fighting a prompt into good copy for every single product.</p></div>
-      <div class="col"><span class="label">Growth-stage stores</span><h4>Dozens of SKUs, consistent</h4><p>Launch or re-platform without the per-product grind.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block">
-  <div class="wrap narrow">
-    <span class="label kicker">How it was built</span>
-    <h2>A real, shipped product.</h2>
-    <p class="body muted">Pagecraft is a working MVP, designed and built in Lovable. Claude helped build the content-writing skill behind it — the part that reads a product and writes each section to sell — which I shaped and refined for product pages.</p>
+    <span class="label kicker" style="display:block">Built, not just designed</span>
+    <h2>I shipped it myself.</h2>
+    <p class="body muted">This wasn't a mockup handed to engineering — I designed and built it in Lovable, wiring the skills, prompts, and interface into a working product that's live now. Designing and building it end to end meant every design decision was tested against whether it actually worked, not just whether it looked right.</p>
   </div>
   <div class="wrap">
     <div class="build">
-      <div class="buildcard"><span class="label">Platform</span><h4>Built in Lovable</h4><p>A full working MVP, designed and built end to end in the Lovable AI app builder.</p></div>
-      <div class="buildcard"><span class="label">Content engine</span><h4>Claude-built writing skill</h4><p>Claude helped me build the content-writing skill that reads the product and writes each section — refined for product-page copy.</p></div>
+      <div class="buildcard"><span class="label">Designed</span><h4>Product & experience</h4><p>The concept, the flow, the interface, and the positioning logic behind the output.</p></div>
+      <div class="buildcard"><span class="label">Built</span><h4>The working product</h4><p>Assembled in Lovable with Claude and my custom skills — shipped as a live MVP.</p></div>
     </div>
-
-    <div class="feats">
-      <div class="feat"><span class="dot">◆</span><span>Reads a product URL and works out the angle automatically</span></div>
-      <div class="feat"><span class="dot">◆</span><span>Generates the full page in one pass — all sections, in order</span></div>
-      <div class="feat"><span class="dot">◆</span><span>Industry presets, with an optional AI-generated custom layout</span></div>
-      <div class="feat"><span class="dot">◆</span><span>Inline section-level refinement to tweak one part</span></div>
-      <div class="feat"><span class="dot">◆</span><span>SEO included — meta title, description, keyword-aware copy</span></div>
-      <div class="feat"><span class="dot">◆</span><span>Copy-ready output, straight into the store</span></div>
-    </div>
+    <figure>
+      <img src="images/project-pagecraft-5.png" alt="The live Pagecraft product running in the browser">
+      <figcaption>The live product, running</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
-    <span class="label kicker">Roadmap</span>
-    <h2>Stage one of a bigger build.</h2>
-    <p class="body muted">Generating content that converts is the first stage. Pagecraft is designed to grow into the full workflow a store owner needs — here's where it's headed.</p>
+    <span class="label kicker" style="display:block">Where it's going</span>
+    <h2>Shipped as an MVP, still evolving.</h2>
+    <p class="body muted">The live version proves the core idea: a single URL in, a structured page out. From here, the roadmap is about depth — more control over the generated output, more refinement of the skills behind it.</p>
   </div>
   <div class="wrap">
     <div class="roadmap">
-      <div class="stage live">
-        <span class="sn">Stage 1</span>
-        <div class="sbody"><h4>Create content that converts</h4><p>The MVP — turn a product into a conversion-ready page. The prototype above is this stage.</p></div>
-        <span class="status">MVP · private beta</span>
-      </div>
-      <div class="stage">
-        <span class="sn">Stage 2</span>
-        <div class="sbody"><h4>Shopify integration</h4><p>Push generated pages straight into a Shopify store.</p></div>
-        <span class="status">Investigating</span>
-      </div>
-      <div class="stage">
-        <span class="sn">Stage 3</span>
-        <div class="sbody"><h4>Bulk edit</h4><p>Generate and edit across a whole catalog at once. The interface needs rework — not happy with it yet.</p></div>
-        <span class="status">In test</span>
-      </div>
-      <div class="stage">
-        <span class="sn">Stage 4</span>
-        <div class="sbody"><h4>Image extraction</h4><p>Pull product images automatically — a main painpoint for dropshippers. Working, but needs more testing before release.</p></div>
-        <span class="status">In test</span>
-      </div>
-      <div class="stage">
-        <span class="sn">Stage 5</span>
-        <div class="sbody"><h4>Image editing</h4><p>Edit images based on what converts — not just dropping them on a background. Resource-heavy; needs more mapping and use cases.</p></div>
-        <span class="status">Exploring</span>
-      </div>
-      <div class="stage">
-        <span class="sn">Stage 6</span>
-        <div class="sbody"><h4>Page content & design</h4><p>Generate the full page design, not just the content. Early — let's see.</p></div>
-        <span class="status">Exploring</span>
-      </div>
+      <div class="stage live"><span class="sn">Live</span><div class="sbody"><h4>MVP — URL to page</h4><p>Paste a URL, get a full conversion-ready page generated in one pass. Available now.</p></div><span class="status">Shipped</span></div>
+      <div class="stage"><span class="sn">Next</span><div class="sbody"><h4>More output control</h4><p>Finer control over tone, structure, and sections of the generated page.</p></div><span class="status">Planned</span></div>
+      <div class="stage"><span class="sn">Later</span><div class="sbody"><h4>Deeper skill refinement</h4><p>Sharper positioning logic as the design-thinking skills behind it mature.</p></div><span class="status">Exploring</span></div>
     </div>
   </div>
 </section>
 
 
 <section class="next">
-  <div class="wrap"> 
-   <a href="projects.html">← Back to all projects</a>
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
   </div>
 </section>
-
-
 <div data-include="partials/footer.html"></div>
 
 </body>

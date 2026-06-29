@@ -9,107 +9,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/help-center.css">
 <script src="js/include.js" defer></script>
-<style>
-  /* HERO */
-  .hero{padding:52px 0 40px;}
-  .hero-preview .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:16px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:60px 20px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.15);}
-  .hero .label{color:var(--accent);}
-  .hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin-top:16px;max-width:18ch;}
-  .hero p.lead{margin-top:22px;font-size:clamp(17px,1.5vw,20px);color:var(--muted-foreground);max-width:60ch;line-height:1.55;}
-
-  /* OUTCOME STRIP */
-  .outcome{background:var(--ink);color:#fff;border-radius:16px;padding:56px 56px;margin:80px 0;}
-  .outcome .label{color:rgba(255,255,255,.55);}
-  .out-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;margin-top:36px;max-width:720px;}
-  .out-grid .big{font-size:clamp(40px,5vw,60px);font-weight:700;letter-spacing:-0.03em;}
-  .out-grid .big .approx{font-size:.5em;color:var(--accent-italic);vertical-align:super;font-weight:500;}
-  .out-grid p{font-size:14px;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.55;}
-
-  /* PROBLEM LIST */
-  .problems{margin-top:36px;display:grid;gap:18px;}
-  .prob{border:1px solid var(--border);border-radius:12px;padding:26px 28px;}
-  .prob .label{color:var(--accent);}
-  .prob h4{font-size:17px;font-weight:600;margin-top:12px;}
-  .prob p{font-size:15px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
-
-  /* DATA TABLE */
-  .data{margin-top:36px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  .data .row{display:grid;grid-template-columns:1fr auto 110px;gap:20px;align-items:center;padding:16px 24px;border-bottom:1px solid var(--border);}
-  .data .row:last-child{border-bottom:none;}
-  .data .row.head{background:var(--surface);}
-  .data .row.head span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);}
-  .data .scn{font-size:15px;font-weight:500;}
-  .data .score{font-family:var(--font-mono);font-size:14px;color:var(--accent);}
-  .data .bar{display:flex;height:10px;border-radius:6px;overflow:hidden;background:var(--surface);}
-  .data .bar .s{background:oklch(0.78 0.13 155);}
-  .data .bar .a{background:oklch(0.85 0.13 85);}
-  .data .bar .f{background:oklch(0.8 0.11 25);}
-
-  /* STEPS */
-  .steps{margin-top:40px;display:grid;gap:56px;}
-  .stepfig{display:grid;grid-template-columns:60% 1fr;gap:36px;align-items:center;}
-  .stepfig .num{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
-  .stepfig h4{font-size:22px;font-weight:600;margin-top:10px;letter-spacing:-0.01em;}
-  .stepfig p{font-size:16px;color:var(--muted-foreground);margin-top:12px;line-height:1.65;}
-  .stepfig img{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;}
-  .stepfig .txt{align-self:center;}
-
-  /* MODES & LAYOUTS SHOWCASE */
-  .showcase{margin-top:44px;}
-  .showcase .themes{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
-  .showcase .themes figure{margin:0;}
-  .showcase .themes img{aspect-ratio:2880/2658;object-fit:cover;object-position:top;}
-  .showcase .layouts{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
-  .showcase .layouts .pair{display:block;border:1px solid var(--border);border-radius:12px;padding:28px;overflow:hidden;}
-  .showcase .layouts .pair.light{background:rgb(229,229,229);}
-  .showcase .layouts .pair.dark{background:rgb(12,12,12);border-color:rgb(12,12,12);}
-  .showcase .layouts .pair img{display:block;margin:0 auto;width:62%;max-width:240px;height:auto;border-radius:10px;}
-  .showcase figcaption{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin-top:14px;text-align:center;}
-  .showcase .layouts .pair.dark figcaption{color:rgba(255,255,255,.6);}
-  .showcase .layouts .pair.light figcaption{color:oklch(0.4 0.02 260);}
-  .showcase .mob-cap{margin-top:4px;}
-
-  /* SOLUTION PILLARS */
-  .pillars{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-  .pillar{padding:30px 26px;border-right:1px solid var(--border);}
-  .pillar:last-child{border-right:none;}
-  .pillar .label{color:var(--accent);}
-  .pillar h4{font-size:16px;font-weight:600;margin-top:12px;}
-  .pillar p{font-size:14px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
-
-  .confirm{background:oklch(0.96 0.05 95);border:1px solid oklch(0.8 0.1 95);border-radius:8px;padding:3px 8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.45 0.12 70);}
-
-  @media(max-width:820px){
-    .out-grid{grid-template-columns:1fr;gap:28px;}
-    .pillars{grid-template-columns:1fr 1fr;}
-    .pillar:nth-child(2){border-right:none;}
-    .pillar:nth-child(1),.pillar:nth-child(2){border-bottom:1px solid var(--border);}
-    .stepfig{grid-template-columns:1fr;gap:20px;}
-  }
-  @media(max-width:600px){
-    .data .row{grid-template-columns:1fr auto;}
-    .data .bar{display:none;}
-    .outcome{padding:40px 26px;}
-    .pillars{grid-template-columns:1fr;}
-    .pillar{border-right:none !important;border-bottom:1px solid var(--border) !important;}
-    .pillar:last-child{border-bottom:none !important;}
-    .showcase .themes{grid-template-columns:1fr;}
-    .showcase .layouts{grid-template-columns:1fr;}
-  }
-</style>
 </head>
 <body>
 
 <div data-include="partials/header.html"></div>
 
-<header class="hero">
+<header class="cs-hero">
   <div class="wrap">
     <span class="label">Contact Agent feature</span>
     <h1>Helping players before they open a ticket.</h1>
     <p class="lead">A redesign of the player support contact flow — turning a single overwhelming page into a guided path that resolves issues earlier and routes the rest more cleanly.</p>
-<a href="https://www.figma.com/design/kXI9ZTNdD0JRBoGGk81TWP/Portfolio---Maryna-R?node-id=22-7232" 
-class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
+<br />
+    <a href="https://www.figma.com/design/kXI9ZTNdD0JRBoGGk81TWP/Portfolio---Maryna-R?node-id=22-7232" 
+class="btn-primary" target="_blank" rel="noopener">Open project in Figma →</a>
     <div class="hero-preview">
       <img src="images/project-help-center-1.png" alt="Support Contact Flow — desktop and mobile">
     </div>
@@ -139,7 +53,7 @@ class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
   </div>
 </div>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
     <span class="label kicker" style="display:block">The problem</span>
     <h2>One long page that asked before it helped.</h2>
@@ -154,7 +68,7 @@ class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
   </div>
 </section>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
     <span class="label kicker" style="display:block">Research</span>
     <h2>Testing the real flow against real scenarios.</h2>
@@ -197,7 +111,7 @@ class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
   </div>
 </section>
 
-<section class="block">
+<section class="block" data-reveal>
   <div class="wrap narrow">
     <span class="label kicker" style="display:block">The solution</span>
     <h2>A guided flow that helps before it asks.</h2>
@@ -261,7 +175,7 @@ class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
     <p class="body muted">How the four steps move a player from problem to resolution.</p>
   </div>
   <div class="wrap">
-    <div class="steps">
+    <div class="flow-steps">
       <div class="stepfig">
         <img src="images/project-help-center-3.png" alt="Step 1 — choosing a game, service, or problem type">
         <div class="txt">
@@ -298,20 +212,13 @@ class="figma-link" target="_blank" rel="noopener">Open projectin Figma →</a>
   </div>
 </section>
 
-<div class="wrap">
-  <div class="reflect">
-    <span class="label">Reflection</span>
-    <h2>The fix wasn't visual — it was structural.</h2>
-    <p>The original page wasn't failing because it looked dated; it was failing because it asked players to commit to a ticket before it ever tried to help them. Reframing it as a guided path — with an active AI step standing between the problem and the ticket — is what moved the numbers. The lesson I carry forward: deflection is a design problem, not just a content one. Where help sits in a flow matters as much as what it says.</p>
-  </div>
-</div>
+
 
 <section class="next">
-  <div class="wrap"> 
-   <a href="projects.html">← Back to all projects</a>
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
   </div>
 </section>
-
 
 <div data-include="partials/footer.html"></div>
 

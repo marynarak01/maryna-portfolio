@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ink Design System · Maryna Rak</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/design-system.css">
+<script src="js/include.js" defer></script>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Design System</span>
+    <h1>Ink. <span class="i">Design System</span></h1>
+    <p class="lead">A system of foundations, components, and usage guidelines — built to prevent duplicated work, speed up the job, and keep accessibility consistent across every component.</p>
+
+    <div class="btn-my-wrap">
+      <a href="showcase/ink-ds-sample.html" class="btn-primary" target="_blank" rel="noopener">View the documentation 🡥</a>
+      <a href="showcase/ink-ds-demo.html" class="btn-secondary" target="_blank" rel="noopener">Example page 🡥</a>
+    </div>
+
+    <div class="hero-preview">
+      <img src="images/project-design-system-1.png" alt="Ink Design System — overview of color, typography, components, and accessibility">
+    </div>
+
+    <div class="meta">
+      <div><span class="label">Role</span><span class="val">Product Designer · independent</span></div> 
+      <div><span class="label">Scope</span><span class="val">Foundations, components, documentation</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- GOALS -->
+  <section class="ds-goals" data-reveal>
+    <h2>Goals.</h2>
+    <ul>
+      <li>Prevent designers from duplicating or rebuilding the same components.</li>
+      <li>Speed up design execution by giving teams ready, consistent building blocks.</li>
+      <li>Ensure accessibility in every component, with proper contrast and keyboard-navigation rules built in.</li>
+      <li>Keep working with development to build the components properly, with the documentation as the source of truth.</li>
+      <li>Gather feedback from the people using it — designers first — to keep improving the system.</li>
+    </ul>
+  </section>
+
+  <!-- FOUNDATIONS -->
+  <section class="ds-sec" data-reveal>
+    <h2 class="ds-title">Foundations.</h2>
+    <p class="ds-intro">The foundations keep the product visually consistent and let designers work from one shared source instead of rebuilding the same things.</p>
+
+    <!-- Color — guidelines (media left) -->
+    <div class="ds-row">
+      <figure class="ds-media">
+        <img src="images/project-design-system-2.png" alt="Color guidelines — primitive swatches and a light/dark semantic token table">
+        <figcaption>Color guidelines</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Color</span>
+        <h3>Defined colour roles.</h3>
+        <p>Ink leads, blue carries actions and links, clay is the one warm accent. Documented as roles, with primitives and semantic tokens defined for both light and dark themes — so colour stays consistent wherever it's used.</p>
+      </div>
+    </div>
+
+    <!-- Color — Figma (media right) -->
+    <div class="ds-row flip">
+      <figure class="ds-media">
+        <img src="images/project-design-system-3.png" alt="The same color tokens as Figma variables — primitive and semantic collections">
+        <figcaption>The same tokens as Figma variables</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Color · in Figma</span>
+        <h3>Colour, built into Figma.</h3>
+        <p>The same primitives and semantic tokens live in Figma as variables — so the system isn't just drawn, it's set up and ready to use.</p>
+      </div>
+    </div>
+
+    <!-- Typography (media left) -->
+    <div class="ds-row">
+      <figure class="ds-media">
+        <img src="images/project-design-system-4.png" alt="Typography — three typefaces and the type scale">
+        <figcaption>Typefaces and scale</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Typography</span>
+        <h3>Three typefaces, one feel.</h3>
+        <p>Built around three typefaces that give the system its character and keep the page editorial and readable — Fraunces for headings, Inter for body and UI, JetBrains Mono for data and code, on one shared scale.</p>
+      </div>
+    </div>
+
+   
+
+  <!-- COMPONENTS -->
+  <section class="ds-sec" data-reveal>
+    <h2 class="ds-title">Components.</h2>
+    <p class="ds-intro">Each component is built with defined sizes, states, and accessibility, so it stays consistent everywhere it's used. For each one, the anatomy and usage are documented.</p>
+
+    <!-- Buttons — anatomy & usage (media left) -->
+    <div class="ds-row">
+      <figure class="ds-media">
+        <img src="images/project-design-system-5.png" alt="Button anatomy and usage — one primary action per view, with a do and don't example">
+        <figcaption>Buttons · anatomy and usage</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Buttons · anatomy</span>
+        <h3>Button anatomy, and how to use it.</h3>
+        <p>Each component is presented with its anatomy and a usage note — for buttons, one primary action per view, shown with a correct and an incorrect example.</p>
+      </div>
+    </div>
+
+    <!-- Buttons — variants & sizes (media right) -->
+    <div class="ds-row flip">
+      <figure class="ds-media">
+        <img src="images/project-design-system-6.png" alt="Button variants and sizes">
+        <figcaption>Buttons · variants and sizes</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Buttons · variants</span>
+        <h3>Four button variants, three sizes.</h3>
+        <p>The system presents four button variants across three sizes, every value bound to a token so a button looks and behaves the same wherever it appears.</p>
+        <a href="#" class="ds-inlinelink" target="_blank" rel="noopener">See the button guidelines →</a>
+      </div>
+    </div>
+
+    <!-- Inputs (media left) -->
+    <div class="ds-row">
+      <figure class="ds-media">
+        <img src="images/project-design-system-7.png" alt="Text input states — default, hover, focus by pointer and keyboard, typing, pressed, disabled">
+        <figcaption>Inputs · states</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">Inputs</span>
+        <h3>Inputs — the most complex element.</h3>
+        <p>The input is probably the most complex element in the system — one anatomy carrying many states, all carefully documented: default, hover, focus by pointer, focus by keyboard, typing, pressed, and disabled.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSIBILITY -->
+  <section class="ds-sec" data-reveal>
+    <h2 class="ds-title">Accessibility.</h2>
+
+    <div class="ds-row">
+      <figure class="ds-media">
+        <img src="images/project-design-system-8.png" alt="Accessibility — contrast-ratio table with named token pairs and AA/AAA levels">
+        <figcaption>Contrast ratios · named token pairs</figcaption>
+      </figure>
+      <div class="ds-text">
+        <span class="eyebrow">WCAG AA</span>
+        <h3>Checked on every element.</h3>
+        <p>Contrast, font sizes, and spacing were checked for accessibility on every element — contrast as named token pairs, so it passes by default rather than being decided screen by screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTION EXPERIMENT (not part of the DS) -->
+  <section class="ds-burst">
+    <div class="b-inner">
+      <span class="label">The system</span>
+      <h2>Everything radiates <span class="i">from the core.</span></h2>
+      <p class="b-intro">Raw tokens sit at the centre. Components orbit the edge. Each ray is a real dependency — hover a part to trace exactly what it's built from.</p>
+    </div>
+    <div class="b-stage">
+      <canvas id="cv"></canvas>
+      <div class="b-legend">
+        <span>PS — not part of the design system, just playing around with motion :)</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="next">
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+<script>
+(function(){
+const cv=document.getElementById('cv');if(!cv)return;
+const ctx=cv.getContext('2d'),stage=cv.parentElement;
+let W,H,DPR,cssW,cssH;
+function resize(){DPR=Math.min(devicePixelRatio||1,2);const r=stage.getBoundingClientRect();
+  cssW=r.width;cssH=r.height;W=cv.width=cssW*DPR;H=cv.height=cssH*DPR;layout();}
+addEventListener('resize',resize);
+const GRAPH=[
+  {id:'color', label:'Color',     tier:0, deps:[]},
+  {id:'type',  label:'Type',      tier:0, deps:[]},
+  {id:'space', label:'Space',     tier:0, deps:[]},
+  {id:'radius',label:'Radius',    tier:0, deps:[]},
+  {id:'grid',  label:'Grid',      tier:1, deps:['space']},
+  {id:'elev',  label:'Elevation', tier:1, deps:['color','space']},
+  {id:'text',  label:'Text',      tier:1, deps:['type','color']},
+  {id:'button',label:'Button',    tier:2, deps:['color','type','space','radius']},
+  {id:'input', label:'Input',     tier:2, deps:['color','text','space','radius']},
+  {id:'card',  label:'Card',      tier:2, deps:['elev','color','radius','space']},
+  {id:'nav',   label:'Nav',       tier:2, deps:['text','space','color']},
+  {id:'badge', label:'Badge',     tier:2, deps:['color','type','radius']},
+  {id:'modal', label:'Modal',     tier:2, deps:['elev','color','space','radius']},
+];
+const byId=Object.fromEntries(GRAPH.map(n=>[n.id,n]));
+const EDGES=[];GRAPH.forEach(n=>n.deps.forEach(d=>EDGES.push([n.id,d])));
+const RING={0:0.10,1:0.22,2:0.40};
+let nodes={};
+function layout(){
+  nodes={};const tiers={0:[],1:[],2:[]};
+  GRAPH.forEach(n=>tiers[n.tier].push(n));
+  for(const tier in tiers){const list=tiers[tier];
+    list.forEach((n,i)=>{const a=(i/list.length)*Math.PI*2+(tier*0.7);
+      nodes[n.id]={...n,ang:a,ring:RING[tier],
+        spin:(tier==0?0.04:(tier==1?0.05:0.03))*(tier==2?-1:1),
+        ph:Math.random()*6.28,amp:tier==0?9:10,r:tier==2?4.5:(tier==1?4:3.6),x:0,y:0,ox:0,oy:0};
+    });
+  }
+}
+resize();
+let mx=-9999,my=-9999,hm=false,hover=null;
+stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;hm=true;});
+stage.addEventListener('pointerleave',()=>{hm=false;hover=null;});
+function chainOf(id){const set=new Set(),edges=new Set();
+  (function walk(x){byId[x].deps.forEach(d=>{edges.add(x+'>'+d);if(!set.has(d)){set.add(d);walk(d);}});})(id);
+  set.add(id);return {nodes:set,edges};}
+let t=0;
+function frame(){
+  t+=0.016;ctx.clearRect(0,0,W,H);ctx.lineCap='round';
+  const ccx=cssW*0.5,ccy=cssH*0.52,base=Math.min(cssW,cssH);
+  const PULL=360,MAXOFF=180;
+  for(const id in nodes){const n=nodes[id];
+    const a=n.ang+t*n.spin;const rad=n.ring*base+Math.sin(t*0.6+n.ph)*n.amp;
+    const baseX=ccx+Math.cos(a)*rad;const baseY=ccy+Math.sin(a)*rad*0.78;
+    let tox=0,toy=0;
+    if(hm){const dx=mx-baseX,dy=my-baseY,d=Math.hypot(dx,dy);
+      if(d<PULL){const k=1-d/PULL;const strength=k*k*(3-2*k);const reach=Math.min(d,MAXOFF*strength);
+        tox=dx/(d||1)*reach;toy=dy/(d||1)*reach;}}
+    n.ox+=(tox-n.ox)*0.09;n.oy+=(toy-n.oy)*0.09;n.x=baseX+n.ox;n.y=baseY+n.oy;
+  }
+  hover=null;let best=30;
+  for(const id in nodes){const n=nodes[id];const d=Math.hypot(mx-n.x,my-n.y);if(d<best){best=d;hover=id;}}
+  const ch=hover?chainOf(hover):null;
+  for(const [a,b] of EDGES){const na=nodes[a],nb=nodes[b];
+    const active=ch&&ch.edges.has(a+'>'+b);const dim=ch&&!active;
+    if(active){ctx.strokeStyle='rgba(216,138,92,0.85)';ctx.lineWidth=0.9*DPR;}
+    else{ctx.strokeStyle=dim?'rgba(60,58,68,0.06)':'rgba(60,58,68,0.20)';ctx.lineWidth=0.6*DPR;}
+    ctx.beginPath();ctx.moveTo(na.x*DPR,na.y*DPR);ctx.lineTo(nb.x*DPR,nb.y*DPR);ctx.stroke();
+  }
+  const NEUTRAL='120,116,132',ORANGE='216,138,92';
+  for(const id in nodes){const n=nodes[id];
+    const inChain=ch&&ch.nodes.has(id);const dim=ch&&!inChain;
+    const col=inChain?ORANGE:NEUTRAL;ctx.globalAlpha=dim?0.3:1;ctx.fillStyle='rgba('+col+',1)';
+    ctx.beginPath();ctx.arc(n.x*DPR,n.y*DPR,(id===hover?n.r+1.2:n.r)*DPR,0,6.28);ctx.fill();
+    if(id===hover){ctx.strokeStyle='rgba(216,138,92,0.45)';ctx.lineWidth=1*DPR;
+      ctx.beginPath();ctx.arc(n.x*DPR,n.y*DPR,(n.r+4.5)*DPR,0,6.28);ctx.stroke();}
+    if(inChain){ctx.font='500 '+(11*DPR)+'px JetBrains Mono, monospace';
+      ctx.fillStyle=id===hover?'rgba(180,104,58,0.95)':'rgba(60,58,68,0.7)';
+      ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(n.label,n.x*DPR,(n.y+n.r+5)*DPR);}
+    ctx.globalAlpha=1;
+  }
+  requestAnimationFrame(frame);
+}
+frame();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Stores · Shopify Stores — Maryna Rak</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<script src="js/include.js" defer></script>
+<style>
+  /* accent for this page = site blue (default) */
+  .hero{padding:80px 0 40px;}
+  .hero .label{color:var(--accent);font-weight:500;}
+  .hero h1{font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-0.035em;font-weight:700;margin-top:18px;max-width:18ch;}
+  .hero p.lead{margin-top:24px;font-size:clamp(18px,1.7vw,21px);line-height:1.6;color:var(--muted-foreground);max-width:62ch;}
+  .hero p.lead strong{color:var(--foreground);}
+  .hero .byline{margin-top:18px;font-size:15px;color:var(--muted-foreground);max-width:56ch;line-height:1.6;font-style:italic;}
+  .hero .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .hero .btn-store{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500;transition:opacity .2s;}
+  .hero .btn-store:hover{opacity:.9;color:#fff;}
+  .hero .trust{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;}
+  .hero .trust span{border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);}
+
+  .hero-preview{margin-top:44px;}
+  .hero-preview img{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:16px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.25);}
+  .hero-preview .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px dashed oklch(0.8 0.01 260);border-radius:16px;color:var(--muted-foreground);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:70px 20px;box-shadow:0 30px 60px -20px rgba(20,20,30,0.15);}
+
+  section.block{padding:54px 0;}
+  .block h2{font-size:clamp(28px,3.2vw,40px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;}
+  .block p.body{font-size:17px;color:var(--muted-foreground);margin-top:20px;line-height:1.7;max-width:64ch;}
+  .kicker{margin-bottom:18px;display:block;color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+
+  /* INTRO BAND — two column to break rhythm */
+  .intro-band{padding:10px 0 40px;}
+  .intro-band .inner{border-top:1px solid var(--border);padding-top:40px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;}
+  .intro-band h2{font-size:clamp(24px,2.6vw,32px);font-weight:700;letter-spacing:-0.02em;line-height:1.2;max-width:20ch;}
+  .intro-band p{font-size:17px;color:var(--muted-foreground);margin-top:20px;line-height:1.7;}
+  .intro-band .glance{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 30px;}
+  .intro-band .glance .label{color:var(--accent);}
+  .intro-band .glance ul{list-style:none;margin-top:16px;display:grid;gap:12px;padding:0;}
+  .intro-band .glance li{font-size:14.5px;color:var(--foreground);padding-left:20px;position:relative;line-height:1.5;}
+  .intro-band .glance li::before{content:"→";position:absolute;left:0;color:var(--accent);}
+
+  /* WHAT YOU GET — proper titled section */
+  .gets{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;}
+  .get{border:1px solid var(--border);border-radius:12px;padding:26px 28px;}
+  .get h4{font-size:17px;font-weight:600;letter-spacing:-0.01em;}
+  .get p{font-size:14.5px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
+
+  /* PROCESS */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px;}
+  .pstep{border:1px solid var(--border);border-radius:12px;padding:28px 26px;}
+  .pstep .n{font-family:var(--font-mono);font-size:12px;color:var(--accent);}
+  .pstep h4{font-size:16px;font-weight:600;margin-top:14px;letter-spacing:-0.01em;}
+  .pstep p{font-size:14px;color:var(--muted-foreground);margin-top:10px;line-height:1.6;}
+
+  /* DROPSHIPPING — prominent full-width section */
+  .dropfeat{background:var(--ink);color:#fff;border-radius:18px;padding:60px 56px;margin:8px 0;}
+  .dropfeat .label{color:var(--accent-italic);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+  .dropfeat h2{color:#fff;font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;margin-top:16px;line-height:1.1;max-width:20ch;}
+  .dropfeat p{color:rgba(255,255,255,.82);font-size:17px;line-height:1.7;margin-top:22px;max-width:62ch;}
+  .dropfeat .dgrid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .dropfeat .d{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:26px 26px;}
+  .dropfeat .d h4{font-size:16px;font-weight:600;color:#fff;}
+  .dropfeat .d p{font-size:14px;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.6;}
+
+  /* DESIGN ADD-ON */
+  .addon{border:1px solid var(--accent);background:var(--surface);border-radius:16px;padding:44px 48px;margin-top:8px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+  .addon .label{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+  .addon h3{font-size:22px;font-weight:700;letter-spacing:-0.015em;margin-top:10px;}
+  .addon p{font-size:15px;color:var(--muted-foreground);margin-top:12px;line-height:1.65;max-width:60ch;}
+  .addon a{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:13px 24px;border-radius:999px;font-size:14px;font-weight:500;}
+  .addon a:hover{opacity:.9;color:#fff;}
+
+  /* COST */
+  .cost{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px 52px;margin-top:36px;}
+  .cost h3{font-size:20px;font-weight:700;letter-spacing:-0.015em;margin-top:6px;}
+  .cost .intro{font-size:16px;color:var(--muted-foreground);margin-top:14px;line-height:1.7;max-width:62ch;}
+  .cost .terms{margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  .cost .term{background:var(--background);border:1px solid var(--border);border-radius:12px;padding:24px 26px;}
+  .cost .term .label{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+  .cost .term h4{font-size:16px;font-weight:600;margin-top:10px;}
+  .cost .term p{font-size:13.5px;color:var(--muted-foreground);margin-top:8px;line-height:1.6;}
+  .cost .mine{margin-top:24px;border-left:3px solid var(--accent);padding:18px 0 18px 22px;}
+  .cost .mine h4{font-size:16px;font-weight:600;}
+  .cost .mine p{font-size:14.5px;color:var(--muted-foreground);margin-top:8px;line-height:1.65;max-width:64ch;}
+
+  /* REASSURE */
+  .reassure{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .reassure .r{border:1px solid var(--border);border-radius:12px;padding:26px 28px;}
+  .reassure .r .label{color:var(--accent);font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+  .reassure .r h4{font-size:16px;font-weight:600;margin-top:12px;}
+  .reassure .r p{font-size:14px;color:var(--muted-foreground);margin-top:8px;line-height:1.6;}
+
+  .work{padding:54px 0;}
+
+  .prooflink{display:flex;align-items:center;gap:16px;border:1px solid var(--border);border-radius:12px;padding:18px 24px;margin-top:8px;transition:border-color .2s;background:var(--surface);}
+  .prooflink:hover{border-color:var(--foreground);}
+  .prooflink .pt{font-size:15px;color:var(--foreground);font-weight:500;}
+
+  .faq{padding:54px 0 10px;}
+  .faq .faq-head{margin-bottom:40px;}
+  .faq .faq-head .label{color:var(--accent);}
+  .faq h2{font-size:clamp(28px,3.2vw,40px);font-weight:700;letter-spacing:-0.025em;margin-top:8px;}
+
+  .contact{text-align:center;padding:70px 0 90px;border-top:1px solid var(--border);margin-top:60px;}
+  .contact .label{color:var(--accent);}
+  .contact h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-0.03em;margin-top:16px;}
+  .contact p{color:var(--muted-foreground);margin-top:22px;font-size:17px;max-width:50ch;margin-left:auto;margin-right:auto;line-height:1.65;}
+  .contact .email-btn{display:inline-block;margin-top:34px;background:var(--ink);color:#fff;padding:16px 32px;border-radius:999px;font-size:16px;}
+  .contact .email-btn:hover{opacity:.9;color:#fff;}
+
+  /* FEATURED PROJECT SHOWCASE (hero) — matches card treatment: shadow + zoom, no frame */
+  .featured{display:block;margin-top:44px;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px -4px rgba(20,20,30,.18);transition:box-shadow var(--motion-base) var(--ease), transform var(--motion-base) var(--ease);}
+  .featured:hover{box-shadow:0 30px 60px -20px rgba(20,20,30,.32);transform:translateY(-3px);}
+  .featured-img{aspect-ratio:16/8;background:var(--tile-blue);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .featured-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.8s var(--ease);}
+  .featured:hover .featured-img img{transform:scale(1.06);}
+  .featured-img .ph{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.4);}
+  .featured-meta{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 30px;background:var(--background);}
+  .featured-meta h3{font-size:22px;font-weight:700;letter-spacing:-0.015em;margin-top:10px;}
+  .featured-meta p{font-size:15px;color:var(--muted-foreground);margin-top:8px;}
+  .featured-meta .viewlink{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+
+  .intro-band .inner.single{display:block;}
+
+  /* TWO-UP (Shopify for dropshippers / product owners) */
+  .twoup{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .twoup .up{border:1px solid var(--border);border-radius:16px;padding:32px 34px;}
+  .twoup .up .upicon{display:inline-flex;align-items:center;justify-content:center;color:var(--accent);}
+  .twoup .up h3{font-size:20px;font-weight:700;letter-spacing:-0.015em;margin-top:18px;}
+  .twoup .up p{font-size:15px;color:var(--muted-foreground);margin-top:14px;line-height:1.65;}
+
+  /* LIGHT GUIDE PRICES */
+  .lightprices{margin-top:8px;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+  .lprow{display:grid;grid-template-columns:180px 1fr auto;gap:20px;align-items:center;padding:22px 28px;border-bottom:1px solid var(--border);}
+  .lprow:last-child{border-bottom:none;}
+  .lprow .lpname{font-size:15px;font-weight:600;color:var(--foreground);}
+  .lprow .lpdesc{font-size:14px;color:var(--muted-foreground);line-height:1.55;}
+  .lprow .lpval{font-family:var(--font-mono);font-size:14px;color:var(--accent);white-space:nowrap;text-align:right;}
+  .lightnote{margin-top:22px;border-left:3px solid var(--accent);padding:6px 0 6px 22px;}
+  .lightnote p{font-size:14.5px;color:var(--muted-foreground);line-height:1.7;max-width:68ch;}
+  .lightnote p strong{color:var(--foreground);}
+  /* COMBINED DARK SECTION — How it works & pricing */
+  .workflow.combined{padding-bottom:64px;}
+  .workflow .workflow-lead{color:rgba(255,255,255,.7);font-size:16px;margin-top:18px;line-height:1.65;max-width:60ch;}
+  .combined-steps{margin-top:44px;display:grid;gap:4px;max-width:760px;}
+  .cstep{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+  .cstep:last-child{border-bottom:none;}
+  .cstep .cnum{font-family:var(--font-mono);font-size:13px;color:var(--accent-italic);padding-top:2px;}
+  .cstep p{font-size:16px;color:rgba(255,255,255,.86);line-height:1.6;}
+  .inline-mail{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);transition:border-color var(--motion-fast) var(--ease);}
+  .inline-mail:hover{border-color:#fff;}
+  .pricing-note{margin-top:32px;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:30px 32px;max-width:760px;}
+  .pricing-note .label{color:var(--accent-italic);}
+  .pricing-note p{font-size:15.5px;color:rgba(255,255,255,.8);line-height:1.7;margin-top:14px;}
+  .pricing-note p strong{color:#fff;font-weight:600;}
+  .combined-cta{display:inline-block;margin-top:36px;background:#fff;color:var(--ink);padding:15px 30px;border-radius:999px;font-size:15px;font-weight:500;border:1px solid #fff;transition:background var(--motion-base) var(--ease), color var(--motion-base) var(--ease);}
+  .combined-cta:hover{background:transparent;color:#fff;}
+
+  /* GUIDE PRICES (in dark section) */
+  .prices{margin-top:36px;max-width:760px;}
+  .prices .label{color:var(--accent-italic);}
+  .prices-intro{font-size:14.5px;color:rgba(255,255,255,.6);margin-top:12px;line-height:1.6;font-style:italic;max-width:60ch;}
+  .pricerow{display:grid;grid-template-columns:170px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+  .pricerow:last-child{border-bottom:none;}
+  .pricerow .pname{font-size:15px;font-weight:600;color:#fff;}
+  .pricerow .pdesc{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.5;}
+  .pricerow .pval{font-family:var(--font-mono);font-size:14px;color:var(--accent-italic);white-space:nowrap;text-align:right;}
+
+
+  @media(max-width:820px){
+    .twoup{grid-template-columns:1fr;}
+    .intro-band .inner{grid-template-columns:1fr;gap:28px;}
+    .gets{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .cost .terms{grid-template-columns:1fr;}
+    .reassure{grid-template-columns:1fr;}
+    .dropfeat .dgrid{grid-template-columns:1fr;}
+    .addon{grid-template-columns:1fr;}
+  }
+  @media(max-width:760px){
+    .hero{padding:48px 0 30px;}
+    .lprow{grid-template-columns:1fr auto;gap:6px 16px;}
+    .lprow .lpdesc{grid-column:1/-1;}
+    .pricerow{grid-template-columns:1fr auto;gap:6px 16px;}
+    .pricerow .pdesc{grid-column:1/-1;}
+    .pricerow .pval{font-size:13px;}
+    .featured-meta{flex-direction:column;align-items:flex-start;gap:14px;}
+    .dropfeat{padding:40px 28px;}
+    .cost{padding:32px 26px;}
+    .steps{grid-template-columns:1fr;}
+    .contact{padding:50px 0 70px;}
+  }
+</style>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Online Stores</span>
+    <h1>Shopify stores, built and set up for you.</h1>
+    <p class="lead"><strong>I build online stores on Shopify — catalog, checkout, payments, and dropshipping setup.</strong> You handle the business; I handle the technical side.</p>
+    <p class="byline">I'm a product designer who also builds and runs online stores — so you get someone who understands both how it should look and how it should sell.</p>
+
+    <a href="project-roots.html" class="featured">
+      <div class="featured-img">
+        <img src="images/project-roots-1.png" alt="A product-owner store — seller CMS and storefront in sync">
+      </div>
+      <div class="featured-meta">
+        <div>
+          <span class="label">Featured store</span>
+          <h3>Marketplace</h3>
+          <p>A store for a makers selling their own products — a clean seller CMS for adding items, and a storefront that renders them properly.</p>
+        </div>
+        <span class="viewlink"><span class="u">View store</span> <span class="arr">→</span></span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<section class="work" data-reveal id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Recent work</span>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="hero-preview" style="margin-top:0">
+          <a href="store-cozyHomeKit.html" class="card-img-link" aria-label="View store">
+          <div class="thumb" style="border-radius:10px;aspect-ratio:16/11;overflow:hidden">
+            <img src="images/cozykit-hero.png" alt="Cozy Home Kit — a full Shopify dropshipping store" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+
+          </a>
+        </div>
+        <h3>Cozy Home Kit</h3>
+        <p>A full dropshipping store on Shopify — supplier products turned into structured, conversion-ready pages, with reviews, upsells, and FAQ.</p>
+        <div class="meta">
+          <span class="label">Shopify · Dropshipping</span>
+          <a href="store-cozyHomeKit.html" class="viewlink"><span class="u">View store</span> <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="hero-preview" style="margin-top:0">
+          <a href="store-marginalia.html" class="card-img-link" aria-label="View store">
+          <div class="thumb" style="border-radius:10px;aspect-ratio:16/11;overflow:hidden">
+            <img src="images/project-marginalia-1.png" alt="Marginalia — a curated book-discovery storefront" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          </a>
+        </div>
+        <h3>Marginalia</h3>
+        <p>A book-discovery storefront — browse by mood, follow curators instead of an algorithm, with a warm editorial feel.</p>
+        <div class="meta">
+          <span class="label">Concept · Discovery</span>
+          <a href="project-marginalia.html" class="viewlink"><span class="u">View store</span> <span class="arr">→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="intro-band">
+  <div class="wrap">
+    <div class="inner single">
+      <div>
+        <h2>What I do.</h2>
+        <p>I build Shopify stores end to end — the theme, products and collections, checkout, payments, and everything needed to start selling. You handle the business; I handle the technical side, and show you how to run it when it's done. Two kinds of stores, same care either way:</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="twoup">
+      <div class="up">
+        <span class="upicon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path d="M3 7.5 12 3l9 4.5M3 7.5 12 12m-9-4.5V16.5L12 21m0-9 9-4.5M12 12v9m9-13.5V16.5L12 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Shopify for dropshippers</h3>
+        <p>Your supplier holds the inventory and ships the orders. I connect the supplier apps to Shopify and organise the product pages so a raw supplier listing becomes a clear, properly structured page — not a dump of specs.</p>
+      </div>
+      <div class="up">
+        <span class="upicon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="26" height="26"><path d="M4 9h16M4 9 5.2 4.8A1.5 1.5 0 0 1 6.65 3.7h10.7A1.5 1.5 0 0 1 18.8 4.8L20 9M4 9v10.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V9M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Shopify for product owners</h3>
+        <p>You make or stock your own products. I set up the catalog, variants, and collections, with a clean checkout and the structure to keep a growing range organised as you add to it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="workflow combined" id="costs">
+    <span class="label">Pricing</span>
+    <h2>Guide prices.</h2>
+    <p class="workflow-lead">Rough ranges to orient you — not a fixed quote. Your real price comes after we talk and I understand your store.</p>
+
+    <div class="prices">
+      <div class="pricerow"><span class="pname">Store setup</span><span class="pdesc">Standard theme, set up and configured, deployed and taken live.</span><span class="pval">€500–800</span></div>
+      <div class="pricerow"><span class="pname">Template customization</span><span class="pdesc">Adjusting a theme to your brand — colours, sections, and styling.</span><span class="pval">€800–1,800</span></div>
+      <div class="pricerow"><span class="pname">Dropshipping setup</span><span class="pdesc">Supplier apps connected, products organised, and orders set to flow through.</span><span class="pval">€1,800–3,500</span></div>
+      <div class="pricerow"><span class="pname">Product entry</span><span class="pdesc">Adding products — images, variants, pricing, descriptions.</span><span class="pval">€4–8 / product · €45/hr</span></div>
+    </div>
+
+    <div class="pricing-note">
+      <span class="label">On top of my work</span>
+      <p>Separate from the prices above, <strong>Shopify</strong> is a monthly subscription that hosts your store, your <strong>domain</strong> is a small yearly fee, and there's a small <strong>payment-processing fee</strong> on each sale. All paid to the providers, not to me, and all yours. I'll go through the real numbers on our call.</p>
+    </div>
+
+    <a href="mailto:maryna.rak01@gmail.com" class="combined-cta">Email me to start →</a>
+  </section>
+</div>
+
+<section class="faq block" data-reveal>
+  <div class="wrap">
+    <div class="faq-head">
+      <span class="label">FAQ</span>
+      <h2>Common questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Do I need to know anything technical?</h3>
+        <p>No. I set up Shopify, the products, the checkout, payments, and any supplier apps. When it's live, I walk you through adding products and handling orders so you're comfortable running it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you set up a dropshipping store?</h3>
+        <p>Yes. I connect your supplier and fulfillment apps to Shopify and organise the product pages so supplier listings become proper, structured pages. No stock or warehouse on your side.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why Shopify rather than something cheaper?</h3>
+        <p>For selling products, Shopify keeps checkout, payments, inventory, and apps in one place, which means fewer things to break. If your business doesn't sell products and just needs a site, the Business Websites option is usually cheaper to run.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What does it cost to keep the store running?</h3>
+        <p>Beyond my work: a domain (small yearly fee), your Shopify plan (monthly), and standard payment-processing fees per sale. I'll go through the real numbers for your case before you commit.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I get a custom design, or a theme?</h3>
+        <p>The build uses a well-configured theme so you can start selling. A fully custom design is an optional add-on if you want the store to look distinct.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I manage products and orders myself afterwards?</h3>
+        <p>Yes. Onboarding is included so you'll know how. If you'd rather hand it off or learn the deeper parts later, ongoing support is available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <span class="label">Start a store</span>
+    <h2 class="big">Thinking about selling online?</h2>
+    <p>Tell me what you'd like to sell — your own products or a dropshipping idea — and we can talk through how to set it up.</p>
+    <a href="mailto:maryna.rak01@gmail.com" class="email-btn">maryna.rak01@gmail.com</a>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>
