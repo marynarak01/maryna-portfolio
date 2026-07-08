@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FarView · Maryna Rak</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/farview.css">
+<script src="js/include.js" defer></script>
+<script src="js/farview.js" defer></script>
+</head>
+<body>
+
+<div data-include="partials/header.html"></div>
+
+<header class="cs-hero">
+  <div class="wrap">
+    <span class="label">FarView · AI Travel App</span>
+    <h1>Your trip, planned <span class="i">around your taste.</span></h1>
+    <p class="lead">FarView plans the tedious middle of a trip. You set where you start and end, pick what you like and what you don't, and it proposes a short route of stops that fit — checkable on a map before you trust it.</p>
+    <br />
+    <div class="btn-my-wrap">
+      <a href="showcase/Farview-App.html" class="btn-primary" target="_blank" rel="noopener">View prototype 🡥</a>
+    </div>
+
+    <div class="fv-hero">
+      <div class="stage">
+        <div class="ph l"><img src="images/farview-interests.png" alt="FarView — what you're looking for"></div>
+        <div class="ph r"><img src="images/farview-dealbreakers.png" alt="FarView — any dealbreakers"></div>
+        <div class="ph c"><img src="images/farview-route.png" alt="FarView — your route"></div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><span class="label">Role</span><span class="val">Product designer — research to build spec</span></div>
+      <div><span class="label">Scope</span><span class="val">Strategy, flow, visual system</span></div>
+      <div><span class="label">Method</span><span class="val">Interviews, competitor review, benchmarks</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- THE PROBLEM -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">The problem</span>
+    <h2>Planning the middle of a trip is the tiring part.</h2>
+    <p class="body muted">People who plan their own trips spend hours reading and comparing options for the stretch between where they start and where they end. They already use AI to shortlist — but they won't take its word for it. They check the result on a map and against real reviews before booking, and nothing they use remembers what they liked or what went wrong last time.</p>
+  </div>
+</section>
+
+<!-- PHASE 1 — PLAN -->
+<!-- THE FLOW — one continuous walkthrough, grouped phones + text -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block; color:var(--accent)">The flow</span>
+    <h2>From where you are to a trip you trust.</h2>
+    <p class="body muted">The whole flow is built to feel like a few quick answers, then a route you can check. Here's how it moves, step by step.</p>
+  </div>
+  <div class="wrap">
+    <div class="fv-flow">
+
+      <div class="fv-step">
+        <div class="shots">
+          <img src="images/farview-location.png" alt="Start from your location">
+          <img src="images/farview-map.png" alt="Where from, where to" class="lift">
+        </div>
+        <div class="txt">
+          <span class="num">Step 1 · Start</span>
+          <h4>It starts where you actually are.</h4>
+          <p>You give it your location and the two ends of the trip. From there it builds the route around where you are, not the map centre. "Surprise me" picks a destination you can still change.</p>
+        </div>
+      </div>
+
+      <div class="fv-step">
+        <div class="shots">
+          <img src="images/farview-interests.png" alt="What you're looking for">
+          <img src="images/farview-dealbreakers.png" alt="Any dealbreakers" class="lift">
+        </div>
+        <div class="txt">
+          <span class="num">Step 2 · Taste</span>
+          <h4>What you like, and what you don't.</h4>
+          <p>You tap what you're into, then flag what ruins a trip for you. The dealbreakers matter as much as the likes — it keeps you away from the things that spoil a stay, framed as protection, not a chore.</p>
+        </div>
+      </div>
+
+      <div class="fv-step">
+        <div class="shots solo">
+          <img src="images/farview-dates.png" alt="When and how long">
+        </div>
+        <div class="txt">
+          <span class="num">Step 3 · Length</span>
+          <h4>One thing left — how long.</h4>
+          <p>Dates and trip length, both optional, nothing blocks you. That's the last question before it builds the route.</p>
+        </div>
+      </div>
+
+      <div class="fv-step">
+        <div class="shots">
+          <img src="images/farview-route.png" alt="The route">
+          <img src="images/farview-stop.png" alt="Inside a stop" class="lift">
+        </div>
+        <div class="txt">
+          <span class="num">Step 4 · Your trip</span>
+          <h4>A route you can check, then keep.</h4>
+          <p>A short route with drive times and the reason behind every stop — checkable on a map before you trust it. Open any stop for the full picture. The full per-stop guide is where the paid line sits, offered only once you're this invested.</p>
+        </div>
+      </div>
+
+      <div class="fv-step">
+        <div class="shots">
+          <img src="images/farview-travel.png" alt="On the road, offline">
+          <img src="images/farview-trips.png" alt="Your trips" class="lift">
+        </div>
+        <div class="txt">
+          <span class="num">Step 5 · On the road</span>
+          <h4>It comes with you, offline.</h4>
+          <p>On the trip it works offline and stays matched to your taste — surfacing what's next and where to stay, chosen around what you told it earlier. Saved routes stay in one place, ready to share or edit.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THREE INSIGHTS (uses .problems/.prob component with blue labels) -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker" style="display:block">Three things the research settled</span>
+    <h2>What the interviews decided.</h2>
+    <p class="body muted">Read closely, the interviews pointed in three clear directions — each one shaped a decision in the product.</p>
+  </div>
+  <div class="wrap">
+    <div class="problems">
+      <div class="prob">
+        <span class="label">01 · Trust</span>
+        <h4>People verify before they trust.</h4>
+        <p>They won't accept an AI route as final. If they can't check it inside the app, they leave to check elsewhere — undoing the time it saved. So the map check had to be built in.</p>
+      </div>
+      <div class="prob">
+        <span class="label">02 · Personalization</span>
+        <h4>Pick what you like, and what you don't.</h4>
+        <p>A star rating isn't enough. People want places chosen around their taste — and, just as much, kept away from the things that ruin a stay for them.</p>
+      </div>
+      <div class="prob">
+        <span class="label">03 · Money</span>
+        <h4>Never make it feel sales-y.</h4>
+        <p>People reject a sales pitch on contact. That ruled out charging before any value, and pushed the paid moment to later, once they're planning enough to want no limits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS MODEL — dark section with icons -->
+<div class="wrap">
+  <section class="fv-dark" data-reveal>
+    <span class="label">The business model</span>
+    <h2>The paywall was a trust decision first.</h2>
+    <p class="lead-dark">People reject a sales pitch on contact — so a hard paywall is the most sales-y opening the app could have, and it kills trust instantly. That constraint is what pointed to freemium.</p>
+    <div class="fv-dark-grid">
+      <div class="fv-dcard">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="15" r="1.3"/></svg>
+        </span>
+        <span class="label">The constraint</span>
+        <h4>Never charge before value</h4>
+        <p>A paywall on contact reads as a sales pitch, and the research said that breaks trust on the spot. So the paid moment waits until someone's planning enough to want no limits.</p>
+      </div>
+      <div class="fv-dcard">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l4-4 3.5 3.5L20 6"/><path d="M20 6h-4.5M20 6v4.5"/></svg>
+        </span>
+        <span class="label">Why it fits</span>
+        <h4>Freemium, not a compromise</h4>
+        <p>Travel benchmarks favor trial models, and the acquisition idea — shareable routes — needs free-user volume to work. Freemium fits the exact condition where it's the right call.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="next">
+  <div class="wrap">
+   <a href="work.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
+  </div>
+</section>
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

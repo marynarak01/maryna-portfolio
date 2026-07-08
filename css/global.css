@@ -243,7 +243,7 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; }
   transition:     opacity var(--motion-fast) var(--ease);
 }
 .card .hero-preview { margin-top: 0px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px -4px rgba(20,20,30,.18); transition: box-shadow var(--motion-slow) var(--ease); }
-.card .card-img-link { display: block; }
+.card .card-img-link { display: inline; }
 .card .hero-preview img { border: none; box-shadow: none; display:block; width:100%; height:auto; transition: transform 1.8s var(--ease); }
 /* Card hover: gentle lift + contained image zoom (zoom defined in hero-preview block) */
 .card:hover .viewlink { opacity: 0.65; }
@@ -695,3 +695,14 @@ a.arr-fwd:hover .arr { transform: translateX(4px); }
 a.arr-back:hover .arr { transform: translateX(-4px); }
 .viewlink:hover .arr { transform: translateX(4px); }
 .card:hover .viewlink { opacity: 0.65; }
+
+
+.card .hero-preview {
+  aspect-ratio: 4 / 3;        /* pick your card shape: 4/3, 16/10, 3/2, etc. */
+}
+.card .hero-preview img {
+  width: 100%;
+  height: 100%;              /* was: auto */
+  object-fit: cover;         /* fills the box, crops overflow */
+  object-position: top;      /* keeps the top of the screenshot visible */
+}
