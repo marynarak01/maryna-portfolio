@@ -67,7 +67,7 @@ void main(){
   float top   = smoothstep(-0.2, 1.0, uv.y);          // a little more toward the top
   float weight = mix(0.28, 1.0, right) * (0.7 + 0.35*top);  // never fully empty on the left
   float body = length(r)*1.0 + f*0.55;
-  float presence = clamp(weight * smoothstep(0.05,0.75,body+0.18), 0.0, 1.0) * 0.85; // darker/more visible
+  float presence = clamp(weight * smoothstep(0.05,0.75,body+0.18), 0.0, 1.0) * 0.65; // darker/more visible
 
   col = mix(vec3(1.0,0.995,0.99), col, presence);
 

@@ -386,10 +386,10 @@ figcaption {
 }
 .page-hero h1 .i { font-style: italic; color: var(--accent-italic); }
 .blue-i { font-style: italic; color: var(--accent-italic);  font-size: 2.5rem;
-    margin-top: 44px;}
+    margin-top: 32px; }
+
 
 .page-hero p.lead {
-  margin-top: 24px;
   font-size: clamp(18px, 1.8vw, 21px);
   line-height: 1.6;
   color: var(--muted-foreground);
@@ -479,7 +479,7 @@ figcaption {
 .hero h1 { font-size: clamp(52px, 8.5vw, 108px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; max-width: 16ch; }
 .hero h1 .grey { color: var(--muted-foreground-lg); }
 .hero h1 .blue { color: var(--accent-italic); font-style: italic; }
-.hero p.lead { margin-top: 44px; font-size: clamp(19px, 1.7vw, 23px); color: var(--muted-foreground); max-width: 52ch; line-height: 1.65; }
+.hero p.lead { margin-top: 32px; font-size: clamp(19px, 1.7vw, 23px); color: var(--muted-foreground); max-width: 52ch; line-height: 1.65; }
 .hero p.lead a { color: var(--foreground); border-bottom: 1px solid var(--border); }
 .tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 52px; }
 .tag { border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); }
