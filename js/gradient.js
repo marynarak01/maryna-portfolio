@@ -25,11 +25,11 @@ float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<6;i++){v+=a*noise(p);p*=2.02;a*=
 // palette: blue/indigo anchor blended with the warm peach/orange from v1
 vec3 pal(float x){
   x=clamp(x,0.,1.);
-  vec3 c1=vec3(0.32,0.40,0.91);  // indigo (site accent)
-  vec3 c2=vec3(0.34,0.64,0.95);  // azure
-  vec3 c3=vec3(0.60,0.62,0.97);  // periwinkle
-  vec3 c4=vec3(0.92,0.64,0.86);  // pink-lilac
-  vec3 c5=vec3(1.00,0.78,0.62);  // faint warm (just a touch)
+  vec3 c1=vec3(0.55,0.62,0.94);  // soft indigo-blue
+  vec3 c2=vec3(0.60,0.80,0.97);  // soft azure
+  vec3 c3=vec3(0.76,0.79,0.98);  // pale periwinkle
+  vec3 c4=vec3(0.95,0.78,0.92);  // pale pink
+  vec3 c5=vec3(1.00,0.90,0.82);  // very faint warm
   vec3 col=mix(c1,c2,smoothstep(0.0,0.26,x));
   col=mix(col,c3,smoothstep(0.24,0.48,x));
   col=mix(col,c4,smoothstep(0.48,0.74,x));
@@ -67,7 +67,7 @@ void main(){
   float top   = smoothstep(-0.2, 1.0, uv.y);          // a little more toward the top
   float weight = mix(0.28, 1.0, right) * (0.7 + 0.35*top);  // never fully empty on the left
   float body = length(r)*1.0 + f*0.55;
-  float presence = clamp(weight * smoothstep(0.05,0.75,body+0.18), 0.0, 1.0) * 0.55; // darker/more visible
+  float presence = clamp(weight * smoothstep(0.05,0.75,body+0.18), 0.0, 1.0) * 0.5; // more dissolved / whiter
 
   col = mix(vec3(1.0,0.995,0.99), col, presence);
 
