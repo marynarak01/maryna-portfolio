@@ -54,3 +54,9 @@
   .hiw   { grid-template-columns: 1fr; }
   .position { padding: 36px 26px; }
 }
+
+.combined-steps-mine{margin-top:18px;display:grid;gap:4px;max-width:760px;}
+  .cstep-1{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding:12px 0;}
+  .cstep-1:last-child{border-bottom:none;}
+  .cstep-1 .cnum{font-family:var(--font-mono);font-size:13px;color:var(--mint);padding-top:2px;}
+  .cstep-1 p{font-size:16px;color:var(--ink);line-height:1.6;}
