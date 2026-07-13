@@ -96,8 +96,11 @@ const uM=gl.getUniformLocation(prog,'mouse');
 const uMA=gl.getUniformLocation(prog,'mAmt');
 
 let mxT=0.5,myT=0.5,mx=0.5,my=0.5,maT=0,ma=0;
-cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mxT=(e.clientX-r.left)/r.width;myT=1.-(e.clientY-r.top)/r.height;maT=1.;});
-cv.addEventListener('pointerleave',()=>{maT=0.;});
+window.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();
+  mxT=(e.clientX-r.left)/r.width;
+  myT=1.-(e.clientY-r.top)/r.height;
+  maT=1.;});
+window.addEventListener('pointerleave',()=>{maT=0.;});
 addEventListener('resize',resize);
 
 let t0=performance.now();
