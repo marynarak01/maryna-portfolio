@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo · Maryna Rak</title>
+<meta property="og:image" content="images/og-image.jpg">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/echo.css">
+<script src="js/include.js" defer></script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+
+
+<!-- HERO -->
+<header class="cs-hero">
+  <div class="wrap">
+    <span class="label echo-label">SaaS AI</span>
+    <h1>Echo</h1>
+    <p class="lead">A tool that takes one long piece of content — a podcast episode or video, recording, blog post or any written content — and turns it into a set of shorter posts for different platforms, written in the creator's own writing style.</p>
+    <div class="echo-chips">
+      <span class="echo-chip">Solo creators who publish regularly</span>
+      <span class="echo-chip">Focus: matching the creator's writing style</span>
+    </div>
+    <br />
+    <div class="echo-shot">
+      <img src="images/echo-app-1.png" alt="Echo landing — paste a link to an episode or video">
+    </div>
+  </div>
+</header>
+
+<!-- 2 · THE PROBLEM -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker"  >The problem</span>
+    <h2>Problem statement.</h2>
+  </div>
+  <div class="wrap">
+    <div class="echo-cards">
+      <div class="echo-card">
+        <h4 class="ct">1 · It takes a long time</h4>
+        <p>Turning one episode into posts, threads, and clips by hand is hours of work every week.</p>
+      </div>
+      <div class="echo-card">
+        <h4 class="ct">2 · AI output doesn't sound like them</h4>
+        <p>Existing AI tools produce text that reads generically. Creators end up rewriting it, which removes the point of using the tool.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · TRY BEFORE PAY + ONBOARDING FLOW -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker"  >Design</span>
+    <h2>The onboarding flow.</h2>
+  </div>
+  <div class="wrap">
+
+    <div class="echo-pair">
+      <div class="echo-shot"><img src="images/echo-app-1.png" alt="Paste a link or connect a channel"></div>
+      <div class="txt">
+        <span class="label">Step 1</span>
+        <h3>Paste a link, or connect a channel</h3>
+        <p>Paste an episode or video link, or connect a podcast/YouTube channel so new episodes are picked up automatically.</p>
+      </div>
+    </div>
+
+    <div class="echo-pair">
+      <div class="echo-shot"><img src="images/echo-app-2.png" alt="Choose formats"></div>
+      <div class="txt">
+        <span class="label">Step 2</span>
+        <h3>Choose formats</h3>
+        <p>Choose which formats to make — LinkedIn post, X thread, newsletter, Instagram caption, and so on.</p>
+      </div>
+    </div>
+
+    <div class="echo-pair">
+      <div class="echo-shot"><img src="images/echo-app-3.png" alt="First draft, generic before training"></div>
+      <div class="txt">
+        <span class="label">Step 3</span>
+        <h3>Generate a first draft</h3>
+        <p>The tool generates a first draft of each piece. Before the style profile is trained, it shows these as generic drafts.</p>
+      </div>
+    </div>
+
+    <div class="echo-pair">
+      <div class="echo-shot"><img src="images/echo-app-4.png" alt="Train the voice, drafts regenerated"></div>
+      <div class="txt">
+        <span class="label">Step 4</span>
+        <h3>Train the voice</h3>
+        <p>The creator adds examples of their work — writing, uploaded documents, or audio/video of them talking. The drafts are regenerated in their style.</p>
+      </div>
+    </div>
+
+    <div class="echo-pair">
+      <div class="echo-shot"><img src="images/echo-app-5.png" alt="Login gate — create your account"></div>
+      <div class="txt">
+        <span class="label">Step 5</span>
+        <h3>Login gate</h3>
+        <p>To save the pack and keep the trained style, the creator creates an account — the wall comes only after they've seen the result.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRY BEFORE PAY (after onboarding) -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker"  >Try before you pay</span>
+    <h2>Subscription model.</h2>
+    <p class="body muted">The product's value is that the AI writes in the creator's own style, and that only becomes clear once someone has trained it and seen the result. So the model is built around letting people experience the value before paying, then staying reachable afterward.</p>
+  </div>
+  <div class="wrap narrow">
+    <div class="echo-elim">
+      <div class="echo-pick stacked">
+        <div class="opt">Reverse trial + freemium</div>
+        <div class="why">People see the full result first, then continue on a free tier — balancing sign-ups, conversion, and staying power. Trade-off: needs careful onboarding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · INSIDE THE APP -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker">Inside the app</span>
+    <h2>Designed for desktop and mobile.</h2>
+    <p class="body muted">The core screens, each built for both — the same flow laid out for a wide screen and a phone.</p>
+  </div>
+  <div class="wrap">
+
+    <div class="ia-group">
+      <div class="ia-block">
+        <div class="ia-shots">
+          <div class="ia-desktop"><img src="images/echo-app-6.png" alt="Create a pack on desktop"></div>
+          <div class="ia-mobile"><img src="images/echo-app-7.png" alt="Create a pack on mobile"></div>
+        </div>
+        <span class="ia-cap">Create a pack — desktop &amp; mobile</span>
+      </div>
+      <div class="ia-txt">
+        <span class="label">Create</span>
+        <h3>Create a pack</h3>
+        <p>Connect a source, pick the voice, and choose the formats you want.</p>
+      </div>
+    </div>
+
+    <div class="ia-group">
+      <div class="ia-block">
+        <div class="ia-shots">
+          <div class="ia-desktop"><img src="images/echo-app-8.png" alt="Library on desktop"></div>
+          <div class="ia-mobile"><img src="images/echo-app-9.png" alt="Library on mobile"></div>
+        </div>
+        <span class="ia-cap">Library — desktop &amp; mobile</span>
+      </div>
+      <div class="ia-txt">
+        <span class="label">Library</span>
+        <h3>Library</h3>
+        <p>All your packs in one place, with search — filters later.</p>
+      </div>
+    </div>
+
+    <div class="ia-group">
+      <div class="ia-block">
+        <div class="ia-shots">
+          <div class="ia-desktop"><img src="images/echo-app-10.png" alt="Voices on desktop"></div>
+          <div class="ia-mobile"><img src="images/echo-app-11.png" alt="Plan prompt on mobile"></div>
+        </div>
+        <span class="ia-cap">Voices &amp; plans — desktop &amp; mobile</span>
+      </div>
+      <div class="ia-txt">
+        <span class="label">Voices &amp; plans</span>
+        <h3>Voices</h3>
+        <p>Add and manage voices, with the upgrade prompt shown in context.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- 5b · WORK PROCESS -->
+<section class="block" data-reveal >
+  <div class="wrap">
+    <div class="workflow echo-workflow">
+      <span class="label">Process</span>
+      <h2>How this was built</h2>
+   
+
+      <div class="proc-stage">
+    <div class="txt">
+      <span class="eyebrow">Stage 1</span>
+      <h3>Research into an execution plan</h3>
+      <span class="tool">Claude Chat</span>
+      <p>The research was heavy — paid reports and articles across marketing, UX, product, and subscription-model comparisons.</p>
+      <p>To keep it from turning chaotic, I had Claude turn everything into an execution plan: staged work, each stage gated on a real outcome, with the research linked inline so I could revisit it anytime. Building the plan also taught Claude the project as it went.</p>
+    </div>
+    <div class="shot">
+      <img src="images/echo-process-1-execution-plan.png" alt="Echo execution plan — a staged, gated task tracker generated in Claude Chat" />
+    </div>
+  </div>
+
+  <div class="proc-stage">
+    <div class="txt">
+      <span class="eyebrow">Stage 2</span>
+      <h3>Lo-fi clickable prototype</h3>
+      <span class="tool">Claude Chat</span>
+      <p>I kept the prototype in Chat rather than moving to Code or Design — it&rsquo;s lighter on resources and already held all the research context.</p>
+     
+    </div>
+    <div class="shot">
+      <img src="images/echo-process-2-prototype.png" alt="Echo lo-fi clickable wireframe — landing screen, structure only, no visual design" />
+    </div>
+  </div>
+
+  <div class="proc-stage">
+    <div class="txt">
+      <span class="eyebrow">Stage 3</span>
+      <h3>Setting a visual direction</h3>
+      <span class="tool">Figma → Claude Design</span>
+      
+      <p>I made one styled page in Figma to set the direction, then dropped it into Claude Design to explore off that base — different colors and themes, tested live in the tweaks panel. I&rsquo;d considered reworking a Dribbble shot I liked, but wasn&rsquo;t comfortable publishing someone else&rsquo;s work — so I steered it myself.</p>
+    </div>
+    <div class="shot">
+      <img src="images/echo-process-3-visual-direction.png" alt="Echo 'Create a pack' screen styled in Claude Design, with a live theming and tweaks panel" />
+    </div>
+  </div>
+
+  <div class="proc-stage">
+    <div class="txt">
+      <span class="eyebrow">Stage 4</span>
+      <h3>Building it out, screen by screen</h3>
+      <span class="tool">Claude Design</span>
+      <p>With the direction set, I built the app one screen at a time, pasting each wireframe in on its own.</p>
+    </div>
+    <div class="shot">
+      <img src="images/echo-process-4-screen-by-screen.png" alt="Echo home screen — Good morning Mike, with continue pack, voice progress, and recent packs" />
+    </div>
+  </div>
+
+  <div class="proc-stage">
+    <div class="txt">
+      <span class="eyebrow">Stage 5</span>
+      <h3>Handoff to a live build</h3>
+      <span class="tool">Claude Design &rarr; Claude Code</span>
+      <p>The final step was moving from design into a working build. This time I passed it straight from Claude Design to Claude Code with no extra instructions — the design system and screens carried over as-is.</p>
+    </div>
+    <div class="shot">
+      <img src="images/echo-process-5-handoff.png" alt="Echo design handed off to Claude Code — a live published dashboard preview running beside the Code session" />
+    </div>
+  </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · GROWTH MODEL -->
+<section class="block" data-reveal>
+  <div class="wrap narrow">
+    <span class="label kicker"  >After the product works</span>
+    <h2>Growth model.</h2>
+    <p class="body muted">The three questions after the product works: how people find it, what it costs, and why they stay.</p>
+    <p class="body muted" style="margin-top:14px">Creators can make a real pack before creating an account. Paid plans show up when they want more than one-off use — mainly scheduling and unlimited packs.</p>
+  </div>
+
+  <div class="wrap">
+      <h3 class="gm-sub">Acquisition</h3>
+      <div class="gm-cards">
+        <div class="gm-card"><h4>Communities &amp; building in public</h4><p>Active where solo creators gather, sharing honest examples, and posting openly about making the tool.</p></div>
+        <div class="gm-card"><h4>Partnerships &amp; word of mouth</h4><p>A few creators who try it and mention it if they like it — once it's good enough that people recommend it.</p></div>
+        <div class="gm-card"><h4>Referral reward</h4><p>Inviter and invited both get something (a free month or discount). A concrete reason to bring others in — no branding asked.</p></div>
+      </div>
+    
+  
+    <h3 class="gm-sub">Retention</h3>
+    <div class="gm-cards four">
+      <div class="gm-card"><span class="k2">Time to value</span><h4>Fast onboarding</h4><p>Good onboarding can lift retention by around half. The tactic is cutting steps between signup and the first "win" — which Echo does with the free first pack.</p></div>
+      <div class="gm-card"><span class="k2">Main lever</span><h4>Become a habit</h4><p>The tools that survive get used on a routine. Echo connects to where the creator publishes, so they post from inside it — the more it's part of the week, the harder it is to drop.</p></div>
+      <div class="gm-card"><span class="k2">Involuntary churn</span><h4>Handle failed payments gently</h4><p>Failed payments are 20–40% of all churn and mostly preventable — keep access during a short grace period and retry, instead of cutting people off.</p></div>
+      <div class="gm-card"><span class="k2">Voluntary churn</span><h4>The right cancellation offer</h4><p>A cancellation flow that matches the offer to the reason — a discount for price, help for friction — recovers a meaningful share of people who'd otherwise leave.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+   <a href="work.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
+  </div>
+</section>
+<div data-include="partials/footer.html"></div>
+
+
+
+
+</body>
+</html>
