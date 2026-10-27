@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PageCraft · ImgFlow · Step 1 · Mobile</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #EDEBE4; color: #111; padding: 28px 20px 60px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .pagetitle { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .pagesub { font-size: 15px; color: #555; margin-bottom: 20px; }
+  .switchbar { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+  .switchlabel { font-size: 13px; font-weight: 700; color: #185FA5; letter-spacing: .5px; margin-right: 4px; }
+  .st-btn { font-size: 14px; padding: 8px 16px; border: 2px solid #111; border-radius: 8px; background: #fff; cursor: pointer; font-weight: 600; font-family: inherit; }
+  .st-btn.on { background: #111; color: #fff; }
+
+  .stage { display: flex; gap: 26px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 22px; }
+
+  /* ---- phone frame: 390x844 (iPhone 15/16 logical pt) ---- */
+  .phone { width: 390px; height: 844px; border: 2.5px solid #111; border-radius: 34px; background: #fff; overflow: hidden; position: relative; display: flex; flex-direction: column; flex-shrink: 0; }
+  .statusbar { height: 44px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 20px 6px; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .navbar { height: 52px; border-bottom: 2px solid #111; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; flex-shrink: 0; }
+  .navtitle { font-size: 17px; font-weight: 700; }
+  .navbtn { min-width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin: 0 -10px; }
+  .scroll { flex: 1; overflow-y: auto; padding: 16px; }
+  .homebar { height: 34px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .homebar:after { content: ""; width: 134px; height: 5px; background: #111; border-radius: 3px; }
+
+  /* progress — 3 steps, compact for mobile */
+  .prog { display: flex; align-items: center; gap: 6px; margin-bottom: 18px; }
+  .pstep { flex: 1; height: 4px; background: #ddd; border-radius: 2px; }
+  .pstep.on { background: #111; }
+  .plabel { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .pcount { font-size: 12px; color: #666; margin-bottom: 14px; }
+
+  h1.screen { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.2px; }
+  p.screensub { font-size: 15px; color: #555; line-height: 1.45; margin-bottom: 20px; }
+
+  .fieldlabel { font-size: 13px; font-weight: 700; margin-bottom: 7px; }
+  .field { border: 2px solid #111; border-radius: 10px; height: 52px; display: flex; align-items: center; padding: 0 14px; gap: 10px; background: #fff; }
+  .field.focus { box-shadow: 0 0 0 3px #185FA5; }
+  .field input { flex: 1; border: none; outline: none; font-size: 16px; font-family: inherit; background: transparent; min-width: 0; }
+  .field .clear { width: 44px; height: 44px; margin-right: -10px; display: flex; align-items: center; justify-content: center; }
+
+  .recents { border: 2px solid #111; border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; }
+  .recent { min-height: 56px; display: flex; align-items: center; gap: 11px; padding: 10px 14px; border-top: 1.5px solid #ddd; }
+  .recent:first-child { border-top: none; }
+  .recent:active { background: #F1EFE8; }
+  .rmain { flex: 1; min-width: 0; }
+  .rname { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rurl { font-size: 12px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+  .rtag { font-size: 10px; font-weight: 700; border: 1.5px solid #111; border-radius: 4px; padding: 2px 5px; flex-shrink: 0; }
+  .rhead { font-size: 11px; font-weight: 700; color: #888; letter-spacing: .5px; padding: 9px 14px 5px; }
+
+  .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+  .divider:before, .divider:after { content: ""; flex: 1; height: 2px; background: #ddd; }
+  .divider span { font-size: 12px; color: #888; font-weight: 700; }
+
+  .drop { border: 2.5px dashed #111; border-radius: 12px; padding: 26px 18px; text-align: center; }
+  .dropicon { width: 40px; height: 40px; margin: 0 auto 10px; }
+  .droptitle { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .dropsub { font-size: 13px; color: #666; line-height: 1.4; margin-bottom: 14px; }
+  .dropbtn { border: 2px solid #111; border-radius: 10px; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 700; background: #fff; }
+  .dropbtn:active { background: #F1EFE8; }
+
+  .thumb { aspect-ratio: 1; border: 2px solid #111; border-radius: 9px; background: #F1EFE8; display: flex; align-items: center; justify-content: center; position: relative; overflow: visible; }
+  .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
+  .thumbx { position: absolute; top: -9px; right: -9px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .thumbx:after { content: ""; position: absolute; width: 26px; height: 26px; border: 1.5px solid #111; border-radius: 6px; background: #fff; }
+  .thumbx svg { position: relative; z-index: 1; }
+
+  .skel { background: linear-gradient(90deg,#F1EFE8 25%,#e2dfd6 50%,#F1EFE8 75%); background-size: 200% 100%; animation: sh 1.2s infinite; }
+  @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  .banner { border: 2px solid #A05B00; background: #FFF6E5; border-radius: 10px; padding: 13px 14px; display: flex; gap: 10px; margin-bottom: 16px; }
+  .banner p { font-size: 13.5px; color: #6B3D00; line-height: 1.45; }
+
+  /* bottom action bar — primary CTA in thumb zone */
+  .cta { border-top: 2px solid #111; padding: 12px 16px; flex-shrink: 0; background: #fff; }
+  .ctabtn { height: 52px; border-radius: 12px; background: #111; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px; font-weight: 700; }
+  .ctabtn.off { background: #ccc; color: #888; }
+  .ctanote { font-size: 12px; color: #666; text-align: center; margin-top: 8px; }
+
+  .load { text-align: center; padding: 30px 0; }
+  .spin { width: 34px; height: 34px; border: 3px solid #ddd; border-top-color: #111; border-radius: 50%; margin: 0 auto 14px; animation: sp .8s linear infinite; }
+  @keyframes sp { to { transform: rotate(360deg) } }
+
+  /* annotations */
+  .ann { display: block; }
+  .anngroup { border: 1.5px solid #7FA8D6; background: #F2F7FC; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .annlabel { font-size: 12px; font-weight: 700; color: #185FA5; letter-spacing: .5px; margin-bottom: 9px; }
+  .annrow { margin-bottom: 6px; display: flex; gap: 9px; align-items: baseline; }
+  .annrow:before { content: "•"; color: #7FA8D6; font-weight: 700; flex-shrink: 0; }
+  .annrow p { font-size: 13.5px; color: #1a3a5c; line-height: 1.5; }
+  .annrow b { font-weight: 700; }
+  .annrow.warn:before { content: "!"; color: #185FA5; }
+  .annrow.warn p { font-weight: 600; }
+  .annfoot { font-size: 12.5px; color: #1a3a5c; padding: 0 18px; }
+  .hide { display: none !important; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L11.4 6.9"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.6-1.6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-4-4 4-2-2-7 6"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 20h16"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+</svg>
+
+<div class="wrap">
+  <div class="pagetitle">PageCraft — ImgFlow · Step 1 · Add images <span style="font-weight:400;color:#555">— mobile</span></div>
+  <div class="pagesub">iPhone 390×844pt. Designed for touch — not the desktop layout squeezed down.</div>
+
+  <div class="switchbar">
+    <span class="switchlabel">STATE</span>
+    <button class="st-btn on" data-s="idle">Field idle</button>
+    <button class="st-btn" data-s="recent">Focused · recents</button>
+    <button class="st-btn" data-s="search">Typing · search</button>
+    <button class="st-btn" data-s="new">New link pasted</button>
+    <button class="st-btn" data-s="loading">Loading</button>
+    <button class="st-btn" data-s="error">URL fails</button>
+    <button class="st-btn" data-s="success">Images pulled</button>
+  </div>
+
+  <div class="stage">
+    <div class="phone">
+      <div class="statusbar"><span>9:41</span><span>▮▮▮ ◗</span></div>
+      <div class="navbar">
+        <div class="navbtn"><svg width="22" height="22"><use href="#i-back"/></svg></div>
+        <div class="navtitle">Images</div>
+        <div class="navbtn" style="opacity:0"><svg width="22" height="22"><use href="#i-back"/></svg></div>
+      </div>
+      <div class="scroll" id="scroll"></div>
+      <div class="cta" id="cta"></div>
+      <div class="homebar"></div>
+    </div>
+
+    <div class="ann" style="flex:1;min-width:300px">
+      <div class="anngroup">
+        <div class="annlabel">WHY NOT JUST MAKE IT RESPONSIVE</div>
+        <div class="annrow"><p>Desktop puts the URL field, thumbnails and upload zone on one view. On a phone they stack into a scroll — that's fine here, so <b>Step 1 survives the squeeze</b>. Step 2 does not.</p></div>
+        <div class="annrow"><p>What changes is <b>control sizing and placement</b>, not structure. Every target is ≥44pt, and Continue moves to a fixed bottom bar.</p></div>
+      </div>
+
+      <div class="anngroup">
+        <div class="annlabel">THUMB ZONE</div>
+        <div class="annrow"><p><b>Continue is pinned to the bottom</b>, not at the end of the scroll. On a 6"+ phone the top 40% is a stretch one-handed; the primary action belongs in the thumb arc.</p></div>
+        <div class="annrow"><p>Back sits top-left — infrequent, and safe from accidental taps. Edge-swipe back still works.</p></div>
+      </div>
+
+      <div class="anngroup">
+        <div class="annlabel">TOUCH TARGETS</div>
+        <div class="annrow"><p>URL field is 52pt tall, recents rows 56pt, Continue 52pt — all above the 44pt minimum.</p></div>
+        <div class="annrow"><p>The clear (×) button is visually 22pt but has a <b>44pt hit area</b>. Visual size and tap size are separate.</p></div>
+        <div class="annrow"><p>Input font is 16px — <b>below that, iOS auto-zooms</b> on focus and the layout jumps.</p></div>
+      </div>
+
+      <div class="anngroup">
+        <div class="annlabel">MOBILE-ONLY CHANGES</div>
+        <div class="annrow"><p>The desktop rail (Add images → Build gallery → Review) becomes a <b>3-segment progress bar</b>. A vertical rail would eat a third of the width.</p></div>
+        <div class="annrow"><p>Recents show 3, not 8. Mobile cognitive load: fewer options per screen, and the field is right there to search.</p></div>
+        <div class="annrow"><p>Thumbnails are a 3-up grid, tap-to-remove. No hover, so the × is <b>always visible</b>.</p></div>
+        <div class="annrow warn"><p>"Upload" opens the native picker — camera roll, files, or take a photo. On mobile the camera is a real source; the desktop drop zone is not.</p></div>
+      </div>
+
+      <div class="annfoot">Rules and data model → <b>Pagecraft - ImgFlow - Build spec.md</b></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const S = {
+  idle: {
+    focus:false, dd:null, val:'', thumbs:0, loading:false, error:false,
+    h:'Add images', sub:'Paste your product URL and we\'ll pull the photos. No URL? Upload them yourself.',
+    cta:'Continue', ctaOff:true, note:'Add at least one photo to continue'
+  },
+  recent: {
+    focus:true, dd:'recents', val:'', thumbs:0, loading:false, error:false,
+    h:'Add images', sub:'Paste your product URL and we\'ll pull the photos. No URL? Upload them yourself.',
+    cta:'Continue', ctaOff:true, note:'Add at least one photo to continue'
+  },
+  search: {
+    focus:true, dd:'search', val:'rose', thumbs:0, loading:false, error:false,
+    h:'Add images', sub:'Paste your product URL and we\'ll pull the photos. No URL? Upload them yourself.',
+    cta:'Continue', ctaOff:true, note:'Add at least one photo to continue'
+  },
+  new: {
+    focus:true, dd:null, val:'shop.co/products/vitamin-c-serum', thumbs:0, loading:false, error:false,
+    h:'Add images', sub:'Paste your product URL and we\'ll pull the photos. No URL? Upload them yourself.',
+    cta:'Pull images', ctaOff:false, note:''
+  },
+  loading: {
+    focus:false, dd:null, val:'shop.co/products/vitamin-c-serum', thumbs:0, loading:true, error:false,
+    h:'Add images', sub:'Reading the page and pulling every photo we can find.',
+    cta:'Pulling…', ctaOff:true, note:'This usually takes a few seconds'
+  },
+  error: {
+    focus:false, dd:null, val:'shop.co/products/vitamin-c-serum', thumbs:0, loading:false, error:true,
+    h:'Add images', sub:'We couldn\'t read that page. Check the link, or upload your photos instead.',
+    cta:'Continue', ctaOff:true, note:'Add at least one photo to continue'
+  },
+  success: {
+    focus:false, dd:null, val:'shop.co/products/vitamin-c-serum', thumbs:5, loading:false, error:false,
+    h:'Add images', sub:'5 photos pulled. Check them below, then continue.',
+    cta:'Continue to build gallery', ctaOff:false, note:''
+  }
+};
+
+const RECENTS = [
+  {n:'Vitamin C Serum', u:'shop.co/products/vitamin-c-serum', tag:'USED'},
+  {n:'Rose Clay Mask', u:'shop.co/products/rose-clay-mask', tag:''},
+  {n:'Night Repair Oil', u:'shop.co/products/night-repair-oil', tag:''}
+];
+
+let cur = 'idle';
+const $ = id => document.getElementById(id);
+
+function render(){
+  const s = S[cur];
+
+  let html =
+    '<div class="plabel">Add images</div>'+
+    '<div class="prog"><div class="pstep on"></div><div class="pstep"></div><div class="pstep"></div></div>'+
+    '<div class="pcount">Step 1 of 3</div>'+
+    '<h1 class="screen">'+s.h+'</h1>'+
+    '<p class="screensub">'+s.sub+'</p>';
+
+  if (s.error) {
+    html += '<div class="banner">'+
+      '<svg width="18" height="18" style="color:#A05B00;flex-shrink:0"><use href="#i-alert"/></svg>'+
+      '<p>That page didn\'t give us any images. Some stores block it. You can still upload photos below.</p></div>';
+  }
+
+  html += '<div class="fieldlabel">Product URL</div>'+
+    '<div class="field'+(s.focus?' focus':'')+'" style="'+(s.dd?'border-radius:10px 10px 0 0':'')+'">'+
+      '<svg width="18" height="18" style="flex-shrink:0"><use href="#'+(s.dd==='search'?'i-search':'i-link')+'"/></svg>'+
+      '<input value="'+s.val+'" placeholder="Paste your product link" inputmode="url">'+
+      (s.val ? '<div class="clear"><svg width="18" height="18"><use href="#i-x"/></svg></div>' : '')+
+    '</div>';
+
+  if (s.dd === 'recents') {
+    html += '<div class="recents"><div class="rhead">RECENT LINKS</div>'+
+      RECENTS.map(r=>
+        '<div class="recent">'+
+          '<svg width="18" height="18" style="flex-shrink:0;color:#666"><use href="#i-clock"/></svg>'+
+          '<div class="rmain"><div class="rname">'+r.n+'</div><div class="rurl">'+r.u+'</div></div>'+
+          (r.tag ? '<span class="rtag">'+r.tag+'</span>' : '')+
+        '</div>').join('')+
+      '</div>';
+  }
+  if (s.dd === 'search') {
+    const hits = RECENTS.filter(r=>r.n.toLowerCase().includes('rose'));
+    html += '<div class="recents"><div class="rhead">'+hits.length+' MATCH</div>'+
+      hits.map(r=>
+        '<div class="recent">'+
+          '<svg width="18" height="18" style="flex-shrink:0;color:#666"><use href="#i-clock"/></svg>'+
+          '<div class="rmain"><div class="rname">'+r.n+'</div><div class="rurl">'+r.u+'</div></div>'+
+        '</div>').join('')+
+      '</div>';
+  }
+
+  if (s.loading) {
+    html += '<div class="load"><div class="spin"></div>'+
+      '<div style="font-size:15px;font-weight:700">Reading the page…</div>'+
+      '<div style="font-size:13px;color:#666;margin-top:4px">Finding every photo we can</div></div>'+
+      '<div class="thumbs">'+ '<div class="thumb skel"></div>'.repeat(3) +'</div>';
+  }
+
+  if (s.thumbs) {
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin:20px 0 9px">'+
+      '<div class="fieldlabel" style="margin:0">'+s.thumbs+' photos</div>'+
+      '<div style="font-size:13px;font-weight:600;color:#666">Tap × to remove</div></div>'+
+      '<div class="thumbs">'+
+        Array.from({length:s.thumbs}).map(()=>
+          '<div class="thumb"><svg width="22" height="22"><use href="#i-photo"/></svg>'+
+          '<div class="thumbx"><svg width="13" height="13"><use href="#i-x"/></svg></div></div>').join('')+
+      '</div>';
+  }
+
+  if (!s.loading) {
+    html += '<div class="divider"><span>OR</span></div>'+
+      '<div class="drop">'+
+        '<svg class="dropicon" viewBox="0 0 24 24"><use href="#i-upload"/></svg>'+
+        '<div class="droptitle">Upload your photos</div>'+
+        '<div class="dropsub">JPG or PNG, up to 10. Camera roll, files, or take a new one.</div>'+
+        '<div class="dropbtn"><svg width="17" height="17"><use href="#i-upload"/></svg> Choose photos</div>'+
+      '</div>';
+  }
+
+  $('scroll').innerHTML = html;
+  $('cta').innerHTML =
+    '<div class="ctabtn'+(s.ctaOff?' off':'')+'">'+s.cta+
+      (!s.ctaOff && s.cta.indexOf('Continue')===0 ? ' <svg width="17" height="17"><use href="#i-chev"/></svg>' : '')+
+    '</div>'+
+    (s.note ? '<div class="ctanote">'+s.note+'</div>' : '');
+
+  document.querySelectorAll('[data-s]').forEach(b=>b.classList.toggle('on', b.dataset.s===cur));
+}
+
+document.querySelectorAll('[data-s]').forEach(b=>b.addEventListener('click', ()=>{ cur = b.dataset.s; render(); }));
+render();
+</script>
+</body>
+</html>

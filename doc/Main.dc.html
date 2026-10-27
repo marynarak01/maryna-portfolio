@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home page wireframe, desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+a{color:#111}a:hover{color:#444}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #111; background: #fff; font-size: 16px; line-height: 1.5">
+
+  <div style="border-bottom: 1px solid #111">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 0 40px; min-height: 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="#top" style="font-weight: 600; font-size: 16px; text-decoration: none; padding: 12px 0">Maryna Rak</a>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <a href="#projects" style="font-size: 15px; text-decoration: none; padding: 12px 12px">Projects</a>
+        <a href="#about-page" style="font-size: 15px; text-decoration: none; padding: 12px 12px">About</a>
+        <a href="#faq" style="font-size: 15px; text-decoration: none; padding: 12px 12px">FAQ</a>
+        <a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; margin-left: 8px; border: 1px solid #111; text-decoration: none; font-weight: 500; font-size: 15px">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" style="max-width: 1080px; margin: 0 auto; padding: 72px 40px 56px; display: flex; flex-direction: column; gap: 16px">
+    <h1 style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 600; letter-spacing: -0.02em">Maryna Rak</h1>
+    <div style="font-size: 22px; font-weight: 500">Senior product designer</div>
+    <p style="margin: 8px 0 0; font-size: 18px; max-width: 620px">I design complex digital products end to end, from research to release, including AI features. I use AI tools in my own design work, and I designed and built an AI product. Eight years in product design.</p>
+    <p style="margin: 0; font-size: 16px; color: #444; max-width: 620px">Open to full-time senior product design roles. <br>Also available as an independent consultant for design and build projects.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px">
+      <a href="#cv" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: #111; color: #fff; text-decoration: none; font-weight: 500; font-size: 15px">Download CV</a>
+      <a href="#contact" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid #111; text-decoration: none; font-weight: 500; font-size: 15px">Contact</a>
+    </div>
+  </div>
+
+  <div id="work" style="max-width: 1080px; margin: 0 auto; padding: 0 40px 72px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-size: 26px; font-weight: 600; border-top: 1px solid #111; padding-top: 20px">Work</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="height: 280px; background: #e6e6e6; border: 1px solid #111; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444">Image: step 3, AI answer</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444; margin-top: 6px">Shipped</div>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 600">Support contact flow</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">A guided flow that helps players solve an issue before they open a ticket. It reduced tickets routed to one topic by up to 24%, on a platform with 2M+ players a year.</p>
+        <div style="font-size: 14px; color: #444">Lead designer</div>
+        <a href="#case-1" style="font-size: 15px; padding: 12px 0; align-self: flex-start">Read case study</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="height: 280px; background: #e6e6e6; border: 1px solid #111; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444">Image: Echo start screen</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444; margin-top: 6px">Echo · [CONCEPT?]</div>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 600">Content repurposing tool</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Turns one long piece of content, such as a podcast episode or a video, into shorter posts for different platforms, written in the creator's own style.</p>
+        <div style="font-size: 14px; color: #444">Lead designer</div>
+        <a href="#case-2" style="font-size: 15px; padding: 12px 0; align-self: flex-start">Read case study</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="height: 280px; background: #e6e6e6; border: 1px solid #111; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444">Image: generator screen</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444; margin-top: 6px">Pagecraft · [SIDE PROJECT?]</div>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 600">AI product page generator</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Paste a product URL and it drafts a product page. Built in Lovable with Claude.</p>
+        <div style="font-size: 14px; color: #444">Lead designer and Builder</div>
+        <a href="#case-3" style="font-size: 15px; padding: 12px 0; align-self: flex-start">Read case study</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="height: 280px; background: #e6e6e6; border: 1px solid #111; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444">Image: components</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #444; margin-top: 6px">Ink · Client work</div>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 600">Design system</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Color and type tokens, components and usage guidelines, with a documentation site.</p>
+        <div style="font-size: 14px; color: #444">Lead designer</div>
+        <a href="#case-4" style="font-size: 15px; padding: 12px 0; align-self: flex-start">Read case study</a>
+      </div>
+
+    </div>
+    <a href="#projects" style="font-size: 15px; font-weight: 500; padding: 12px 0; align-self: flex-start">All projects →</a>
+  </div>
+
+  <div id="what-i-do" style="max-width: 1080px; margin: 0 auto; padding: 0 40px 72px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-size: 26px; font-weight: 600; border-top: 1px solid #111; padding-top: 20px">What I do</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 40px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">End-to-end product design</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">From discovery and research to release, and the changes after release.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Research and testing</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">I test flows with users before they are built, and collect feedback after release.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Working with the team</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">I work with product managers, engineers, QA and production from the first sketch to release.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Complex flows and structure</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Multi-step flows with edge cases, and navigation and information architecture for large platforms.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Design systems and accessibility</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Reusable components and guidelines. WCAG rules for contrast, keyboard navigation and interaction states.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Prototyping and handoff</h3>
+        <p style="margin: 0; font-size: 16px; color: #333">Prototypes in Figma that engineers can build from. I know HTML and CSS, so I can talk with engineers about how a design will be built.</p>
+      </div>
+    </div>
+    
+    <a href="#about-page" style="font-size: 15px; font-weight: 500; padding: 12px 0; align-self: flex-start">Full experience →</a>
+  </div>
+
+  <div id="ai" style="max-width: 1080px; margin: 0 auto; padding: 0 40px 72px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-size: 26px; font-weight: 600; border-top: 1px solid #111; padding-top: 20px">AI in my work</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 32px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">AI in a shipped product</h3>
+        <p style="margin: 0; font-size: 15px; color: #333">In the support contact flow I designed where the AI answer sits, how the answer and its disclosure are shown, and the "was this helpful?" check. A dedicated team built the AI itself.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">A shipped AI product</h3>
+        <p style="margin: 0; font-size: 15px; color: #333">Pagecraft: paste a product URL and it writes a full product page. I designed it and built it in Lovable with Claude, using custom skills I wrote.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">From research to a working build</h3>
+        <p style="margin: 0; font-size: 15px; color: #333">Echo writes posts in a creator's own style. I took it from research to a working build with Claude Chat, Claude Design and Claude Code.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">My own design skills</h3>
+        <p style="margin: 0; font-size: 15px; color: #333">Custom Claude skills that run design-thinking steps: How Might We questions, concept ideas, and testing ideas against a persona. They powered the discovery for Marginalia.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 600">Tools</h3>
+        <p style="margin: 0; font-size: 15px; color: #333">Claude, ChatGPT, Figma AI and Lovable. AI speeds up research and variations. The design decisions stay mine.</p>
+      </div>
+    </div>
+    <a href="#ai-process" style="font-size: 15px; font-weight: 500; padding: 12px 0; align-self: flex-start">How I use AI, step by step →</a>
+  </div>
+
+
+  <div id="faq" style="max-width: 1080px; margin: 0 auto; padding: 0 40px 72px; display: flex; flex-direction: column; gap: 0">
+    <h2 style="margin: 0 0 16px; font-size: 26px; font-weight: 600; border-top: 1px solid #111; padding-top: 20px">FAQ</h2>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">What are you strongest at?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">My strongest side is the ability to quickly understand and learn new products and areas. How did that happen? I learned design by myself, and it turned out to give me the ability to learn how to learn and connect the dots.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">What projects are you interested in?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">I would like to work on projects that allow AI integration in different flows. I'm also very eager to build an AI agent. I have experience with an AI assistant, but I'm looking for an opportunity to get to the next level. I'm interested in complex projects like medical, financial or HR tools.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">Do you work alone or in a team?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">Most of the time I work as the lead and solo designer on a project. I take care of the organizational side, such as timelines and priorities, and also the day-to-day technical work: creating mockups, conducting research and so on.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">How do you use AI?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">I use AI in different stages of a project, from exploration to prototyping. I have also shipped a couple of pet projects, testing and improving my workflows. The tools I use the most are Claude and Lovable.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">Have you built a product with AI?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">Yes, two. Pagecraft is a live MVP: paste a product URL and it writes a product page. I built it in Lovable with Claude and my own skills. Echo writes posts in a creator's own style; I took it from research to a working build with Claude Chat, Claude Design and Claude Code. My most ambitious one is still in progress: I'm working on a design system generator aligned with Figma.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">Do you code?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">Not as a front-end developer. I know HTML and CSS, which helps me work with AI and sometimes fixing some design implementation quite fast .</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid #ccc">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 600">Are you available for contract work and consulting?</h3>
+      <p style="margin: 0; font-size: 16px; color: #333; max-width: 720px">Yes, remotely: contract design work inside your team, design audits and consultations. <a href="mailto:maryna.rak01@gmail.com">Email me</a> about your project.</p>
+    </div>
+    <a href="#faq-page" style="font-size: 15px; font-weight: 500; padding: 12px 0; align-self: flex-start">All questions →</a>
+  </div>
+
+  <div id="contact" style="max-width: 1080px; margin: 0 auto; padding: 0 40px 72px; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-size: 26px; font-weight: 600; border-top: 1px solid #111; padding-top: 20px">Contact</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <a href="mailto:maryna.rak01@gmail.com" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: #111; color: #fff; text-decoration: none; font-weight: 500; font-size: 15px">maryna.rak01@gmail.com</a>
+      <a href="#linkedin" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid #111; text-decoration: none; font-weight: 500; font-size: 15px">LinkedIn</a>
+      <a href="#cv" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid #111; text-decoration: none; font-weight: 500; font-size: 15px">Download CV</a>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid #111">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 20px 40px; font-size: 14px; color: #444">© 2026 Maryna Rak · <a href="#business">Need a website or online store built? [BUSINESS SITE NAME]</a></div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":4280}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

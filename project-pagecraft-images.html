@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How I designed and built PageCraft Images, an AI workflow that turns existing product photos into a complete, export-ready gallery.">
+<meta property="og:image" content="images/pagecraft-images/pagecraft-cover-1a.png">
+<title>PageCraft Images · Maryna Rak</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/pagecraft-images.css">
+<script src="js/include.js" defer></script>
+</head>
+<body class="pc-page">
+<div data-include="partials/header.html"></div>
+
+<main class="pc-case">
+  <div class="pc-wrap">
+    <header class="pc-hero">
+      <p class="pc-kicker">PageCraft Images · Own project, live MVP</p>
+      <h1>From one photo to a complete product gallery.</h1>
+      <p class="pc-lead">An AI image workflow that helps small sellers turn the product photos they already have into a complete, export-ready gallery.</p>
+      <a class="btn-primary pc-live-link" href="https://pagecraft-mvp.lovable.app/welcome" target="_blank" rel="noopener noreferrer">Try the live product <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="pc-before-after" aria-label="Original product photos compared with the AI lifestyle scene">
+      <figure>
+        <img src="images/pagecraft-images/01-add-images.png" alt="Original product photos pulled from a product URL before being matched to gallery photo types">
+        <figcaption>01 · Original product photos</figcaption>
+      </figure>
+      <figure>
+        <img src="images/pagecraft-images/hero-after.webp" alt="PageCraft Images editor showing an AI-generated lifestyle scene for a plush toy">
+        <figcaption>02 · AI lifestyle scene</figcaption>
+      </figure>
+    </section>
+
+    <dl class="pc-meta">
+      <div><dt>Role</dt><dd>Designer &amp; Builder — end to end</dd></div>
+      <div><dt>Scope</dt><dd>Product, UX, UI, AI image workflow, mobile</dd></div>
+      <div><dt>Built with</dt><dd>Lovable, Claude, custom skills</dd></div>
+      <div><dt>Status</dt><dd>Shipped — live MVP</dd></div>
+    </dl>
+
+    <section class="pc-section pc-context" id="context">
+      <div class="pc-section-title">
+        <p class="pc-kicker">01 · Context</p>
+        <h2>Problem &amp; context</h2>
+      </div>
+      <div class="pc-prose">
+        <p>Different products need different photos. A skincare serum needs a shot of its ingredients. A plush toy needs a close-up of the fabric. Shoppers use these photos to answer the questions they'd ask in a shop: what it looks like, how big it is, what's included, and how it's used.</p>
+        <p>Most small sellers don't have that set. <strong>They have two or three photos, often pulled from a supplier page</strong>, and no studio to shoot the rest. So listings go live with gaps.</p>
+        <p>PageCraft already wrote product-page copy from a link. This feature does the same for images: <strong>reuse what the seller has, from their files or a link, and fill in the rest with AI</strong> based on what that type of product needs.</p>
+        <aside class="pc-design-goal">
+          <span class="pc-eyebrow">Design goal</span>
+          <p>A seller gets a complete, export-ready product gallery.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="pc-section" id="process">
+      <div class="pc-section-title">
+        <p class="pc-kicker">02 · Process</p>
+        <h2>How it was made</h2>
+      </div>
+      <ol class="pc-process">
+        <li><span class="pc-process-stage">01 <span>Define</span></span><h3>Map photo needs</h3><p>Which shots each product type needs. Result: 10 category shot lists.</p></li>
+        <li><span class="pc-process-stage">02 <span>Structure</span></span><h3>Shape the flow</h3><p>Three steps. Photos in a library, matched to shot types.</p></li>
+        <li><span class="pc-process-stage">03 <span>Wireframe</span></span><h3>Lo-fi, every state</h3><p>Desktop and mobile, clickable: idle, loading, error, and success.</p></li>
+        <li><span class="pc-process-stage">04 <span>Build</span></span><h3>Ship it in Lovable</h3><p>Built it myself, with live AI image editing.</p></li>
+        <li><span class="pc-process-stage">05 <span>QA</span></span><h3>QA script</h3><p>Run against the live build before any user sees it.</p></li>
+        <li><span class="pc-process-stage">06 <span>Test</span></span><h3>5 + 5 sellers <span class="pc-up-next">Up next</span></h3><p>Two moderated usability rounds.</p></li>
+      </ol>
+      <div class="pc-compare">
+        <figure>
+          <img src="images/pagecraft-images/wire-add.webp" alt="Low-fidelity wireframe for the add product images step">
+          <figcaption>Wireframe · Add images</figcaption>
+        </figure>
+        <figure>
+          <img src="images/pagecraft-images/01-add-images.png" alt="Built PageCraft Images screen for adding product photos by link or upload">
+          <figcaption>Built · Add images</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="pc-section" id="features">
+      <div class="pc-section-title">
+        <p class="pc-kicker">03 · Features</p>
+        <h2>What the tool does</h2>
+      </div>
+      <ol class="pc-features">
+        <li><span>01</span><h3>Pull photos from a link</h3><p>Paste a product URL, or upload your own.</p></li>
+        <li><span>02</span><h3>Know what shots you need</h3><p>Each product type gets its own shot list.</p></li>
+        <li><span>03</span><h3>Reuse what you have</h3><p>One photo can fill several shots.</p></li>
+        <li><span>04</span><h3>Fill gaps with AI</h3><p>Generate any missing shot in one click.</p></li>
+        <li><span>05</span><h3>Edit with a prompt</h3><p>Change a background, crop, or set a scene.</p></li>
+        <li><span>06</span><h3>Keep the original</h3><p>Nothing is saved until you choose to save it.</p></li>
+        <li><span>07</span><h3>Export the set</h3><p>Get numbered files, ready for Shopify.</p></li>
+      </ol>
+    </section>
+
+    <section class="pc-section pc-walkthrough" id="walkthrough">
+      <div class="pc-section-title pc-section-intro">
+        <div>
+          <p class="pc-kicker">04 · Screens</p>
+          <h2>Screen walkthrough</h2>
+        </div>
+      </div>
+
+      <article class="pc-flow-row">
+        <div class="pc-flow-copy">
+          <span class="pc-eyebrow">Step 1</span>
+          <h3>Add images</h3>
+          <p>The link comes first because the seller's product is usually listed already. That's the same URL PageCraft uses for copy. The pull button stays disabled until there's a URL. Upload is offered right below as an equal option, not hidden.</p>
+        </div>
+        <figure class="pc-flow-figure">
+          <img src="images/pagecraft-images/01-add-images.png" alt="Add images screen with a product URL field, pulled photos, and an upload option" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="pc-flow-row">
+        <div class="pc-flow-copy">
+          <span class="pc-eyebrow">Step 2</span>
+          <h3>Build gallery</h3>
+          <p>This is the main screen. You can drag photos onto types, or use the menu, which lists each action by name so dragging isn't the only way. Changing the category rebuilds the types and keeps every photo in the library.</p>
+        </div>
+        <figure class="pc-flow-figure">
+          <img src="images/pagecraft-images/step3.webp" alt="Build gallery screen with product photo types and their action menu" loading="lazy">
+          <figcaption>The menu keeps edit, replace, regenerate, move, and remove actions explicit.</figcaption>
+        </figure>
+      </article>
+
+      <article class="pc-flow-row">
+        <div class="pc-flow-copy">
+          <span class="pc-eyebrow">Editor</span>
+          <h3>Edit with a safety net</h3>
+          <p>The editor is full screen, not a small modal. Versions run down the left. While it's generating, the prompt is locked and the status bar says the original is untouched. The result arrives unsaved until you choose to keep it.</p>
+        </div>
+        <div class="pc-editor-pair">
+          <figure>
+            <img src="images/pagecraft-images/edit-generating.webp" alt="AI image editor generating, with the prompt locked and original photo protected" loading="lazy">
+            <figcaption>Generating: input locked, reassurance shown.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/pagecraft-images/edit-unsaved.webp" alt="Generated image shown as an unsaved preview with discard, regenerate, and save actions" loading="lazy">
+            <figcaption>Unsaved preview: discard, regenerate, or save.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="pc-flow-row">
+        <div class="pc-flow-copy">
+          <span class="pc-eyebrow">Step 3</span>
+          <h3>Review &amp; export</h3>
+          <p>You see the gallery in the order a shopper will scroll it. “4 photos ready · 1 missing” is information, not an error. The export menu offers Image ZIP, HTML file, Copy text, and Push to Shopify. Shopify stays unavailable until connected.</p>
+        </div>
+        <figure class="pc-flow-figure">
+          <img src="images/pagecraft-images/wire-add.webp" alt="Review and export screen with gallery order, missing photo type, and download options" loading="lazy">
+        </figure>
+      </article>
+    </section>
+
+    <section class="pc-section pc-mobile" id="mobile">
+      <div class="pc-section-title pc-section-intro">
+        <div>
+          <p class="pc-kicker">05 · Mobile</p>
+          <h2>Mobile adaptation</h2>
+        </div>
+      </div>
+      <div class="pc-mobile-grid">
+        <figure><img src="images/pagecraft-images/m3.webp" alt="Mobile add-images screen with a product URL, existing product photos, and a pinned build-gallery action" loading="lazy"><figcaption><strong>Add images</strong><span>Link or upload, pinned action.</span></figcaption></figure>
+        <figure><img src="images/pagecraft-images/m4.webp" alt="Mobile photo picker with AI, camera roll, and existing product photos" loading="lazy"><figcaption><strong>Pick or make one</strong><span>Library, AI, or camera roll.</span></figcaption></figure>
+        <figure><img src="images/pagecraft-images/step1.webp" alt="Mobile lifestyle photo editor with an image version, edit prompt, and photo controls" loading="lazy"><figcaption><strong>Edit with AI</strong><span>Prompt and controls in thumb reach.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="pc-qa" id="qa">
+      <div>
+        <p class="pc-kicker">06 · QA</p>
+        <h2>QA approach</h2>
+      </div>
+      <p>I built it in Lovable, so I wrote the QA as a script Lovable could run against the live build. Every check names the exact click. The job: no seller in a test session hits a broken button.</p>
+    </section>
+
+    <section class="pc-section pc-usability" id="usability">
+      <div class="pc-section-title pc-section-intro">
+        <div>
+          <p class="pc-kicker">07 · Next</p>
+          <h2>Usability test plan</h2>
+        </div>
+        <div class="pc-prose">
+          <p>There are no results yet. This is the plan. The question isn't “do people like it,” which you can't test. The question is whether a seller can finish the job alone, and where they get stuck.</p>
+          <p>The plan is moderated, think-aloud sessions with <strong>five real Shopify sellers per round, over two rounds</strong>, with fixes made in between. Five people is enough to find problems, not to measure them, so round one produces a ranked list of problems, not percentages.</p>
+        </div>
+      </div>
+      <div class="pc-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Task</th><th scope="col">Scenario (seller's words)</th><th scope="col">Bet it tests</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">T1</th><td>“Get your serum's photos into the tool however makes sense.”</td><td>Is starting with the link natural, or do sellers reach for upload?</td></tr>
+            <tr><th scope="row">T2</th><td>“Tell me what this screen is showing you.”</td><td>Do photo types and the library make sense?</td></tr>
+            <tr><th scope="row">T3</th><td>“Your page has no photo showing the ingredients.”</td><td>Can people find how to fill a gap?</td></tr>
+            <tr><th scope="row">T4</th><td>“You'd rather this was on something clean.”</td><td>Prompt and suggestions, or one-click buttons?</td></tr>
+            <tr><th scope="row">T5</th><td>“You asked for an edit and this came back.”</td><td>Does a failed edit still feel safe?</td></tr>
+            <tr><th scope="row">T6</th><td>“Get these photos to your Shopify product page.”</td><td>Is export a clear finish line?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="next">
+  <div class="wrap">
+   <a href="projects.html" class="btn-primary"><span class="arr">←</span> Back to all projects</a>
+  </div>
+</section>
+
+<div data-include="partials/footer.html"></div>
+
+</body>
+</html>

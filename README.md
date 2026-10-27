@@ -10,22 +10,18 @@ the shared nav/footer.
 ├── about.html
 ├── projects.html
 ├── contact.html
-├── project-pagecraft.html
-├── project-roots.html
-├── project-help-center.html
-├── project-marginalia.html
-├── project-design-system.html
+├── online-stores.html
+├── project-*.html
 ├── css/
-│   ├── global.css          ← tokens, nav/footer, shared .page-hero + .cs-hero
-│   ├── design-system.css   ← Ink design-system page
-│   ├── marginalia.css      ← marginalia accent (coral)
-│   └── pagecraft.css       ← pagecraft accent (mint)
+│   ├── global.css          ← shared styles
+│   └── *.css               ← project-specific styles
 ├── js/
-│   └── include.js          ← injects partials/header + footer
+│   └── *.js
 ├── partials/
 │   ├── header.html
 │   └── footer.html
-└── images/                 ← see "Images you must add" below
+├── showcase/               ← design-system examples
+└── images/                 ← portfolio project images
 ```
 
 ## What changed in this clean build
@@ -47,19 +43,7 @@ python3 -m http.server 8000
 ```
 then open http://localhost:8000/
 
-## ⬜ Images you must add to images/  (naming must match EXACTLY)
-Already included: project-design-system-1.png … -8.png
-
-You need to drop these in (same folder, same names):
-- project-pagecraft-1.png … -6.png   (hero uses -1; page uses -1..-5; card uses -1)
-- project-roots-1.png … -5.png
-- project-help-center-1.png … -9.png
-- project-marginalia-1.png … -6.png
-- favicon.ico            → images/favicon.ico   (referenced by every page)
-
-## ⬜ Other files to add at root
-- Maryna_Rak_CV.pdf      (linked from about page + footer)
-
-## ⬜ Links still to fill (project-design-system.html)
-Five  href="#"  placeholders: 2 in the hero (documentation, example page),
-1 mid-page (documentation), 2 inline component links (button, input).
+## Assets and links
+The project images, favicon, and CV referenced by the portfolio are included in
+the repository. The Design System documentation, example page, and button
+guidelines link to their local showcase pages.
